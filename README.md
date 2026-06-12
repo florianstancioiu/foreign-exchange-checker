@@ -16,6 +16,7 @@ This is a solution to the [FX Checker challenge on Frontend Mentor](https://www.
   - [AI Collaboration](#ai-collaboration)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
+- [Daily summaries](#daily-summaries)
 
 **Note: Delete this note and update the table of contents based on what sections you keep.**
 
@@ -165,3 +166,11 @@ Describe how you used AI tools (if any) during this project. This helps demonstr
 This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
 
 **Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+
+## Daily summaries
+
+| Date            | Time Spent | Summary                                                           |
+| --------------- | ---------- | ----------------------------------------------------------------- |
+| June 12th, 2026 | 1.5 hours  | I created the boilerplate for the project and the base components |
+
+_Total time spent working on the project:_ **1.5 hours**
