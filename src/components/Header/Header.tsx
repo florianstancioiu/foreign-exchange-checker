@@ -3,7 +3,7 @@ import LogoSvg from "../../images/logo.svg?react";
 
 const Header = () => {
   return (
-    <header className="relative overflow-hidden w-full h-60 text-xs">
+    <header className="relative overflow-hidden w-full h-25 text-xs mb-10">
       <div className="flex justify-between p-4 items-center">
         <LogoSvg />
         <div className="flex gap-x-1 uppercase text-neutral-200">
