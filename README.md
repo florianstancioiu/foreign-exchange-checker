@@ -172,5 +172,6 @@ This is where you can give a hat tip to anyone who helped you out on this projec
 | Date            | Time Spent | Summary                                                           |
 | --------------- | ---------- | ----------------------------------------------------------------- |
 | June 12th, 2026 | 1.5 hours  | I created the boilerplate for the project and the base components |
+| June 13th, 2026 | 1 hours    | I worked on the mobile Header                                     |
 
-_Total time spent working on the project:_ **1.5 hours**
+_Total time spent working on the project:_ **2.5 hours**
