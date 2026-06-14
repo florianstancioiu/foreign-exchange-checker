@@ -170,5 +170,6 @@ This is where you can give a hat tip to anyone who helped you out on this projec
 | --------------- | ---------- | ----------------------------------------------------------------- |
 | June 12th, 2026 | 1.5 hours  | I created the boilerplate for the project and the base components |
 | June 13th, 2026 | 2 hours    | I worked on the mobile Header and CheckRate components            |
+| June 14th, 2026 | 3 hours    | I finished the mobile version for History and Compare pages       |
 
-_Total time spent working on the project:_ **3.5 hours**
+_Total time spent working on the project:_ **6.5 hours**
