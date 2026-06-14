@@ -9,6 +9,7 @@ export type ButtonProps = {
 const Button = ({ children, className = "" }: ButtonProps) => {
   return (
     <button
+      type="button"
       className={twMerge(
         "rounded-lg border border-neutral-500 bg-neutral-600 cursor-pointer",
         className,

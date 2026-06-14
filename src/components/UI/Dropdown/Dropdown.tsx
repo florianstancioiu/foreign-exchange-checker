@@ -16,7 +16,10 @@ const Dropdown = ({ values }: DropdownProps) => {
 
   return (
     <div>
-      <button className="px-3 rounded-lg border border-neutral-400 bg-neutral-700 flex justify-between items-center h-10 cursor-pointer w-full">
+      <button
+        type="button"
+        className="px-3 rounded-lg border border-neutral-400 bg-neutral-700 flex justify-between items-center h-10 cursor-pointer w-full"
+      >
         {activeValue.content}
         <ChevronDownSvg />
       </button>
