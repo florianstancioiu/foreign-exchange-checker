@@ -3,15 +3,15 @@ import Dropdown from "../UI/Dropdown/Dropdown";
 
 export type TabsMenuProps = {
   variant: "history" | "compare" | "favorites" | "log";
-  pillInfo?: number;
   children: ReactNode;
 };
 
-const TabsMenu = ({ variant, pillInfo, children }: TabsMenuProps) => {
+const TabsMenu = ({ variant, children }: TabsMenuProps) => {
   const dropdownValues = [
     {
       id: 1,
       isActive: true,
+      title: "history",
       content: (
         <p className="text-base font-normal leading-[120%] tracking-[1px]">
           History
@@ -20,6 +20,7 @@ const TabsMenu = ({ variant, pillInfo, children }: TabsMenuProps) => {
     },
     {
       id: 2,
+      title: "compare",
       content: (
         <p className="text-base font-normal leading-[120%] tracking-[1px]">
           Compare
@@ -28,6 +29,7 @@ const TabsMenu = ({ variant, pillInfo, children }: TabsMenuProps) => {
     },
     {
       id: 3,
+      title: "favorites",
       content: (
         <p className="text-base font-normal leading-[120%] tracking-[1px]">
           Favorites
@@ -36,6 +38,7 @@ const TabsMenu = ({ variant, pillInfo, children }: TabsMenuProps) => {
     },
     {
       id: 4,
+      title: "log",
       content: (
         <p className="text-base font-normal leading-[120%] tracking-[1px]">
           Log
@@ -44,9 +47,14 @@ const TabsMenu = ({ variant, pillInfo, children }: TabsMenuProps) => {
     },
   ];
 
+  const actualDropdownValues = dropdownValues.map((val) => ({
+    ...val,
+    isActive: val.title === variant,
+  }));
+
   return (
     <div className="px-4">
-      <Dropdown values={dropdownValues} />
+      <Dropdown values={actualDropdownValues} />
       <div className="mt-4">{children}</div>
     </div>
   );
