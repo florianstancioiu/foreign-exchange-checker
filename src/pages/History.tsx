@@ -2,6 +2,7 @@ import TabsMenu from "../components/TabsMenu/TabsMenu";
 import StatsItem from "../components/UI/StatsItem/StatsItem";
 import ChevronDownSvg from "../images/icon-chevron-down.svg?react";
 import DateRange from "../components/UI/DateRange/DateRange";
+import LineChart from "../components/UI/LineChart/LineChart";
 
 const History = () => {
   return (
@@ -33,6 +34,7 @@ const History = () => {
           { id: 6, title: "5Y" },
         ]}
       />
+      <LineChart />
     </TabsMenu>
   );
 };
