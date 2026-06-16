@@ -11,7 +11,7 @@ const Button = ({ children, className = "" }: ButtonProps) => {
     <button
       type="button"
       className={twMerge(
-        "rounded-lg border border-neutral-500 bg-neutral-600 cursor-pointer",
+        "rounded-lg border border-neutral-500 bg-neutral-600 cursor-pointer py-2 px-3 uppercase",
         className,
       )}
     >

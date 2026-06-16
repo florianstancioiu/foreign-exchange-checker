@@ -13,7 +13,7 @@ const headerContent = (
   </div>
 );
 
-const compareItems = [
+const favoriteItems = [
   {
     id: 1,
     firstCurrency: "usd",
@@ -100,7 +100,7 @@ const Favorites = () => {
   return (
     <TabsMenu variant="favorites">
       <DetailsContainer headerContent={headerContent}>
-        {compareItems.map((item) => (
+        {favoriteItems.map((item) => (
           <FavoriteItem
             key={item.id}
             firstCurrency={item.firstCurrency}
