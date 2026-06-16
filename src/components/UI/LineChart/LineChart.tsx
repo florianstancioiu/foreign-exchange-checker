@@ -28,7 +28,7 @@ const labels = ["January", "February", "March", "April", "May", "June", "July"];
 const options = {
   plugins: {
     legend: {
-      display: false,
+      display: false, // hide the legend
     },
   },
 };
@@ -48,8 +48,6 @@ const data = {
           return;
         }
 
-        console.log("chartarea", chartArea);
-
         const gradient = ctx.createLinearGradient(
           0,
           chartArea.bottom,
@@ -61,7 +59,7 @@ const data = {
         gradient.addColorStop(1, "#CEF739");
         return gradient;
       },
-      borderColor: "rgb(75, 192, 192)",
+      borderColor: "#CEF739",
       tension: 0.1,
     },
   ],
