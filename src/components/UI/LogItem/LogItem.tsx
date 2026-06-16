@@ -30,11 +30,11 @@ const LogItem = ({
       </div>
       <div className="flex justify-between items-center gap-x-2.5">
         <div>
-          <p className="text-base text-right font-normal leading-[120%] tracking-[1px] text-neutral-100 mb-1.5">
-            {firstValue}
+          <p className="text-base text-right font-normal leading-[120%] tracking-[1px] text-neutral-100">
+            {(Math.round(firstValue * 100) / 100).toFixed(2)}
           </p>
-          <p className="text-lime-500 text-right text-base font-normal leading-[120%] tracking-[1px] flex gap-x-1.5 items-center">
-            {secondValue}
+          <p className="text-lime-500 text-right text-base font-normal leading-[120%] tracking-[1px]">
+            {(Math.round(secondValue * 100) / 100).toFixed(2)}
           </p>
         </div>
         <div className="size-8 border border-neutral-500 rounded-[10px] grid place-content-center cursor-pointer">
