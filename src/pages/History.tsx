@@ -7,7 +7,7 @@ import LineChart from "../components/UI/LineChart/LineChart";
 const History = () => {
   return (
     <TabsMenu variant="history">
-      <div className="grid grid-cols-2 gap-2.5 mb-4">
+      <div className="grid grid-cols-2 gap-2.5 mb-4 md:block">
         <StatsItem title="Open" value={0.8516} />
         <StatsItem title="Last" value={0.853} />
         <StatsItem
@@ -18,7 +18,7 @@ const History = () => {
           title="% Change"
           value={
             <p className="text-green-500 flex items-center">
-              <ChevronDownSvg className="rotate-180 size-6" />{" "}
+              <ChevronDownSvg className="rotate-180 size-6" />
               <span>+0.16%</span>
             </p>
           }
