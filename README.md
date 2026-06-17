@@ -172,5 +172,6 @@ This is where you can give a hat tip to anyone who helped you out on this projec
 | June 13th, 2026 | 2 hours    | I worked on the mobile Header and CheckRate components                                           |
 | June 14th, 2026 | 3 hours    | I finished the mobile version for History and Compare pages                                      |
 | June 16th, 2026 | 2 hours    | I worked on the Favorite and LogItem components, I also created the base component for LineChart |
+| June 17th, 2026 | 1 hour     | I worked on the tablet version of the History page                                               |
 
-_Total time spent working on the project:_ **8.5 hours**
+_Total time spent working on the project:_ **9.5 hours**
