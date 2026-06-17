@@ -15,7 +15,7 @@ const RateConverter = ({
   currency,
 }: RateConverterProps) => {
   return (
-    <div className="p-4 rounded-2xl border border-neutral-500 bg-neutral-600 w-full">
+    <div className="p-4 rounded-2xl border border-neutral-500 bg-neutral-600 w-full md:p-5">
       <p className="uppercase text-sm text-neutral-100 mb-5 leading-[120%] tracking-[1px]">
         {title}
       </p>
