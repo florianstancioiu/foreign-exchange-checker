@@ -67,7 +67,7 @@ const data = {
 
 const LineChart = () => {
   return (
-    <div className="bg-neutral-700 py-4 px-3 rounded-2xl border border-neutral-600">
+    <div className="bg-neutral-700 py-4 px-3 rounded-2xl border border-neutral-600 xl:p-5">
       <div className="flex justify-between items-center mb-5">
         <p className="text-base font-medium leading-[120%] tracking-[1px] text-neutral-50">
           USD/EUR

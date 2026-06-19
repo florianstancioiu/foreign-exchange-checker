@@ -5,7 +5,7 @@ import FavoritedSvg from "../../images/icon-star-filled.svg?react";
 
 const CheckRate = () => {
   return (
-    <section className="px-4 mb-10 md:px-6">
+    <section className="px-4 mb-10 md:px-6 xl:px-8">
       <h1 className="uppercase text-xl font-normal leading-6 tracking-[-0.5px] mb-4">
         Check the rate
       </h1>

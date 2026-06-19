@@ -36,9 +36,12 @@ const CurrencyPicker = ({ currency }: CurrencyPickerProps) => {
   }
 
   return (
-    <div className="p-2.5 rounded-lg border border-neutral-400 bg-neutral-500 flex gap-x-2 items-center cursor-pointer">
+    <button
+      type="button"
+      className="p-2.5 rounded-lg border border-neutral-400 bg-neutral-500 flex gap-x-2 items-center cursor-pointer"
+    >
       {content}
-    </div>
+    </button>
   );
 };
 

@@ -20,11 +20,19 @@ const RateConverter = ({
         {title}
       </p>
       <div className="flex justify-between items-center">
-        <p
-          className={`${isReceive ? "text-lime-500" : ""} text-3xl font-semibold leading-[100%] tracking-[-0.5px]`}
-        >
-          {value}
-        </p>
+        {isReceive ? (
+          <p
+            className={`${isReceive ? "text-lime-500" : ""} text-3xl font-semibold leading-[100%] tracking-[-0.5px]`}
+          >
+            {value}
+          </p>
+        ) : (
+          <input
+            type="text"
+            defaultValue={value}
+            className="text-3xl font-semibold leading-[100%] tracking-[-0.5px] max-w-40"
+          />
+        )}
         <CurrencyPicker currency={currency} />
       </div>
     </div>

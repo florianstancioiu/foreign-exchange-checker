@@ -6,7 +6,7 @@ const AppLayout = () => {
   return (
     <>
       <Header />
-      <main className="pb-10">
+      <main className="pb-10 xl:max-w-260 xl:mx-auto xl:py-12">
         <CheckRate />
         <Outlet />
       </main>
