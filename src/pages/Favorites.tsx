@@ -3,11 +3,11 @@ import DetailsContainer from "../components/UI/DetailsContainer/DetailsContainer
 import FavoriteItem from "../components/UI/FavoriteItem/FavoriteItem";
 
 const headerContent = (
-  <div className="flex justify-between items-start mb-4">
-    <p className="uppercase text-sm font-normal leading-[120%] tracking-[1px] text-neutral-200 mb-2.5">
+  <div className="flex justify-between items-start mb-4 md:mb-5">
+    <p className="uppercase text-base font-medium leading-[120%] tracking-[1px] text-neutral-50">
       Pinned pairs
     </p>
-    <p className="text-base font-medium leading-[120%] tracking-[1px] text-neutral-50">
+    <p className="uppercase text-sm font-normal leading-[120%] tracking-[1px] text-neutral-200 mb-2.5">
       10 favorites
     </p>
   </div>
