@@ -78,8 +78,7 @@ Your users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- URL: [https://florianstancioiu.github.io/foreign-exchange-checker/](https://florianstancioiu.github.io/foreign-exchange-checker/)
 
 ## My process
 
@@ -104,6 +103,7 @@ Your users should be able to:
 - [popover HTML global attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/popover) - This helped me create a dropdown modal without writing any JS, only JSX
 - [position-anchor CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/position-anchor) - This helped me position the dropdown modal with CSS (it's not perfect but it will do for now)
 - [How The New POSITIONS Will Work in MODERN CSS - the youtube comment](https://www.youtube.com/watch?v=dsD9bE_QVAs&lc=UgwlktrURgI6jp9LmN14AaABAg) - This helped me position correctly multiple dropdown elements in the same page
+- [React Router not working with Github Pages - the second solution worked](https://stackoverflow.com/a/71985764/12159189) - This helped me make shareable link work correctly with Github Actions and React Router
 
 ### AI Collaboration
 
