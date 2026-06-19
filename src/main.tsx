@@ -6,7 +6,7 @@ import Routes from "./routes";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/foreign-exchange-checker">
       <Routes />
     </BrowserRouter>
   </StrictMode>,
