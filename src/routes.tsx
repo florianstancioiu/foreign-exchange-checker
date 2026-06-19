@@ -9,7 +9,7 @@ import Log from "./pages/Log";
 const Routes = () => {
   return (
     <RouterRoutes>
-      <Route element={<AppLayout />}>
+      <Route path="/" element={<AppLayout />}>
         <Route index element={<History />} />
         <Route path="history" element={<History />} />
         <Route path="compare" element={<Compare />} />

@@ -71,7 +71,7 @@ Your users should be able to:
 - See hover and focus states for all interactive elements on the page
 - Navigate the entire app using only their keyboard
 
-### Screenshot
+### Screenshots
 
 ![](./screenshots/mobile.png)
 ![](./screenshots/desktop.png)
