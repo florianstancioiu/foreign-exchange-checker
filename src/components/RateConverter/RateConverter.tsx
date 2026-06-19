@@ -28,6 +28,7 @@ const RateConverter = ({
           </p>
         ) : (
           <input
+            aria-label="Enter the amount you want to send"
             type="text"
             defaultValue={value}
             className="text-3xl font-semibold leading-[100%] tracking-[-0.5px] max-w-40"
