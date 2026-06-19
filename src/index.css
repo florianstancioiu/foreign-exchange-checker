@@ -19,3 +19,14 @@
 
   --shadow-check-rate: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
 }
+
+.dropdown-anchor {
+  anchor-name: --dropdown-anchor;
+}
+
+.dropdown-content {
+  position-anchor: --dropdown-anchor;
+  top: calc(anchor(top) + 50px);
+  left: calc(anchor(left) - 0px);
+  width: calc(100% - 30px);
+}
