@@ -1,5 +1,6 @@
 import { type ReactNode } from "react";
 import Dropdown from "../UI/Dropdown/Dropdown";
+import Tabs from "../UI/Tabs/Tabs";
 
 export type TabsMenuProps = {
   variant: "history" | "compare" | "favorites" | "log";
@@ -10,37 +11,25 @@ const dropdownValues = [
   {
     id: 1,
     isActive: true,
+    url: "/",
     title: "history",
-    content: (
-      <p className="text-base font-normal leading-[120%] tracking-[1px]">
-        History
-      </p>
-    ),
   },
   {
     id: 2,
+    url: "/compare",
     title: "compare",
-    content: (
-      <p className="text-base font-normal leading-[120%] tracking-[1px]">
-        Compare
-      </p>
-    ),
   },
   {
     id: 3,
+    url: "/favorites",
     title: "favorites",
-    content: (
-      <p className="text-base font-normal leading-[120%] tracking-[1px]">
-        Favorites
-      </p>
-    ),
+    suffix: 10,
   },
   {
     id: 4,
+    url: "/log",
     title: "log",
-    content: (
-      <p className="text-base font-normal leading-[120%] tracking-[1px]">Log</p>
-    ),
+    suffix: 8,
   },
 ];
 
@@ -52,7 +41,8 @@ const TabsMenu = ({ variant, children }: TabsMenuProps) => {
 
   return (
     <div className="px-4 md:px-6">
-      <Dropdown values={actualDropdownValues} />
+      <Dropdown values={actualDropdownValues} className="md:hidden" />
+      <Tabs values={actualDropdownValues} className="hidden md:block" />
       <div className="mt-4">{children}</div>
     </div>
   );
