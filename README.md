@@ -140,6 +140,8 @@ Use this section to outline areas that you want to continue focusing on in futur
 ### Useful resources
 
 - [Chart.js - add gradient instead of solid color - implementing solution](https://stackoverflow.com/a/30101977/12159189) - This helped me create a gradient line chart
+- [popover HTML global attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/popover) - This helped me create a dropdown modal without writing any JS, only JSX
+- [position-anchor CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/position-anchor) - This helped me position the dropdown modal with CSS (it's not perfect but it will do for now)
 
 ### AI Collaboration
 
