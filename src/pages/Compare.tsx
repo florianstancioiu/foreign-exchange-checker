@@ -5,19 +5,34 @@ import CompareItem from "../components/UI/CompareItem/CompareItem";
 import BritishPoundFlag from "../images/flags/gb.webp";
 
 const headerContent = (
-  <div className="flex justify-between items-start mb-4">
-    <div className="uppercase">
-      <p className="text-sm font-normal leading-[120%] tracking-[1px] text-neutral-200 mb-2.5">
-        Multi-Currency
+  <>
+    <div className="flex justify-between items-start mb-4 md:hidden">
+      <div className="uppercase">
+        <p className="text-sm font-normal leading-[120%] tracking-[1px] text-neutral-200 mb-2.5">
+          Multi-Currency
+        </p>
+        <p className="uppercase text-xs font-normal leading-[120%] tracking-[0.5px] text-neutral-50 opacity-70">
+          8 pairs
+        </p>
+      </div>
+      <p className="text-base font-medium leading-[120%] tracking-[1px] text-neutral-50">
+        1,000 from USD
       </p>
-      <p className="text-xs font-normal leading-[120%] tracking-[0.5px] text-neutral-50 opacity-70">
+    </div>
+    <div className="justify-between items-center mb-5 hidden md:flex">
+      <div className="uppercase flex items-center gap-x-3">
+        <p className="text-sm font-normal leading-[120%] tracking-[1px] text-neutral-200">
+          Multi-Currency
+        </p>
+        <p className="text-base font-medium leading-[120%] tracking-[1px] text-neutral-50">
+          1,000 from USD
+        </p>
+      </div>
+      <p className="uppercase text-xs font-normal leading-[120%] tracking-[0.5px] text-neutral-50 opacity-70">
         8 pairs
       </p>
     </div>
-    <p className="text-base font-medium leading-[120%] tracking-[1px] text-neutral-50">
-      1,000 from USD
-    </p>
-  </div>
+  </>
 );
 
 const compareItems = [
