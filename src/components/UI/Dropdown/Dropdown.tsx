@@ -41,7 +41,7 @@ const Dropdown = ({ values, className }: DropdownProps) => {
       <div
         popover=""
         id={dropdownContentId}
-        className="dropdown-content absolute bg-neutral-700 rounded-[10px] p-2"
+        className="dropdown-content absolute bg-neutral-700 rounded-[10px] p-2 z-2"
       >
         {values.map((val) => (
           <Link
