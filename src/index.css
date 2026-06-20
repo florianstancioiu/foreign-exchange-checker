@@ -18,9 +18,14 @@
   --color-red-500: #ff4141;
 
   --shadow-check-rate: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+  --shadow-search-input: 0 20px 60px 0 rgba(10, 10, 10, 0.5);
 }
 
 .dropdown-content {
   position-area: bottom span-right;
   width: calc(100% - 16px);
+}
+
+.currency-picker-content {
+  position-area: bottom span-left;
 }
