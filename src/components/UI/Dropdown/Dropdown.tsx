@@ -24,7 +24,7 @@ const Dropdown = ({ values, className }: DropdownProps) => {
       <button
         type="button"
         popoverTarget={dropdownContentId}
-        className="dropdown-anchor px-3 rounded-lg border border-neutral-400 bg-neutral-700 flex justify-between items-center h-10 cursor-pointer w-full"
+        className="dropdown-anchor px-3 rounded-lg border border-neutral-400 bg-neutral-700 flex justify-between items-center h-10 cursor-pointer w-full focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
       >
         <p className="text-base font-normal leading-[120%] tracking-[1px] flex items-center gap-x-2">
           <span className="uppercase">{activeValue.title} </span>
@@ -45,7 +45,7 @@ const Dropdown = ({ values, className }: DropdownProps) => {
       >
         {values.map((val) => (
           <Link
-            className="w-full p-2.5 flex justify-between"
+            className="w-full p-2.5 flex justify-between focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
             key={val.id}
             to={val.url}
           >
