@@ -67,7 +67,7 @@ const CurrencyPicker = ({ currency }: CurrencyPickerProps) => {
       <button
         type="button"
         popoverTarget={currencyPickerId}
-        className="p-2.5 rounded-lg border border-neutral-400 bg-neutral-500 flex gap-x-2 items-center cursor-pointer"
+        className="p-2.5 rounded-lg border border-neutral-400 bg-neutral-500 flex gap-x-2 items-center cursor-pointer focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
       >
         {content}
       </button>
@@ -81,7 +81,7 @@ const CurrencyPicker = ({ currency }: CurrencyPickerProps) => {
           <input
             type="text"
             aria-label="Search currencies"
-            className="mb-2.5 border border-neutral-400 bg-neutral-600 shadow-search-input p-3 placeholder:text-neutral-200 w-full text-xs font-normal leading-[120%] tracking-[0.5px] rounded-lg pl-9 focus-visible:border-lime-500 focus-visible:outline-0"
+            className="text-neutral-50 mb-2.5 border border-neutral-400 bg-neutral-600 shadow-search-input p-3 placeholder:text-neutral-200 w-full text-xs font-normal leading-[120%] tracking-[0.5px] rounded-lg pl-9 focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
             placeholder="Search currencies..."
           />
         </div>

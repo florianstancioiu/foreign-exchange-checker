@@ -15,7 +15,7 @@ const DateRange = ({ ranges }: DateRangeProps) => {
         <button
           type="button"
           key={range.id}
-          className={`${range.isActive === true ? "bg-neutral-500 text-neutral-50" : ""} px-4 py-3 rounded-lg cursor-pointer hover:bg-neutral-500 hover:text-neutral-50`}
+          className={`${range.isActive === true ? "bg-neutral-500 text-neutral-50" : ""} px-4 py-3 rounded-lg cursor-pointer hover:bg-neutral-500 hover:text-neutral-50 focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg`}
         >
           {range.title}
         </button>
