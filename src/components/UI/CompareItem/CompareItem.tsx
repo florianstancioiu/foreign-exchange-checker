@@ -41,13 +41,19 @@ const CompareItem = ({
           </p>
         </div>
         {isFavorite ? (
-          <div className="size-8 border border-lime-500 text-lime-500 rounded-[10px] grid place-content-center cursor-pointer">
+          <button
+            type="button"
+            className="size-8 border border-lime-500 text-lime-500 rounded-[10px] grid place-content-center cursor-pointer"
+          >
             <StarFilledSvg />
-          </div>
+          </button>
         ) : (
-          <div className="size-8 border border-neutral-500 rounded-[10px] grid place-content-center cursor-pointer">
+          <button
+            type="button"
+            className="size-8 border border-neutral-500 rounded-[10px] grid place-content-center cursor-pointer"
+          >
             <StarSvg />
-          </div>
+          </button>
         )}
       </div>
     </section>

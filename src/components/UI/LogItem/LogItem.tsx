@@ -37,9 +37,12 @@ const LogItem = ({
             {(Math.round(secondValue * 100) / 100).toFixed(2)}
           </p>
         </div>
-        <div className="size-8 border border-neutral-500 rounded-[10px] grid place-content-center cursor-pointer">
+        <button
+          type="button"
+          className="size-8 border border-neutral-500 rounded-[10px] grid place-content-center cursor-pointer"
+        >
           <DeleteSvg className="text-neutral-50" />
-        </div>
+        </button>
       </div>
     </section>
   );
