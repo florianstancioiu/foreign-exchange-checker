@@ -1,5 +1,6 @@
 // I couldn't find the flags for these currencies so I'm not rendering them
 const unavailableCurrencies = [
+  "an",
   "xaf",
   "xag",
   "xau",
