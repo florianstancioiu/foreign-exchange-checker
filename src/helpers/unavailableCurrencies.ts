@@ -1,6 +1,7 @@
+// These are the ISO codes (3 letters) for the unavailable currencies
 // I couldn't find the flags for these currencies so I'm not rendering them
 const unavailableCurrencies = [
-  "an",
+  "ang",
   "xaf",
   "xag",
   "xau",
