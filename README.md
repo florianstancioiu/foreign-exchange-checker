@@ -132,5 +132,6 @@ I didn't explicitly use any kind of AI tool during the development of this solut
 | June 17th, 2026 | 1 hour     | I worked on the tablet version of the History page                                                        |
 | June 19th, 2026 | 4 hours    | I worked on the tablet and desktop version of the pages                                                   |
 | June 20th, 2026 | 2 hours    | I worked on the CurrencyPicker component, converted CTAs to button elements, handled focus-visible states |
+| June 21th, 2026 | 3 hours    | I adjusted the app for extra small devices & started to experiment with frankfurter API                   |
 
-_Total time spent working on the project:_ **15.5 hours**
+_Total time spent working on the project:_ **18.5 hours**
