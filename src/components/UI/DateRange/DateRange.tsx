@@ -2,6 +2,7 @@ export type Range = {
   id: number;
   isActive?: boolean;
   title: string;
+  value: number;
 };
 
 export type DateRangeProps = {
