@@ -1,5 +1,6 @@
 import CurrencyPickerItem from "../CurrencyPickerItem/CurrencyPickerItem";
 import { type CurrencyPickerItemProps } from "../CurrencyPickerItem/CurrencyPickerItem";
+import unavailableCurrencies from "../../../helpers/unavailableCurrencies";
 
 type DataItem = CurrencyPickerItemProps & {
   id: number;
@@ -16,7 +17,6 @@ const CurrencyPickerSection = ({
   titleValue,
   data,
 }: CurrencyPickerSectionProps) => {
-  console.log(data);
   return (
     <>
       <div>
@@ -26,14 +26,21 @@ const CurrencyPickerSection = ({
         </p>
       </div>
       <div>
-        {data.map((val) => (
-          <CurrencyPickerItem
-            key={val.iso_code}
-            iso_code={val.iso_code}
-            name={val.name}
-            isActive={val.isActive}
-          />
-        ))}
+        {data.map((val) => {
+          // don't render currencies that don't have a svg icon
+          if (unavailableCurrencies.includes(val.iso_code.toLowerCase())) {
+            return <></>;
+          }
+
+          return (
+            <CurrencyPickerItem
+              key={val.iso_code}
+              iso_code={val.iso_code}
+              name={val.name}
+              isActive={val.isActive}
+            />
+          );
+        })}
       </div>
     </>
   );

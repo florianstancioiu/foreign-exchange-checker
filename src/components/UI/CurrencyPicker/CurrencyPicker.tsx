@@ -3,12 +3,18 @@ import SearchSvg from "../../../images/icon-search.svg?react";
 import { useId } from "react";
 import CurrencyPickerSection from "../CurrencyPickerSection/CurrencyPickerSection";
 import { useQuery } from "@tanstack/react-query";
+import { numberOfUnavailableCurrencies } from "../../../helpers/unavailableCurrencies";
+import { type CurrencyPickerItemProps } from "../CurrencyPickerItem/CurrencyPickerItem";
 
-export type CurrencyPickerProps = {
-  currency: "usd" | "euro";
+type Currency = CurrencyPickerItemProps & {
+  id: number;
 };
 
-const popularCurrencies = [
+export type CurrencyPickerProps = {
+  activeISO?: string;
+};
+
+const popularCurrencies: Currency[] = [
   {
     id: 1,
     iso_code: "usd",
@@ -16,26 +22,24 @@ const popularCurrencies = [
   },
   {
     id: 2,
-    flag: null,
+    iso_code: "Eur",
+    name: "Euro",
+  },
+  {
+    id: 3,
     iso_code: "ron",
     name: "Leu",
     isActive: true,
   },
-  {
-    id: 3,
-    flag: null,
-    iso_code: "Eur",
-    name: "Euro",
-  },
 ];
 
-const CurrencyPicker = ({ currency }: CurrencyPickerProps) => {
+const CurrencyPicker = ({ activeISO = "Eur" }: CurrencyPickerProps) => {
   const currencyPickerId = useId();
 
   const { isPending, error, data, isFetching } = useQuery({
     queryKey: ["currenciesData"],
     queryFn: async () => {
-      const response = await fetch("https://api.frankfurter.dev/v1/currencies");
+      const response = await fetch("https://api.frankfurter.dev/v2/currencies");
       return await response.json();
     },
   });
@@ -44,49 +48,32 @@ const CurrencyPicker = ({ currency }: CurrencyPickerProps) => {
     return <h1>Loading</h1>;
   }
 
-  console.log(Object.values(data).length);
+  const activeCurrency = data.find(
+    (currency: Currency) =>
+      currency.iso_code.toUpperCase() === activeISO.toUpperCase(),
+  );
 
-  let content = <></>;
-
-  switch (currency) {
-    case "usd":
-      content = (
-        <>
-          {/* 
-          <img src={USFlag} alt="" className="size-5 rounded-full" />
-          */}
-          <p className="uppercase text-sm font-normal leading-[120%] tracking-[1px]">
-            usd
-          </p>
-          <ChevronIcon className="size-3" />
-        </>
-      );
-      break;
-    case "euro":
-      content = (
-        <>
-          {/* 
-          <img src={EuFlag} alt="" className="size-5 rounded-full" />
-          */}
-
-          <p className="uppercase text-sm font-normal leading-[120%] tracking-[1px]">
-            Eur
-          </p>
-          <ChevronIcon className="size-3" />
-        </>
-      );
-      break;
-  }
+  console.log("activeCurrency", activeCurrency);
 
   return (
     <div>
-      <button
-        type="button"
-        popoverTarget={currencyPickerId}
-        className="p-2.5 rounded-lg border border-neutral-400 bg-neutral-500 flex gap-x-2 items-center cursor-pointer focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
-      >
-        {content}
-      </button>
+      {activeCurrency && (
+        <button
+          type="button"
+          popoverTarget={currencyPickerId}
+          className="p-2.5 rounded-lg border border-neutral-400 bg-neutral-500 flex gap-x-2 items-center cursor-pointer focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
+        >
+          <img
+            src={`/foreign-exchange-checker/images/svg-flags/${activeCurrency.iso_code.toUpperCase().substring(0, 2)}.svg`}
+            alt={`${activeCurrency.name} flag`}
+            className="size-5 rounded-full"
+          />
+          <p className="uppercase text-sm font-normal leading-[120%] tracking-[1px]">
+            {activeCurrency.name}
+          </p>
+          <ChevronIcon className="size-3" />
+        </button>
+      )}
       <div
         popover=""
         id={currencyPickerId}
@@ -102,15 +89,13 @@ const CurrencyPicker = ({ currency }: CurrencyPickerProps) => {
           />
         </div>
         <CurrencyPickerSection
-          key={1}
           title="Popular"
           titleValue={3}
           data={popularCurrencies}
         />
         <CurrencyPickerSection
-          key={2}
           title="Other Currencies"
-          titleValue={52}
+          titleValue={data.length - numberOfUnavailableCurrencies}
           data={data}
         />
       </div>

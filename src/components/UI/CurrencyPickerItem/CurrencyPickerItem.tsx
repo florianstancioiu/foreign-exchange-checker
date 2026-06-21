@@ -11,7 +11,6 @@ const CurrencyPickerItem = ({
   name,
   isActive = false,
 }: CurrencyPickerItemProps) => {
-  console.dir(iso_code);
   return (
     <button
       type="button"
@@ -19,7 +18,7 @@ const CurrencyPickerItem = ({
     >
       <div className="flex items-center gap-x-3">
         <img
-          src={`/foreign-exchange-checker/images/flags/${iso_code.toLowerCase().substring(0, 2)}.webp`}
+          src={`/foreign-exchange-checker/images/svg-flags/${iso_code.toUpperCase().substring(0, 2)}.svg`}
           alt={`${name} flag`}
           className="size-5 rounded-full"
         />
