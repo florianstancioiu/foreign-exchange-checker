@@ -12,14 +12,14 @@ const CheckRate = () => {
       <div className="shadow-check-rate">
         <div className="p-4 bg-neutral-700 rounded-[20px] rounded-br-none rounded-bl-none border-b border-dashed border-neutral-500 md:p-5">
           <div className="flex flex-col justify-center items-center gap-y-4 md:flex-row md:gap-x-6">
-            <RateConverter title="Send" value={1000} currency="usd" />
+            <RateConverter title="Send" value={1000} currency="ron" />
             <Button className="size-12 grid place-content-center">
               <ExchangeSvg />
             </Button>
             <RateConverter
               title="Receive"
               value={1000}
-              currency="euro"
+              currency="eur"
               isReceive
             />
           </div>

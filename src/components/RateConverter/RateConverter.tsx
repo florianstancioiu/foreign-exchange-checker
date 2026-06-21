@@ -1,11 +1,10 @@
 import CurrencyPicker from "../UI/CurrencyPicker/CurrencyPicker";
-import { type CurrencyPickerProps } from "../UI/CurrencyPicker/CurrencyPicker";
 
 export type RateConverterProps = {
   isReceive?: boolean;
   title: string;
   value: number;
-  currency: CurrencyPickerProps["currency"];
+  currency: string;
 };
 
 const RateConverter = ({
@@ -34,7 +33,7 @@ const RateConverter = ({
             className="text-3xl font-semibold leading-[100%] tracking-[-0.5px] max-w-30 sm:max-w-40 focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
           />
         )}
-        <CurrencyPicker currency={currency} />
+        <CurrencyPicker activeISO={currency} />
       </div>
     </div>
   );
