@@ -22,10 +22,12 @@
 }
 
 .dropdown-content {
-  position-area: bottom span-right;
-  width: calc(100% - 16px);
+  position-area: bottom;
 }
 
 .currency-picker-content {
-  position-area: bottom span-left;
+  position-area: bottom;
+  @media (min-width: 40rem) {
+    position-area: bottom span-left;
+  }
 }

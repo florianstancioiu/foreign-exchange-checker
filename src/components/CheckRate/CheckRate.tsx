@@ -33,7 +33,7 @@ const CheckRate = () => {
               <FavoritedSvg />
               <p className="uppercase">Favorited</p>
             </Button>
-            <Button className="bg-neutral-700 border border-lime-500 px-3 py-2 text-neutral-50">
+            <Button className="bg-neutral-700 border border-lime-500 px-2 sm:px-3 py-2 text-neutral-50">
               Log Conversion
             </Button>
           </div>
