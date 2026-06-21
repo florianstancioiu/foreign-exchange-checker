@@ -73,7 +73,8 @@ const LineChart = () => {
           USD/EUR
         </p>
         <p className="text-neutral-50 opacity-70 font-normal text-xs leading-[120%] tracking-[0.5px]">
-          0.8530 · MAY 14 16:00 CET
+          0.8530 · MAY 14{" "}
+          <span className="hidden sm:inline-block"> 16:00 CET</span>
         </p>
       </div>
       <div>

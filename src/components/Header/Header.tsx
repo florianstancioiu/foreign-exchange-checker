@@ -15,10 +15,12 @@ const Header = () => {
         </Link>
         <div className="flex gap-x-1 uppercase text-neutral-200 md:text-sm md:font-normal md:leading-[120%] md:tracking-[1px]">
           <p>55 Currencies</p>
-          <span> · </span>
-          <p>EOD</p>
-          <span> · </span>
-          <p>ECB Data</p>
+          <div className="hidden sm:flex sm:gap-x-1">
+            <span> · </span>
+            <p>EOD</p>
+            <span> · </span>
+            <p>ECB Data</p>
+          </div>
         </div>
       </div>
       <LiveMarkets />

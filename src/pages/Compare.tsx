@@ -16,7 +16,7 @@ const headerContent = (
         </p>
       </div>
       <p className="text-base font-medium leading-[120%] tracking-[1px] text-neutral-50">
-        1,000 from USD
+        1,000 <span className="hidden sm:inline">from </span>USD
       </p>
     </div>
     <div className="justify-between items-center mb-5 hidden md:flex">

@@ -29,12 +29,12 @@ const CheckRate = () => {
             1 USD = 0.8530 EUR
           </p>
           <div className="flex gap-x-2 items-center justify-center md:gap-x-3">
-            <Button className="flex gap-x-2 px-3 py-2 items-center bg-lime-500 border border-lime-500 text-neutral-900">
+            <Button className="flex gap-x-2 px-3 py-2 items-center bg-lime-500 border border-lime-500 text-neutral-900 text-xs">
               <FavoritedSvg />
               <p className="uppercase">Favorited</p>
             </Button>
             <Button className="bg-neutral-700 border border-lime-500 px-3 py-2 text-neutral-50">
-              <p className="uppercase">Log Conversion</p>
+              Log Conversion
             </Button>
           </div>
         </div>
