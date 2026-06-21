@@ -36,7 +36,7 @@ const popularCurrencies: Currency[] = [
 const CurrencyPicker = ({ activeISO = "Eur" }: CurrencyPickerProps) => {
   const currencyPickerId = useId();
 
-  const { isPending, error, data, isFetching } = useQuery({
+  const { isPending, error, data } = useQuery({
     queryKey: ["currenciesData"],
     queryFn: async () => {
       const response = await fetch("https://api.frankfurter.dev/v2/currencies");
@@ -46,6 +46,10 @@ const CurrencyPicker = ({ activeISO = "Eur" }: CurrencyPickerProps) => {
 
   if (isPending) {
     return <h1>Loading</h1>;
+  }
+
+  if (error) {
+    return <h1>There was an error fetching the data</h1>;
   }
 
   const activeCurrency = data.find(
