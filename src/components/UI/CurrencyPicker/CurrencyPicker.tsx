@@ -57,8 +57,6 @@ const CurrencyPicker = ({ activeISO = "Eur" }: CurrencyPickerProps) => {
       currency.iso_code.toUpperCase() === activeISO.toUpperCase(),
   );
 
-  console.log("activeCurrency", activeCurrency);
-
   return (
     <div>
       {activeCurrency && (
@@ -93,11 +91,13 @@ const CurrencyPicker = ({ activeISO = "Eur" }: CurrencyPickerProps) => {
           />
         </div>
         <CurrencyPickerSection
+          key={1}
           title="Popular"
           titleValue={3}
           data={popularCurrencies}
         />
         <CurrencyPickerSection
+          key={2}
           title="Other Currencies"
           titleValue={data.length - numberOfUnavailableCurrencies}
           data={data}

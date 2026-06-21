@@ -27,9 +27,9 @@ const CurrencyPickerSection = ({
       </div>
       <div>
         {data.map((val) => {
-          // don't render currencies that don't have a svg icon
+          // hide currencies that lack a svg flag icon
           if (unavailableCurrencies.includes(val.iso_code.toLowerCase())) {
-            return <></>;
+            return;
           }
 
           return (
