@@ -81,7 +81,7 @@ const CurrencyPicker = ({ activeISO = "Eur" }: CurrencyPickerProps) => {
       <div
         popover=""
         id={currencyPickerId}
-        className="currency-picker-content rounded-lg border border-neutral-400 bg-neutral-600 max-w-78 w-full p-2 h-112 overflow-y-scroll text-neutral-200"
+        className="currency-picker-content rounded-lg border border-neutral-400 bg-neutral-600 max-w-78 w-full p-2 h-112 overflow-y-scroll text-neutral-200 scrollbar-none"
       >
         <div className="relative">
           <SearchSvg className="absolute top-2.5 left-3.5 select-none" />

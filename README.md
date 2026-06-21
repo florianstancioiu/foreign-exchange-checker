@@ -99,12 +99,14 @@ Your users should be able to:
 
 ### Useful resources
 
-- [Chart.js - add gradient instead of solid color - implementing solution](https://stackoverflow.com/a/30101977/12159189) - ~~This helped me create a gradient line chart~~ I used a different method to create the gradient, it uses the chart height to set the gradient start and end positions
+- [Chart.js - add gradient instead of solid color - implementing solution](https://stackoverflow.com/a/30101977/12159189) - ~~This helped me create a gradient line chart~~ I used a different method to create the gradient, it uses the chart height to set the gradient end position
 - [ Linear Gradient](https://www.chartjs.org/docs/latest/samples/advanced/linear-gradient.html) - This is what I used to generate the linearGradient effect on backgroundColor
 - [popover HTML global attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/popover) - This helped me create a dropdown modal without writing any JS, only JSX
 - [position-anchor CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/position-anchor) - This helped me position the dropdown modal with CSS (it's not perfect but it will do for now)
 - [How The New POSITIONS Will Work in MODERN CSS - the youtube comment](https://www.youtube.com/watch?v=dsD9bE_QVAs&lc=UgwlktrURgI6jp9LmN14AaABAg) - This helped me position correctly multiple dropdown elements in the same page
 - [React Router not working with Github Pages - the second solution worked](https://stackoverflow.com/a/71985764/12159189) - This helped me make shareable link work correctly with Github Actions and React Router
+- [scrollbar-width](https://tailwindcss.com/docs/scrollbar-width) - This helped me remove the vertical scrollbar in Chromium based browsers
+- [react-flags](https://www.npmjs.com/package/react-flags) - This package helped me add most of the SVG flags (I actually had to remove 10 currencies because the package didn't provide svg icons for them), I had copy the svg icons from the package over to my repo, the package has a MIT license so I think I'm good on that.
 
 ### AI Collaboration
 

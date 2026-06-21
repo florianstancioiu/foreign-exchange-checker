@@ -21,7 +21,7 @@ const CompareItem = ({
       <div className="flex items-center gap-2.5 md:gap-5">
         <img
           src={`/foreign-exchange-checker/images/svg-flags/${currency.substring(0, 2).toUpperCase()}.svg`}
-          alt=""
+          alt={`${currencyTitle} flag`}
           className="size-6 rounded-full"
         />
         <div>
