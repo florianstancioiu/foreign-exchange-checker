@@ -21,7 +21,9 @@ const CompareItem = ({
   return (
     <section className="border border-neutral-500 rounded-[10px] bg-neutral-600 p-3 flex gap-x-2.5 justify-between items-center md:py-3 md:px-4">
       <div className="flex items-center gap-2.5 md:gap-5">
+        {/* 
         <img src={icon} alt="" className="size-6 rounded-full" />
+        */}
         <div>
           <p className="text-sm font-normal leading-[120%] tracking-[1px] text-neutral-50 mb-1.5 uppercase">
             {currency}

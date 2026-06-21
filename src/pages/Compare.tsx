@@ -2,8 +2,6 @@ import TabsMenu from "../components/TabsMenu/TabsMenu";
 import DetailsContainer from "../components/UI/DetailsContainer/DetailsContainer";
 import CompareItem from "../components/UI/CompareItem/CompareItem";
 
-import BritishPoundFlag from "../images/flags/gb.webp";
-
 const headerContent = (
   <>
     <div className="flex justify-between items-start mb-4 md:hidden">
@@ -38,7 +36,6 @@ const headerContent = (
 const compareItems = [
   {
     id: 1,
-    icon: BritishPoundFlag,
     currency: "gbp",
     currencyTitle: "British Pound",
     value: 736.65,
@@ -47,7 +44,6 @@ const compareItems = [
   },
   {
     id: 2,
-    icon: BritishPoundFlag,
     currency: "jpy",
     currencyTitle: "Japanes Yen",
     value: 736.65,
@@ -55,7 +51,6 @@ const compareItems = [
   },
   {
     id: 3,
-    icon: BritishPoundFlag,
     currency: "chf",
     currencyTitle: "Swiss Franc",
     value: 736.65,
@@ -64,7 +59,6 @@ const compareItems = [
   },
   {
     id: 4,
-    icon: BritishPoundFlag,
     currency: "cad",
     currencyTitle: "Canadian Dollar",
     value: 736.65,
@@ -73,7 +67,6 @@ const compareItems = [
   },
   {
     id: 5,
-    icon: BritishPoundFlag,
     currency: "aud",
     currencyTitle: "Australian Dollar",
     value: 736.65,
@@ -81,7 +74,6 @@ const compareItems = [
   },
   {
     id: 6,
-    icon: BritishPoundFlag,
     currency: "inr",
     currencyTitle: "Indian Rupee",
     value: 736.65,
@@ -89,7 +81,6 @@ const compareItems = [
   },
   {
     id: 7,
-    icon: BritishPoundFlag,
     currency: "cny",
     currencyTitle: "Chinese Yuan",
     value: 736.65,

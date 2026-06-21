@@ -1,9 +1,8 @@
-import USFlag from "../../../images/flags/us.webp";
-import EuFlag from "../../../images/flags/eu.webp";
 import ChevronIcon from "../../../images/icon-chevron-down.svg?react";
 import SearchSvg from "../../../images/icon-search.svg?react";
 import { useId } from "react";
 import CurrencyPickerSection from "../CurrencyPickerSection/CurrencyPickerSection";
+import { useQuery } from "@tanstack/react-query";
 
 export type CurrencyPickerProps = {
   currency: "usd" | "euro";
@@ -12,27 +11,40 @@ export type CurrencyPickerProps = {
 const popularCurrencies = [
   {
     id: 1,
-    flag: null,
-    currency: "usd",
-    currencyTitle: "Us Dollar",
+    iso_code: "usd",
+    name: "Us Dollar",
   },
   {
     id: 2,
     flag: null,
-    currency: "ron",
-    currencyTitle: "Leu",
+    iso_code: "ron",
+    name: "Leu",
     isActive: true,
   },
   {
     id: 3,
     flag: null,
-    currency: "Eur",
-    currencyTitle: "Euro",
+    iso_code: "Eur",
+    name: "Euro",
   },
 ];
 
 const CurrencyPicker = ({ currency }: CurrencyPickerProps) => {
   const currencyPickerId = useId();
+
+  const { isPending, error, data, isFetching } = useQuery({
+    queryKey: ["currenciesData"],
+    queryFn: async () => {
+      const response = await fetch("https://api.frankfurter.dev/v1/currencies");
+      return await response.json();
+    },
+  });
+
+  if (isPending) {
+    return <h1>Loading</h1>;
+  }
+
+  console.log(Object.values(data).length);
 
   let content = <></>;
 
@@ -40,7 +52,9 @@ const CurrencyPicker = ({ currency }: CurrencyPickerProps) => {
     case "usd":
       content = (
         <>
+          {/* 
           <img src={USFlag} alt="" className="size-5 rounded-full" />
+          */}
           <p className="uppercase text-sm font-normal leading-[120%] tracking-[1px]">
             usd
           </p>
@@ -51,7 +65,9 @@ const CurrencyPicker = ({ currency }: CurrencyPickerProps) => {
     case "euro":
       content = (
         <>
+          {/* 
           <img src={EuFlag} alt="" className="size-5 rounded-full" />
+          */}
 
           <p className="uppercase text-sm font-normal leading-[120%] tracking-[1px]">
             Eur
@@ -86,14 +102,16 @@ const CurrencyPicker = ({ currency }: CurrencyPickerProps) => {
           />
         </div>
         <CurrencyPickerSection
+          key={1}
           title="Popular"
           titleValue={3}
           data={popularCurrencies}
         />
         <CurrencyPickerSection
+          key={2}
           title="Other Currencies"
           titleValue={52}
-          data={popularCurrencies}
+          data={data}
         />
       </div>
     </div>

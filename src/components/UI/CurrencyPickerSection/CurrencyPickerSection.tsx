@@ -1,4 +1,3 @@
-import EuFlag from "../../../images/flags/eu.webp";
 import CurrencyPickerItem from "../CurrencyPickerItem/CurrencyPickerItem";
 import { type CurrencyPickerItemProps } from "../CurrencyPickerItem/CurrencyPickerItem";
 
@@ -17,6 +16,7 @@ const CurrencyPickerSection = ({
   titleValue,
   data,
 }: CurrencyPickerSectionProps) => {
+  console.log(data);
   return (
     <>
       <div>
@@ -28,10 +28,9 @@ const CurrencyPickerSection = ({
       <div>
         {data.map((val) => (
           <CurrencyPickerItem
-            key={val.id}
-            flag={EuFlag}
-            currency={val.currency}
-            currencyTitle={val.currencyTitle}
+            key={val.iso_code}
+            iso_code={val.iso_code}
+            name={val.name}
             isActive={val.isActive}
           />
         ))}

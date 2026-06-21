@@ -1,18 +1,17 @@
 import CheckSvg from "../../../images/icon-check.svg?react";
 
 export type CurrencyPickerItemProps = {
-  flag: string | null;
-  currency: string;
-  currencyTitle: string;
+  iso_code: string;
+  name: string;
   isActive?: boolean;
 };
 
 const CurrencyPickerItem = ({
-  flag,
-  currency,
-  currencyTitle,
+  iso_code,
+  name,
   isActive = false,
 }: CurrencyPickerItemProps) => {
+  console.dir(iso_code);
   return (
     <button
       type="button"
@@ -20,15 +19,18 @@ const CurrencyPickerItem = ({
     >
       <div className="flex items-center gap-x-3">
         <img
-          src={flag ? flag : ""}
-          alt={`${currencyTitle} flag`}
+          src={`/foreign-exchange-checker/images/flags/${iso_code.toLowerCase().substring(0, 2)}.webp`}
+          alt={`${name} flag`}
           className="size-5 rounded-full"
         />
         <p className="uppercase text-neutral-50 text-sm font-normal leading-[120%] tracking-[1px]">
-          {currency}
+          {iso_code}
         </p>
-        <p className="text-neutral-200 text-xs font-normal leading-[120%] tracking-[0.5px]">
-          {currencyTitle}
+        <p
+          className="text-neutral-200 text-xs font-normal leading-[120%] tracking-[0.5px]"
+          title={name}
+        >
+          {name.substring(0, 20)}
         </p>
       </div>
       {isActive !== undefined && isActive === true ? <CheckSvg /> : <></>}
