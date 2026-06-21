@@ -96,7 +96,6 @@ const Compare = () => {
         {compareItems.map((item) => (
           <CompareItem
             key={item.id}
-            icon={item.icon}
             currency={item.currency}
             currencyTitle={item.currencyTitle}
             value={item.value}
