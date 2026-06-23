@@ -7,16 +7,19 @@ export type Range = {
 
 export type DateRangeProps = {
   ranges: Range[];
+  active: number;
+  onChangeActive: (rangeValue: number) => void;
 };
 
-const DateRange = ({ ranges }: DateRangeProps) => {
+const DateRange = ({ ranges, active, onChangeActive }: DateRangeProps) => {
   return (
     <section className="inline-flex items-center bg-neutral-700 rounded-lg mb-4 text-neutral-200 xl:mb-0">
       {ranges.map((range) => (
         <button
           type="button"
           key={range.id}
-          className={`${range.isActive === true ? "bg-neutral-500 text-neutral-50" : ""} px-3 sm:px-4 py-3 rounded-lg cursor-pointer hover:bg-neutral-500 hover:text-neutral-50 focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg`}
+          onClick={() => onChangeActive(range.value)}
+          className={`${range.value === active ? "bg-neutral-500 text-neutral-50" : ""} px-3 sm:px-4 py-3 rounded-lg cursor-pointer hover:bg-neutral-500 hover:text-neutral-50 focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg`}
         >
           {range.title}
         </button>

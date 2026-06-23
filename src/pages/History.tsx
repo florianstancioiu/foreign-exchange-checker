@@ -9,15 +9,14 @@ import { getPreviousDate } from "../helpers/dates";
 import { type Rate } from "../types/rate";
 import { getRateStats } from "../helpers/rates";
 
-const baseCurrency = "RON";
-const quoteCurrency = "EUR";
-
 const History = () => {
-  const [activeDateRange, _setActiveDateRange] = useState(30);
+  const [activeDateRange, setActiveDateRange] = useState(30);
   const fromDate = getPreviousDate(activeDateRange);
+  const baseCurrency = "RON";
+  const quoteCurrency = "EUR";
 
   const { isPending, error, data } = useQuery({
-    queryKey: ["historyChartData"],
+    queryKey: [`historyChartData-${fromDate}-${baseCurrency}-${quoteCurrency}`],
     queryFn: async () => {
       const response = await fetch(
         `https://api.frankfurter.dev/v2/rates?base=${baseCurrency}&quotes=${quoteCurrency}&from=${fromDate}`,
@@ -35,6 +34,10 @@ const History = () => {
     return <p>There was an error fetching the data</p>;
   }
 
+  const onChangeActiveHandler = (dateRangeValue: number) => {
+    setActiveDateRange(dateRangeValue);
+  };
+
   const { fromRate, lastRate, change, changePercentage } = getRateStats(
     data,
     fromDate,
@@ -45,7 +48,7 @@ const History = () => {
       {change > 0 ? (
         <p className="text-green-500">+{change.toFixed(4)}</p>
       ) : (
-        <p className="text-red-500">-{change.toFixed(4)}</p>
+        <p className="text-red-500">{change.toFixed(4)}</p>
       )}
     </>
   );
@@ -60,7 +63,7 @@ const History = () => {
       ) : (
         <p className="text-red-500 flex items-center">
           <ChevronDownSvg className="size-6" />
-          <span>-{changePercentage}%</span>
+          <span>{changePercentage}%</span>
         </p>
       )}
     </>
@@ -79,20 +82,22 @@ const History = () => {
           ranges={[
             { id: 1, title: "1D", value: 1 },
             { id: 2, title: "1W", value: 7 },
-            { id: 3, title: "1M", value: 30, isActive: true },
+            { id: 3, title: "1M", value: 30 },
             { id: 4, title: "3M", value: 90 },
             { id: 5, title: "1Y", value: 365 },
             { id: 6, title: "5Y", value: 1825 },
           ]}
+          active={activeDateRange}
+          onChangeActive={onChangeActiveHandler}
         />
       </div>
       <LineChart
         data={data.map((item: Rate) => item.rate)}
         labels={data.map((item: Rate) => item.date)}
-        title="RON/EUR"
+        title={`${baseCurrency}/${quoteCurrency}`}
         rate={0.853}
-        baseCurrency="RON"
-        quoteCurrency="EUR"
+        baseCurrency={baseCurrency}
+        quoteCurrency={quoteCurrency}
       />
     </TabsMenu>
   );
