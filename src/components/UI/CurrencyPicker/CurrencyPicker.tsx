@@ -45,11 +45,11 @@ const CurrencyPicker = ({ activeISO = "Eur" }: CurrencyPickerProps) => {
   });
 
   if (isPending) {
-    return <h1>Loading</h1>;
+    return <p>Loading</p>;
   }
 
   if (error) {
-    return <h1>There was an error fetching the data</h1>;
+    return <p>There was an error fetching the data</p>;
   }
 
   const activeCurrency = data.find(
@@ -79,7 +79,7 @@ const CurrencyPicker = ({ activeISO = "Eur" }: CurrencyPickerProps) => {
       <div
         popover=""
         id={currencyPickerId}
-        className="currency-picker-content rounded-lg border border-neutral-400 bg-neutral-600 max-w-78 w-full p-2 h-112 overflow-y-scroll text-neutral-200 scrollbar-none"
+        className="currency-picker-content rounded-lg border border-neutral-400 bg-neutral-600 max-w-78 w-full p-2 h-112 overflow-y-scroll text-neutral-200 scrollbar-thin scrollbar-thumb-neutral-500"
       >
         <div className="relative">
           <SearchSvg className="absolute top-2.5 left-3.5 select-none" />
