@@ -1,92 +1,50 @@
 import MarketItem from "../MarketItem/MarketItem";
 import { SmartTickerDraggable } from "react-smart-ticker";
+import { useQuery } from "@tanstack/react-query";
+import { getYesterday } from "../../helpers/dates";
+import { getLiveMarkets } from "../../helpers/liveMarkets";
 
-const liveMarkets = [
-  {
-    id: 1,
-    firstCurrency: "USD",
-    secondCurrency: "JPY",
-    value: 157.91,
-    procentageValue: 0.04,
-  },
-  {
-    id: 2,
-    firstCurrency: "GBP",
-    secondCurrency: "USD",
-    value: 1.3575,
-    procentageValue: -0.22,
-  },
-  {
-    id: 3,
-    firstCurrency: "USD",
-    secondCurrency: "JPY",
-    value: 157.91,
-    procentageValue: 0.04,
-  },
-
-  {
-    id: 4,
-    firstCurrency: "GBP",
-    secondCurrency: "USD",
-    value: 1.3575,
-    procentageValue: -0.22,
-  },
-  {
-    id: 5,
-    firstCurrency: "USD",
-    secondCurrency: "JPY",
-    value: 157.91,
-    procentageValue: 0.04,
-  },
-  {
-    id: 6,
-    firstCurrency: "GBP",
-    secondCurrency: "USD",
-    value: 1.3575,
-    procentageValue: -0.22,
-  },
-  {
-    id: 7,
-    firstCurrency: "USD",
-    secondCurrency: "JPY",
-    value: 157.91,
-    procentageValue: 0.04,
-  },
-  {
-    id: 8,
-    firstCurrency: "GBP",
-    secondCurrency: "USD",
-    value: 1.3575,
-    procentageValue: -0.22,
-  },
-  {
-    id: 9,
-    firstCurrency: "GBP",
-    secondCurrency: "USD",
-    value: 1.3575,
-    procentageValue: -0.22,
-  },
-  {
-    id: 10,
-    firstCurrency: "USD",
-    secondCurrency: "JPY",
-    value: 157.91,
-    procentageValue: 0.04,
-  },
-  {
-    id: 11,
-    firstCurrency: "GBP",
-    secondCurrency: "USD",
-    value: 1.3575,
-    procentageValue: -0.22,
-  },
+const baseCurrency = "RON";
+const liveMarketsCurrencies = [
+  "EUR",
+  "USD",
+  "GBP",
+  "JPY",
+  "MDL",
+  "CNY",
+  "CHF",
+  "AUD",
+  "CAD",
+  "HKD",
+  "SGD",
 ];
 
 const LiveMarkets = () => {
+  const { isPending, error, data } = useQuery({
+    queryKey: ["liveMarketsData"],
+    queryFn: async () => {
+      const response = await fetch(
+        `https://api.frankfurter.dev/v2/rates?base=${baseCurrency}&quotes=${liveMarketsCurrencies.join(",")}&from=${getYesterday()}`,
+      );
+
+      return await response.json();
+    },
+  });
+
+  if (isPending) {
+    return <p>Loading</p>;
+  }
+
+  if (error) {
+    return <p>There was an error fetching the data</p>;
+  }
+
+  const liveMarketsData = getLiveMarkets(data);
+
   return (
     <section>
       <div className="inline-flex items-center absolute top-14 w-full md:top-16">
-        <div className="bg-lime-500 px-3 py-2 inline-flex gap-x-2 items-center md:px-5 md:py-3 min-w-34.5">
+        <div className="bg-lime-500 px-3 py-2 inline-flex gap-x-2 items-center md:px-5 md:py-3 min-w-34.5 md:min-w-38">
           <span className="size-2.5 bg-neutral-900 rounded-full "></span>
           <p className="text-neutral-900">Live Markets</p>
         </div>
@@ -96,13 +54,14 @@ const LiveMarkets = () => {
           smart={false}
           iterations="infinite"
         >
-          {liveMarkets.map((market) => (
+          {liveMarketsData.map((market) => (
             <MarketItem
-              key={market.id}
-              firstCurrency={market.firstCurrency}
-              secondCurrency={market.secondCurrency}
-              value={market.value}
-              procentageValue={market.procentageValue}
+              key={`${market.base}/${market.quote}`}
+              baseCurrency={market.base}
+              quoteCurrency={market.quote}
+              rate={market.rate}
+              rateDiff={market.rateDiff}
+              rateDiffPercentage={market.rateDiffPercentage}
             />
           ))}
         </SmartTickerDraggable>
