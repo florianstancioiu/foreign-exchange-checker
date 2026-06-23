@@ -53,6 +53,7 @@ const LiveMarkets = () => {
           pauseOnHover
           smart={false}
           iterations="infinite"
+          autoFill
         >
           {liveMarketsData.map((market) => (
             <MarketItem
