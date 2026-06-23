@@ -16,7 +16,7 @@ const MarketItem = ({
   rateDiffPercentage,
 }: MarketItemProps) => {
   return (
-    <div className="flex items-center gap-x-2 px-5 py-2 bg-neutral-700 border-r border-neutral-500 md:py-3">
+    <div className="flex items-center gap-x-2 px-5 py-2 bg-neutral-700 border-r border-neutral-500 md:py-3 select-none">
       <p className="text-neutral-200">
         {baseCurrency}/{quoteCurrency}
       </p>
