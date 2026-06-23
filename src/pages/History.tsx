@@ -7,18 +7,20 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { getPreviousDate } from "../helpers/dates";
 import { type Rate } from "../types/rate";
+import { getRateStats } from "../helpers/rates";
 
 const baseCurrency = "RON";
 const quoteCurrency = "EUR";
 
 const History = () => {
   const [activeDateRange, _setActiveDateRange] = useState(30);
+  const fromDate = getPreviousDate(activeDateRange);
 
   const { isPending, error, data } = useQuery({
     queryKey: ["historyChartData"],
     queryFn: async () => {
       const response = await fetch(
-        `https://api.frankfurter.dev/v2/rates?base=${baseCurrency}&quotes=${quoteCurrency}&from=${getPreviousDate(activeDateRange)}`,
+        `https://api.frankfurter.dev/v2/rates?base=${baseCurrency}&quotes=${quoteCurrency}&from=${fromDate}`,
       );
 
       return await response.json();
@@ -33,27 +35,45 @@ const History = () => {
     return <p>There was an error fetching the data</p>;
   }
 
-  console.log("data", data);
+  const { fromRate, lastRate, change, changePercentage } = getRateStats(
+    data,
+    fromDate,
+  );
+
+  const changeStatValue = (
+    <>
+      {change > 0 ? (
+        <p className="text-green-500">+{change.toFixed(4)}</p>
+      ) : (
+        <p className="text-red-500">-{change.toFixed(4)}</p>
+      )}
+    </>
+  );
+
+  const changePercentageStatValue = (
+    <>
+      {change > 0 ? (
+        <p className="text-green-500 flex items-center">
+          <ChevronDownSvg className="rotate-180 size-6" />
+          <span>+{changePercentage}%</span>
+        </p>
+      ) : (
+        <p className="text-red-500 flex items-center">
+          <ChevronDownSvg className="size-6" />
+          <span>-{changePercentage}%</span>
+        </p>
+      )}
+    </>
+  );
 
   return (
     <TabsMenu variant="history">
       <div className="xl:flex xl:justify-between xl:items-center xl:mb-5">
         <div className="grid grid-cols-2 gap-2.5 mb-4 md:block xl:grid xl:grid-cols-4 xl:gap-x-4 xl:mb-0">
-          <StatsItem title="Open" value={0.8516} />
-          <StatsItem title="Last" value={0.853} />
-          <StatsItem
-            title="Change"
-            value={<p className="text-green-500">+0.0014</p>}
-          />
-          <StatsItem
-            title="% Change"
-            value={
-              <p className="text-green-500 flex items-center">
-                <ChevronDownSvg className="rotate-180 size-6" />
-                <span>+0.16%</span>
-              </p>
-            }
-          />
+          <StatsItem title="Open" value={fromRate} />
+          <StatsItem title="Last" value={lastRate} />
+          <StatsItem title="Change" value={changeStatValue} />
+          <StatsItem title="% Change" value={changePercentageStatValue} />
         </div>
         <DateRange
           ranges={[
