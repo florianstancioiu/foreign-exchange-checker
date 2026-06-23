@@ -107,6 +107,7 @@ Your users should be able to:
 - [React Router not working with Github Pages - the second solution worked](https://stackoverflow.com/a/71985764/12159189) - This helped me make shareable link work correctly with Github Actions and React Router
 - [scrollbar-width](https://tailwindcss.com/docs/scrollbar-width) - This helped me remove the vertical scrollbar in Chromium based browsers
 - [react-flags](https://www.npmjs.com/package/react-flags) - This package helped me add most of the SVG flags (I actually had to remove 10 currencies because the package didn't provide svg icons for them), I had copy the svg icons from the package over to my repo, the package has a MIT license so I think I'm good on that.
+- [React Smart Ticker](https://github.com/eugen-k/react-smart-ticker) - This helped me add the functionality of a ticker to the Header component
 
 ### AI Collaboration
 
