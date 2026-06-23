@@ -1,5 +1,5 @@
 import MarketItem from "../MarketItem/MarketItem";
-import { SmartTickerDraggable } from "react-smart-ticker";
+import { SmartTicker } from "react-smart-ticker";
 import { useQuery } from "@tanstack/react-query";
 import { getYesterday } from "../../helpers/dates";
 import { getLiveMarkets } from "../../helpers/liveMarkets";
@@ -48,13 +48,7 @@ const LiveMarkets = () => {
           <span className="size-2.5 bg-neutral-900 rounded-full "></span>
           <p className="text-neutral-900">Live Markets</p>
         </div>
-        <SmartTickerDraggable
-          isText={false}
-          pauseOnHover
-          smart={false}
-          iterations="infinite"
-          autoFill
-        >
+        <SmartTicker pauseOnHover smart={false} iterations="infinite" autoFill>
           {liveMarketsData.map((market) => (
             <MarketItem
               key={`${market.base}/${market.quote}`}
@@ -65,7 +59,7 @@ const LiveMarkets = () => {
               rateDiffPercentage={market.rateDiffPercentage}
             />
           ))}
-        </SmartTickerDraggable>
+        </SmartTicker>
       </div>
     </section>
   );
