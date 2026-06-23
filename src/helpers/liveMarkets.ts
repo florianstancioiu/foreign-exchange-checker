@@ -1,11 +1,5 @@
 import { getYesterday } from "./dates";
-
-export type Rate = {
-  base: string;
-  date: string;
-  quote: string;
-  rate: number;
-};
+import { type Rate } from "../types/rate";
 
 export const getRateDiffPercentage = (todaysRate: number, rateDiff: number) => {
   return ((rateDiff / todaysRate) * 100).toFixed(2);

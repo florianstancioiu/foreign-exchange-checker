@@ -1,10 +1,3 @@
-export const getYesterday = () => {
-  const date = new Date();
-  date.setDate(date.getDate() - 1);
-
-  return getStringDate(date);
-};
-
 export const getStringDate = (date: Date) => {
   let month: string | number = date.getUTCMonth() + 1;
   month = month < 10 ? `0${month}` : month;
@@ -14,3 +7,12 @@ export const getStringDate = (date: Date) => {
 
   return `${date.getUTCFullYear()}-${month}-${day}`;
 };
+
+export const getPreviousDate = (numberOfDaysInThePast: number) => {
+  const date = new Date();
+  date.setDate(date.getDate() - numberOfDaysInThePast);
+
+  return getStringDate(date);
+};
+
+export const getYesterday = () => getPreviousDate(1);

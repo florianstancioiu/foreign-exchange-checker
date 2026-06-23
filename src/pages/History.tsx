@@ -3,8 +3,38 @@ import StatsItem from "../components/UI/StatsItem/StatsItem";
 import ChevronDownSvg from "../images/icon-chevron-down.svg?react";
 import DateRange from "../components/UI/DateRange/DateRange";
 import LineChart from "../components/UI/LineChart/LineChart";
+import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
+import { getPreviousDate } from "../helpers/dates";
+import { type Rate } from "../types/rate";
+
+const baseCurrency = "RON";
+const quoteCurrency = "EUR";
 
 const History = () => {
+  const [activeDateRange, _setActiveDateRange] = useState(30);
+
+  const { isPending, error, data } = useQuery({
+    queryKey: ["historyChartData"],
+    queryFn: async () => {
+      const response = await fetch(
+        `https://api.frankfurter.dev/v2/rates?base=${baseCurrency}&quotes=${quoteCurrency}&from=${getPreviousDate(activeDateRange)}`,
+      );
+
+      return await response.json();
+    },
+  });
+
+  if (isPending) {
+    return <p>Loading</p>;
+  }
+
+  if (error) {
+    return <p>There was an error fetching the data</p>;
+  }
+
+  console.log("data", data);
+
   return (
     <TabsMenu variant="history">
       <div className="xl:flex xl:justify-between xl:items-center xl:mb-5">
@@ -36,7 +66,14 @@ const History = () => {
           ]}
         />
       </div>
-      <LineChart />
+      <LineChart
+        data={data.map((item: Rate) => item.rate)}
+        labels={data.map((item: Rate) => item.date)}
+        title="RON/EUR"
+        rate={0.853}
+        baseCurrency="RON"
+        quoteCurrency="EUR"
+      />
     </TabsMenu>
   );
 };
