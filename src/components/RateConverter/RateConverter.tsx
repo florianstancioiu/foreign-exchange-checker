@@ -5,6 +5,7 @@ export type RateConverterProps = {
   title: string;
   value: number;
   currency: string;
+  setCurrency: (iso: string) => void;
 };
 
 const RateConverter = ({
@@ -12,6 +13,7 @@ const RateConverter = ({
   title,
   value,
   currency,
+  setCurrency,
 }: RateConverterProps) => {
   return (
     <div className="p-4 rounded-2xl border border-neutral-500 bg-neutral-600 w-full md:p-5">
@@ -33,7 +35,7 @@ const RateConverter = ({
             className="text-3xl font-semibold leading-[100%] tracking-[-0.5px] max-w-30 sm:max-w-40 focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
           />
         )}
-        <CurrencyPicker activeISO={currency} />
+        <CurrencyPicker activeISO={currency} setActiveIso={setCurrency} />
       </div>
     </div>
   );

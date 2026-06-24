@@ -10,12 +10,16 @@ export type CurrencyPickerSectionProps = {
   title: string;
   titleValue: number;
   data: DataItem[];
+  onClickItem: (isoCode: string) => void;
+  activeIso?: string;
 };
 
 const CurrencyPickerSection = ({
   title,
   titleValue,
   data,
+  onClickItem,
+  activeIso,
 }: CurrencyPickerSectionProps) => {
   return (
     <>
@@ -37,7 +41,8 @@ const CurrencyPickerSection = ({
               key={val.iso_code}
               iso_code={val.iso_code}
               name={val.name}
-              isActive={val.isActive}
+              isActive={val.iso_code === activeIso}
+              onClick={onClickItem}
             />
           );
         })}

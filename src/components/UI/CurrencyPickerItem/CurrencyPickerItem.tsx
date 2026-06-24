@@ -4,16 +4,23 @@ export type CurrencyPickerItemProps = {
   iso_code: string;
   name: string;
   isActive?: boolean;
+  onClick?: (isoCode: string) => void;
 };
 
 const CurrencyPickerItem = ({
   iso_code,
   name,
   isActive = false,
+  onClick,
 }: CurrencyPickerItemProps) => {
   return (
     <button
       type="button"
+      onClick={() => {
+        if (onClick) {
+          onClick(iso_code);
+        }
+      }}
       className="border border-neutral-600 bg-neutral-600 rounded-sm py-3 px-2 flex justify-between items-center w-full cursor-pointer hover:border-neutral-200 focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg    "
     >
       <div className="flex items-center gap-x-3">

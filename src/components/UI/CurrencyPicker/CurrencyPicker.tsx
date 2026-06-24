@@ -1,10 +1,11 @@
 import ChevronIcon from "../../../images/icon-chevron-down.svg?react";
 import SearchSvg from "../../../images/icon-search.svg?react";
-import { useId } from "react";
+import { useId, useState, useRef } from "react";
 import CurrencyPickerSection from "../CurrencyPickerSection/CurrencyPickerSection";
 import { useQuery } from "@tanstack/react-query";
 import { numberOfUnavailableCurrencies } from "../../../helpers/unavailableCurrencies";
 import { type CurrencyPickerItemProps } from "../CurrencyPickerItem/CurrencyPickerItem";
+import { type ChangeEvent } from "react";
 
 type Currency = CurrencyPickerItemProps & {
   id: number;
@@ -12,6 +13,7 @@ type Currency = CurrencyPickerItemProps & {
 
 export type CurrencyPickerProps = {
   activeISO?: string;
+  setActiveIso: (iso: string) => void;
 };
 
 const popularCurrencies: Currency[] = [
@@ -33,8 +35,13 @@ const popularCurrencies: Currency[] = [
   },
 ];
 
-const CurrencyPicker = ({ activeISO = "Eur" }: CurrencyPickerProps) => {
+const CurrencyPicker = ({
+  activeISO = "Eur",
+  setActiveIso,
+}: CurrencyPickerProps) => {
   const currencyPickerId = useId();
+  const [searchKeyword, setSearchKeyword] = useState("");
+  const popoverRef = useRef<null | HTMLDivElement>(null);
 
   const { isPending, error, data } = useQuery({
     queryKey: ["currenciesData"],
@@ -52,10 +59,33 @@ const CurrencyPicker = ({ activeISO = "Eur" }: CurrencyPickerProps) => {
     return <p>There was an error fetching the data</p>;
   }
 
+  const onChangeSearchKeywordHandler = (
+    event: ChangeEvent<HTMLInputElement>,
+  ) => {
+    setSearchKeyword(event.target.value);
+  };
+
   const activeCurrency = data.find(
     (currency: Currency) =>
       currency.iso_code.toUpperCase() === activeISO.toUpperCase(),
   );
+
+  const searchedData = data.filter((item: Currency) => {
+    const lowerCaseSearchKeyword = searchKeyword.trim().toLowerCase();
+
+    return (
+      item.name.toLowerCase().includes(lowerCaseSearchKeyword) ||
+      item.iso_code.toLowerCase().includes(lowerCaseSearchKeyword)
+    );
+  });
+
+  const onSetActiveIsoHanlder = (iso: string) => {
+    setActiveIso(iso);
+
+    if (popoverRef.current) {
+      popoverRef.current.hidePopover();
+    }
+  };
 
   return (
     <div>
@@ -79,6 +109,7 @@ const CurrencyPicker = ({ activeISO = "Eur" }: CurrencyPickerProps) => {
       <div
         popover=""
         id={currencyPickerId}
+        ref={popoverRef}
         className="currency-picker-content rounded-lg border border-neutral-400 bg-neutral-600 max-w-78 w-full p-2 h-112 overflow-y-scroll text-neutral-200 scrollbar-thin scrollbar-thumb-neutral-500"
       >
         <div className="relative">
@@ -86,22 +117,38 @@ const CurrencyPicker = ({ activeISO = "Eur" }: CurrencyPickerProps) => {
           <input
             type="text"
             aria-label="Search currencies"
+            value={searchKeyword}
+            onChange={onChangeSearchKeywordHandler}
             className="text-neutral-50 mb-2.5 border border-neutral-400 bg-neutral-600 shadow-search-input p-3 placeholder:text-neutral-200 w-full text-xs font-normal leading-[120%] tracking-[0.5px] rounded-lg pl-9 focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
             placeholder="Search currencies..."
           />
         </div>
-        <CurrencyPickerSection
-          key={1}
-          title="Popular"
-          titleValue={3}
-          data={popularCurrencies}
-        />
-        <CurrencyPickerSection
-          key={2}
-          title="Other Currencies"
-          titleValue={data.length - numberOfUnavailableCurrencies}
-          data={data}
-        />
+        {searchKeyword.trim().length === 0 ? (
+          <>
+            <CurrencyPickerSection
+              title="Popular"
+              titleValue={3}
+              data={popularCurrencies}
+              activeIso={activeISO}
+              onClickItem={onSetActiveIsoHanlder}
+            />
+            <CurrencyPickerSection
+              title="Other Currencies"
+              titleValue={data.length - numberOfUnavailableCurrencies}
+              data={data}
+              activeIso={activeISO}
+              onClickItem={onSetActiveIsoHanlder}
+            />
+          </>
+        ) : (
+          <CurrencyPickerSection
+            title={`"${searchKeyword}" results`}
+            titleValue={searchedData.length}
+            data={searchedData}
+            activeIso={activeISO}
+            onClickItem={onSetActiveIsoHanlder}
+          />
+        )}
       </div>
     </div>
   );
