@@ -138,6 +138,6 @@ I didn't explicitly use any kind of AI tool during the development of this solut
 | June 20th, 2026 | 2 hours    | I worked on the CurrencyPicker component, converted CTAs to button elements, handled focus-visible states |
 | June 21st, 2026 | 4 hours    | I adjusted the app for extra small devices & started to experiment with frankfurter API                   |
 | June 23rd, 2026 | 4 hours    | I worked on the LiveMarkets ticker and on the History page (homepage) functionality                       |
-| June 24th, 2026 | 1 hour     | I worked on the CheckRate component                                                                       |
+| June 24th, 2026 | 2 hours    | I worked on the CheckRate component and handled loading and error states for a couple of requests         |
 
-_Total time spent working on the project:_ **24.5 hours**
+_Total time spent working on the project:_ **25.5 hours**
