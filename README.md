@@ -6,7 +6,7 @@ This is a solution to the [FX Checker challenge on Frontend Mentor](https://www.
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
+  - [Screenshots](#screenshots)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
@@ -108,6 +108,7 @@ Your users should be able to:
 - [scrollbar-width](https://tailwindcss.com/docs/scrollbar-width) - This helped me remove the vertical scrollbar in Chromium based browsers
 - [react-flags](https://www.npmjs.com/package/react-flags) - This package helped me add most of the SVG flags (I actually had to remove 10 currencies because the package didn't provide svg icons for them), I had copy the svg icons from the package over to my repo, the package has a MIT license so I think I'm good on that.
 - [React Smart Ticker](https://github.com/eugen-k/react-smart-ticker) - This helped me add the functionality of a ticker to the Header component
+- [Manipulating the DOM with Refs](https://react.dev/learn/manipulating-the-dom-with-refs) - This aided me in my task of hiding the currency picker popover element
 
 ### AI Collaboration
 
