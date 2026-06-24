@@ -11,6 +11,13 @@ const CheckRate = () => {
   const setFirstCurrencyHandler = (iso: string) => setFirstCurrency(iso);
   const setSecondCurrencyHandler = (iso: string) => setSecondCurrency(iso);
 
+  const onExchangeBtnClickHandler = () => {
+    const initialCurrency = firstCurrency;
+
+    setFirstCurrency(secondCurrency);
+    setSecondCurrency(initialCurrency);
+  };
+
   return (
     <section className="px-4 mb-10 md:px-6 xl:px-8">
       <h1 className="uppercase text-xl font-normal leading-6 tracking-[-0.5px] mb-4">
@@ -25,7 +32,10 @@ const CheckRate = () => {
               currency={firstCurrency}
               setCurrency={setFirstCurrencyHandler}
             />
-            <Button className="size-12 grid place-content-center">
+            <Button
+              onClick={onExchangeBtnClickHandler}
+              className="size-12 grid place-content-center"
+            >
               <ExchangeSvg />
             </Button>
             <RateConverter
