@@ -1,7 +1,7 @@
 import { getYesterday } from "./dates";
 import { type Rate } from "../types/rate";
 
-export const getRateDiffPercentage = (todaysRate: number, rateDiff: number) => {
+const getRateDiffPercentage = (todaysRate: number, rateDiff: number) => {
   return ((rateDiff / todaysRate) * 100).toFixed(2);
 };
 
@@ -37,3 +37,17 @@ export const getLiveMarkets = (ratesData?: Rate[]) => {
 
   return liveMarkets;
 };
+
+export const liveMarketsCurrencies = [
+  "EUR",
+  "USD",
+  "GBP",
+  "JPY",
+  "MDL",
+  "CNY",
+  "CHF",
+  "AUD",
+  "CAD",
+  "HKD",
+  "SGD",
+];

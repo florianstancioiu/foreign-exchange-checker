@@ -4,22 +4,9 @@ import { useQuery } from "@tanstack/react-query";
 import { getYesterday } from "../../helpers/dates";
 import { getLiveMarkets } from "../../helpers/liveMarkets";
 import EmptyMarketItem from "../UI/EmptyMarketItem/EmptyMarketItem";
+import { liveMarketsCurrencies } from "../../helpers/liveMarkets";
 
 const baseCurrency = "RON";
-
-export const liveMarketsCurrencies = [
-  "EUR",
-  "USD",
-  "GBP",
-  "JPY",
-  "MDL",
-  "CNY",
-  "CHF",
-  "AUD",
-  "CAD",
-  "HKD",
-  "SGD",
-];
 
 const LiveMarkets = () => {
   const { isPending, error, data } = useQuery({

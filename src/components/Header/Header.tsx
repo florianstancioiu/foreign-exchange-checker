@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import LiveMarkets from "../LiveMarkets/LiveMarkets";
 import LogoSvg from "../../images/logo.svg?react";
-import { liveMarketsCurrencies } from "../LiveMarkets/LiveMarkets";
+import { liveMarketsCurrencies } from "../../helpers/liveMarkets";
 
 const Header = () => {
   return (

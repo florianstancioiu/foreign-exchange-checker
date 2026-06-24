@@ -1,4 +1,4 @@
-export const getStringDate = (date: Date) => {
+const getStringDate = (date: Date) => {
   let month: string | number = date.getUTCMonth() + 1;
   month = month < 10 ? `0${month}` : month;
 
