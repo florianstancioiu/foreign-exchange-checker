@@ -3,10 +3,24 @@ import RateConverter from "../RateConverter/RateConverter";
 import ExchangeSvg from "../../images/icon-exchange.svg?react";
 import FavoritedSvg from "../../images/icon-star-filled.svg?react";
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 const CheckRate = () => {
   const [firstCurrency, setFirstCurrency] = useState("RON");
   const [secondCurrency, setSecondCurrency] = useState("EUR");
+
+  const { isPending, error, data } = useQuery({
+    queryKey: [
+      `baseCurrencyToQuoteCurrency-${firstCurrency}-${secondCurrency}`,
+    ],
+    queryFn: async () => {
+      const response = await fetch(
+        `https://api.frankfurter.dev/v2/rates?base=${firstCurrency.toUpperCase()}&quotes=${secondCurrency.toUpperCase()}`,
+      );
+
+      return await response.json();
+    },
+  });
 
   const setFirstCurrencyHandler = (iso: string) => setFirstCurrency(iso);
   const setSecondCurrencyHandler = (iso: string) => setSecondCurrency(iso);
@@ -49,7 +63,11 @@ const CheckRate = () => {
         </div>
         <div className="p-4 bg-neutral-700 rounded-[20px] rounded-tr-none rounded-tl-none md:flex md:justify-between md:items-center">
           <p className="uppercase text-center font-normal leading-[100%] text-[10px] mb-4 md:mb-0 md:text-xs">
-            1 USD = 0.8530 EUR
+            {isPending ? "Loading conversion" : ""}
+            {error ? "There was an error retrieving the conversion" : ""}
+            {!isPending && !error
+              ? `1 ${firstCurrency} = ${data.length === 1 ? data[0].rate.toFixed(4) : 1} ${secondCurrency}`
+              : ""}
           </p>
           <div className="flex gap-x-2 items-center justify-center md:gap-x-3">
             <Button className="flex gap-x-2 px-3 py-2 items-center bg-lime-500 border border-lime-500 text-neutral-900 text-xs">
