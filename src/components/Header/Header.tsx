@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import LiveMarkets from "../LiveMarkets/LiveMarkets";
 import LogoSvg from "../../images/logo.svg?react";
+import { liveMarketsCurrencies } from "../LiveMarkets/LiveMarkets";
 
 const Header = () => {
   return (
@@ -14,7 +15,7 @@ const Header = () => {
           <LogoSvg className="w-28 md:w-auto" />
         </Link>
         <div className="flex gap-x-1 uppercase text-neutral-200 md:text-sm md:font-normal md:leading-[120%] md:tracking-[1px]">
-          <p>55 Currencies</p>
+          <p>{liveMarketsCurrencies.length} Currencies</p>
           <div className="hidden sm:flex sm:gap-x-1">
             <span> · </span>
             <p>EOD</p>

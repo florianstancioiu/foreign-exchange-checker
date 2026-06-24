@@ -5,7 +5,11 @@ export const getRateDiffPercentage = (todaysRate: number, rateDiff: number) => {
   return ((rateDiff / todaysRate) * 100).toFixed(2);
 };
 
-export const getLiveMarkets = (ratesData: Rate[]) => {
+export const getLiveMarkets = (ratesData?: Rate[]) => {
+  if (typeof ratesData === "undefined") {
+    return [];
+  }
+
   const yesterday = getYesterday();
   const todaysData = ratesData.filter((rate) => rate.date !== yesterday);
   const yesterdayData = ratesData.filter((rate) => rate.date === yesterday);

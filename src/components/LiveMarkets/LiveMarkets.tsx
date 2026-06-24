@@ -3,9 +3,11 @@ import { SmartTicker } from "react-smart-ticker";
 import { useQuery } from "@tanstack/react-query";
 import { getYesterday } from "../../helpers/dates";
 import { getLiveMarkets } from "../../helpers/liveMarkets";
+import EmptyMarketItem from "../UI/EmptyMarketItem/EmptyMarketItem";
 
 const baseCurrency = "RON";
-const liveMarketsCurrencies = [
+
+export const liveMarketsCurrencies = [
   "EUR",
   "USD",
   "GBP",
@@ -31,14 +33,6 @@ const LiveMarkets = () => {
     },
   });
 
-  if (isPending) {
-    return <p>Loading</p>;
-  }
-
-  if (error) {
-    return <p>There was an error fetching the data</p>;
-  }
-
   const liveMarketsData = getLiveMarkets(data);
 
   return (
@@ -49,16 +43,25 @@ const LiveMarkets = () => {
           <p className="text-neutral-900">Live Markets</p>
         </div>
         <SmartTicker pauseOnHover smart={false} iterations="infinite" autoFill>
-          {liveMarketsData.map((market) => (
-            <MarketItem
-              key={`${market.base}/${market.quote}`}
-              baseCurrency={market.base}
-              quoteCurrency={market.quote}
-              rate={market.rate}
-              rateDiff={market.rateDiff}
-              rateDiffPercentage={market.rateDiffPercentage}
+          {!isPending &&
+            !error &&
+            liveMarketsData.map((market) => (
+              <MarketItem
+                key={`${market.base}/${market.quote}`}
+                baseCurrency={market.base}
+                quoteCurrency={market.quote}
+                rate={market.rate}
+                rateDiff={market.rateDiff}
+                rateDiffPercentage={market.rateDiffPercentage}
+              />
+            ))}
+          {isPending && <EmptyMarketItem title="Loading the currencies..." />}
+          {error && (
+            <EmptyMarketItem
+              title="There was an error loading the currencies..."
+              className="text-red-500"
             />
-          ))}
+          )}
         </SmartTicker>
       </div>
     </section>
