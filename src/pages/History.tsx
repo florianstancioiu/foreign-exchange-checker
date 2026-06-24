@@ -114,7 +114,7 @@ const History = () => {
         <EmptyPage
           title="There was an error loading the chart data"
           content={
-            <div>
+            <div className="text-red-500">
               <p>
                 We couldn't load the rate history for {baseCurrency}/
                 {quoteCurrency} right now.
