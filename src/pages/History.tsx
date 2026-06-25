@@ -95,7 +95,11 @@ const History = () => {
             data={data.map((item: Rate) => item.rate)}
             labels={data.map((item: Rate) => item.date)}
             title={`${baseCurrency}/${quoteCurrency}`}
-            rate={Array.isArray(rateData) ? rateData[0].rate : 0}
+            rate={
+              Array.isArray(rateData) && rateData.length > 0
+                ? rateData[0].rate
+                : 0
+            }
             baseCurrency={baseCurrency}
             quoteCurrency={quoteCurrency}
           />
