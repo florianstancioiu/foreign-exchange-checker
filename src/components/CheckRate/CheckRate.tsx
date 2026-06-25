@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 const CheckRate = () => {
-  const [firstCurrency, setFirstCurrency] = useState("RON");
+  const [firstCurrency, setFirstCurrency] = useState("USD");
   const [secondCurrency, setSecondCurrency] = useState("EUR");
   const [sendValue, setSendValue] = useState(0);
 
@@ -23,7 +23,8 @@ const CheckRate = () => {
     },
   });
 
-  const receiveValue = !isPending && !error ? data[0].rate * sendValue : 0;
+  const receiveValue =
+    !isPending && !error && data.length === 1 ? data[0].rate * sendValue : 0;
 
   const setFirstCurrencyHandler = (iso: string) => setFirstCurrency(iso);
   const setSecondCurrencyHandler = (iso: string) => setSecondCurrency(iso);
@@ -53,6 +54,7 @@ const CheckRate = () => {
             <Button
               onClick={onExchangeBtnClickHandler}
               className="size-12 grid place-content-center"
+              ariaLabel="Swap currencies"
             >
               <ExchangeSvg />
             </Button>

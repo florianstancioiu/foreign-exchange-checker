@@ -85,6 +85,7 @@ const CurrencyPicker = ({
         <button
           type="button"
           popoverTarget={currencyPickerId}
+          title={activeCurrency.name}
           className="p-2.5 rounded-lg border border-neutral-400 bg-neutral-500 flex gap-x-2 items-center cursor-pointer focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
         >
           <img
@@ -92,8 +93,11 @@ const CurrencyPicker = ({
             alt={`${activeCurrency.name} flag`}
             className="size-5 rounded-full"
           />
-          <p className="uppercase text-sm font-normal leading-[120%] tracking-[1px]">
-            {activeCurrency.name}
+          <p
+            className="uppercase text-sm font-normal leading-[120%] tracking-[1px]"
+            title={activeCurrency.name}
+          >
+            {activeCurrency.iso_code}
           </p>
           <ChevronIcon className="size-3" />
         </button>

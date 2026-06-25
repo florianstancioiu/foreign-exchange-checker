@@ -5,12 +5,19 @@ export type ButtonProps = {
   className?: string;
   children: ReactNode;
   onClick?: () => void;
+  ariaLabel?: string;
 };
 
-const Button = ({ children, className = "", onClick }: ButtonProps) => {
+const Button = ({
+  children,
+  className = "",
+  onClick,
+  ariaLabel,
+}: ButtonProps) => {
   return (
     <button
       type="button"
+      aria-label={ariaLabel !== "undefined" ? ariaLabel : ""}
       onClick={() => {
         if (onClick) {
           onClick();
