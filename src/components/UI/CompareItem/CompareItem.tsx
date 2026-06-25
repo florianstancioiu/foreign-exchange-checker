@@ -36,10 +36,10 @@ const CompareItem = ({
       <div className="flex justify-between items-center gap-x-2.5 md:gap-5">
         <div className="text-right">
           <p className="text-base font-normal leading-[120%] tracking-[1px] text-neutral-50 mb-1.5">
-            {value}
+            {value.toFixed(2)}
           </p>
           <p className="text-[10px] font-normal leading-[100%] text-neutral-200">
-            @ {subValue}
+            @ {subValue.toFixed(4)}
           </p>
         </div>
         {isFavorite ? (
