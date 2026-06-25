@@ -61,7 +61,7 @@ const LineChart = ({
     <div className="bg-neutral-700 py-4 px-3 rounded-2xl border border-neutral-600 xl:p-5">
       <div className="flex justify-between items-center mb-5">
         <p className="text-base font-medium leading-[120%] tracking-[1px] text-neutral-50">
-          {baseCurrency}/{quoteCurrency}
+          {baseCurrency.toUpperCase()}/{quoteCurrency.toUpperCase()}
         </p>
         <p className="text-neutral-50 opacity-70 font-normal text-xs leading-[120%] tracking-[0.5px]">
           {rate.toFixed(4)} · {getChartDate()}
