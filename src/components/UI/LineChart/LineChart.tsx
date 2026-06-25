@@ -42,13 +42,11 @@ const LineChart = ({
   rate,
 }: LineChartProps) => {
   const chartData = {
-    labels: Array.isArray(labels)
-      ? labels
-      : ["January", "February", "March", "April", "May", "June", "July"],
+    labels: Array.isArray(labels) ? labels : [],
     datasets: [
       {
         label: title.trim().length > 0 ? title : "Untitled dataset",
-        data: Array.isArray(data) ? data : [65, 59, 80, 81, 56, 55, 40],
+        data: Array.isArray(data) ? data : [],
         fill: true,
         backgroundColor: chartGradient,
         borderColor: "#CEF739",
