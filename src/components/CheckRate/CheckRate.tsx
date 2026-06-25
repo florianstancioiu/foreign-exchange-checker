@@ -2,39 +2,22 @@ import Button from "../UI/Button/Button";
 import RateConverter from "../RateConverter/RateConverter";
 import ExchangeSvg from "../../images/icon-exchange.svg?react";
 import FavoritedSvg from "../../images/icon-star-filled.svg?react";
-import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useRateContext } from "../../contexts/RateContext";
 
 const CheckRate = () => {
-  const [firstCurrency, setFirstCurrency] = useState("USD");
-  const [secondCurrency, setSecondCurrency] = useState("EUR");
-  const [sendValue, setSendValue] = useState(0);
-
-  const { isPending, error, data } = useQuery({
-    queryKey: [
-      `baseCurrencyToQuoteCurrency-${firstCurrency}-${secondCurrency}`,
-    ],
-    queryFn: async () => {
-      const response = await fetch(
-        `https://api.frankfurter.dev/v2/rates?base=${firstCurrency.toUpperCase()}&quotes=${secondCurrency.toUpperCase()}`,
-      );
-
-      return await response.json();
-    },
-  });
-
-  const receiveValue =
-    !isPending && !error && data.length === 1 ? data[0].rate * sendValue : 0;
-
-  const setFirstCurrencyHandler = (iso: string) => setFirstCurrency(iso);
-  const setSecondCurrencyHandler = (iso: string) => setSecondCurrency(iso);
-
-  const onExchangeBtnClickHandler = () => {
-    const initialCurrency = firstCurrency;
-
-    setFirstCurrency(secondCurrency);
-    setSecondCurrency(initialCurrency);
-  };
+  const {
+    sendValue,
+    firstCurrency,
+    setFirstCurrencyHandler,
+    setSendValue,
+    onExchangeBtnClickHandler,
+    receiveValue,
+    secondCurrency,
+    setSecondCurrencyHandler,
+    isPending,
+    error,
+    data,
+  } = useRateContext();
 
   return (
     <section className="px-4 mb-10 md:px-6 xl:px-8">
