@@ -95,7 +95,14 @@ Your users should be able to:
 
 ### What I learned
 
+- I learned to change the size and color of the scrollbar
+- I learned to position a popover element relative to its button
+- I learned to set a gradient as the backgroundColor for a line chart (Chart.js)
+- I learned to use outline in order to style :focus-visible states
+
 ### Continued development
+
+- I would add storybook for every single component in the project
 
 ### Useful resources
 
@@ -109,6 +116,7 @@ Your users should be able to:
 - [react-flags](https://www.npmjs.com/package/react-flags) - This package helped me add most of the SVG flags (I actually had to remove 10 currencies because the package didn't provide svg icons for them), I had copy the svg icons from the package over to my repo, the package has a MIT license so I think I'm good on that.
 - [React Smart Ticker](https://github.com/eugen-k/react-smart-ticker) - This helped me add the functionality of a ticker to the Header component
 - [Manipulating the DOM with Refs](https://react.dev/learn/manipulating-the-dom-with-refs) - This aided me in my task of hiding the currency picker popover element
+- [outline-offset](https://tailwindcss.com/docs/outline-offset) - This helped me to achieve the desired effect for :focus-visible btns
 
 ### AI Collaboration
 
