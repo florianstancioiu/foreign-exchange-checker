@@ -51,26 +51,18 @@ const CurrencyPicker = ({
     },
   });
 
-  if (isPending) {
-    return <p>Loading</p>;
-  }
-
-  if (error) {
-    return <p>There was an error fetching the data</p>;
-  }
-
   const onChangeSearchKeywordHandler = (
     event: ChangeEvent<HTMLInputElement>,
   ) => {
     setSearchKeyword(event.target.value);
   };
 
-  const activeCurrency = data.find(
+  const activeCurrency = data?.find(
     (currency: Currency) =>
       currency.iso_code.toUpperCase() === activeISO.toUpperCase(),
   );
 
-  const searchedData = data.filter((item: Currency) => {
+  const searchedData = data?.filter((item: Currency) => {
     const lowerCaseSearchKeyword = searchKeyword.trim().toLowerCase();
 
     return (
@@ -106,6 +98,26 @@ const CurrencyPicker = ({
           <ChevronIcon className="size-3" />
         </button>
       )}
+      {isPending && (
+        <button
+          type="button"
+          className="p-2.5 rounded-lg border border-neutral-400 bg-neutral-500 flex gap-x-2 items-center focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg cursor-not-allowed"
+        >
+          <p className="uppercase text-sm font-normal leading-[120%] tracking-[1px]">
+            Loading...
+          </p>
+        </button>
+      )}
+      {error && (
+        <button
+          type="button"
+          className="p-2.5 rounded-lg border border-neutral-400 bg-neutral-500 flex gap-x-2 items-center focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg cursor-not-allowed"
+        >
+          <p className="text-red-500 uppercase text-sm font-normal leading-[120%] tracking-[1px]">
+            Error loading data
+          </p>
+        </button>
+      )}
       <div
         popover=""
         id={currencyPickerId}
@@ -123,7 +135,7 @@ const CurrencyPicker = ({
             placeholder="Search currencies..."
           />
         </div>
-        {searchKeyword.trim().length === 0 ? (
+        {searchKeyword.trim().length === 0 && typeof data !== "undefined" ? (
           <>
             <CurrencyPickerSection
               title="Popular"
@@ -143,8 +155,8 @@ const CurrencyPicker = ({
         ) : (
           <CurrencyPickerSection
             title={`"${searchKeyword}" results`}
-            titleValue={searchedData.length}
-            data={searchedData}
+            titleValue={searchedData?.length}
+            data={searchedData ?? []}
             activeIso={activeISO}
             onClickItem={onSetActiveIsoHanlder}
           />
