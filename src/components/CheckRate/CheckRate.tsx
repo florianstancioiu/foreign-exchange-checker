@@ -8,6 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 const CheckRate = () => {
   const [firstCurrency, setFirstCurrency] = useState("RON");
   const [secondCurrency, setSecondCurrency] = useState("EUR");
+  const [sendValue, setSendValue] = useState(0);
 
   const { isPending, error, data } = useQuery({
     queryKey: [
@@ -21,6 +22,8 @@ const CheckRate = () => {
       return await response.json();
     },
   });
+
+  const receiveValue = !isPending && !error ? data[0].rate * sendValue : 0;
 
   const setFirstCurrencyHandler = (iso: string) => setFirstCurrency(iso);
   const setSecondCurrencyHandler = (iso: string) => setSecondCurrency(iso);
@@ -42,9 +45,10 @@ const CheckRate = () => {
           <div className="flex flex-col justify-center items-center gap-y-4 md:flex-row md:gap-x-6">
             <RateConverter
               title="Send"
-              value={1000}
+              value={sendValue}
               currency={firstCurrency}
               setCurrency={setFirstCurrencyHandler}
+              setSendValue={setSendValue}
             />
             <Button
               onClick={onExchangeBtnClickHandler}
@@ -54,7 +58,7 @@ const CheckRate = () => {
             </Button>
             <RateConverter
               title="Receive"
-              value={1000}
+              value={receiveValue}
               currency={secondCurrency}
               setCurrency={setSecondCurrencyHandler}
               isReceive
