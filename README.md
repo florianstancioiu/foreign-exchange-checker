@@ -147,6 +147,6 @@ I didn't explicitly use any kind of AI tool during the development of this solut
 | June 21st, 2026 | 4 hours    | I adjusted the app for extra small devices & started to experiment with frankfurter API                        |
 | June 23rd, 2026 | 4 hours    | I worked on the LiveMarkets ticker and on the History page (homepage) functionality                            |
 | June 24th, 2026 | 2 hours    | I worked on the CheckRate component and handled loading and error states for a couple of requests              |
-| June 25th, 2026 | 3.5 hours  | I extracted the logic from CheckRate to a RateContext file & implemented the functionality in the compare page |
+| June 25th, 2026 | 3.5 hours  | I extracted the logic from CheckRate to a RateContext file & implemented the functionality in the Compare page |
 
 _Total time spent working on the project:_ **29 hours**

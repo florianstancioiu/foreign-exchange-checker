@@ -77,11 +77,13 @@ const Compare = () => {
   return (
     <TabsMenu variant="compare">
       <DetailsContainer
-        headerContent={CompareHeaderContent({
-          pairs: compareRates.length,
-          sendValue: sendValue,
-          currency: firstCurrency,
-        })}
+        headerContent={
+          <CompareHeaderContent
+            pairs={compareRates.length}
+            sendValue={sendValue}
+            currency={firstCurrency}
+          />
+        }
       >
         {Array.isArray(enhancedData) &&
           !isPending &&
