@@ -135,18 +135,18 @@ I didn't explicitly use any kind of AI tool during the development of this solut
 
 ## Daily summaries
 
-| Date            | Time Spent | Summary                                                                                                   |
-| --------------- | ---------- | --------------------------------------------------------------------------------------------------------- |
-| June 12th, 2026 | 1.5 hours  | I created the boilerplate for the project and the base components                                         |
-| June 13th, 2026 | 2 hours    | I worked on the mobile Header and CheckRate components                                                    |
-| June 14th, 2026 | 3 hours    | I finished the mobile version for History and Compare pages                                               |
-| June 16th, 2026 | 2 hours    | I worked on the Favorite and LogItem components, I also created the base component for LineChart          |
-| June 17th, 2026 | 1 hour     | I worked on the tablet version of the History page                                                        |
-| June 19th, 2026 | 4 hours    | I worked on the tablet and desktop version of the pages                                                   |
-| June 20th, 2026 | 2 hours    | I worked on the CurrencyPicker component, converted CTAs to button elements, handled focus-visible states |
-| June 21st, 2026 | 4 hours    | I adjusted the app for extra small devices & started to experiment with frankfurter API                   |
-| June 23rd, 2026 | 4 hours    | I worked on the LiveMarkets ticker and on the History page (homepage) functionality                       |
-| June 24th, 2026 | 2 hours    | I worked on the CheckRate component and handled loading and error states for a couple of requests         |
-| June 25th, 2026 | 2.5 hours  | I extracted the logic from CheckRate to a RateContext file                                                |
+| Date            | Time Spent | Summary                                                                                                        |
+| --------------- | ---------- | -------------------------------------------------------------------------------------------------------------- |
+| June 12th, 2026 | 1.5 hours  | I created the boilerplate for the project and the base components                                              |
+| June 13th, 2026 | 2 hours    | I worked on the mobile Header and CheckRate components                                                         |
+| June 14th, 2026 | 3 hours    | I finished the mobile version for History and Compare pages                                                    |
+| June 16th, 2026 | 2 hours    | I worked on the Favorite and LogItem components, I also created the base component for LineChart               |
+| June 17th, 2026 | 1 hour     | I worked on the tablet version of the History page                                                             |
+| June 19th, 2026 | 4 hours    | I worked on the tablet and desktop version of the pages                                                        |
+| June 20th, 2026 | 2 hours    | I worked on the CurrencyPicker component, converted CTAs to button elements, handled focus-visible states      |
+| June 21st, 2026 | 4 hours    | I adjusted the app for extra small devices & started to experiment with frankfurter API                        |
+| June 23rd, 2026 | 4 hours    | I worked on the LiveMarkets ticker and on the History page (homepage) functionality                            |
+| June 24th, 2026 | 2 hours    | I worked on the CheckRate component and handled loading and error states for a couple of requests              |
+| June 25th, 2026 | 3.5 hours  | I extracted the logic from CheckRate to a RateContext file & implemented the functionality in the compare page |
 
-_Total time spent working on the project:_ **28 hours**
+_Total time spent working on the project:_ **29 hours**
