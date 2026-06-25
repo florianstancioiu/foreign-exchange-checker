@@ -15,4 +15,30 @@ export const getPreviousDate = (numberOfDaysInThePast: number) => {
   return getStringDate(date);
 };
 
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+const getShortMonth = (month: number) => months[month].substring(0, 3);
+
 export const getYesterday = () => getPreviousDate(1);
+
+export const getChartDate = () => {
+  const todayDate = new Date();
+
+  const month = getShortMonth(todayDate.getUTCMonth());
+  const day = todayDate.getUTCDate();
+
+  return `${month} ${day}`;
+};

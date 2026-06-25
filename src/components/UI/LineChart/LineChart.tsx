@@ -11,6 +11,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { chartGradient } from "../../../helpers/chartGradient";
+import { getChartDate } from "../../../helpers/dates";
 
 ChartJS.register(
   CategoryScale,
@@ -63,8 +64,7 @@ const LineChart = ({
           {baseCurrency}/{quoteCurrency}
         </p>
         <p className="text-neutral-50 opacity-70 font-normal text-xs leading-[120%] tracking-[0.5px]">
-          {rate.toFixed(4)} · MAY 14
-          <span className="hidden sm:inline"> 16:00 CET</span>
+          {rate.toFixed(4)} · {getChartDate()}
         </p>
       </div>
       <div>

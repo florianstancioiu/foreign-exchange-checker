@@ -9,12 +9,17 @@ import { getPreviousDate } from "../helpers/dates";
 import { type Rate } from "../types/rate";
 import { getRateStats } from "../helpers/rates";
 import EmptyPage from "../components/UI/EmptyPage/EmptyPage";
+import { useRateContext } from "../contexts/RateContext";
 
 const History = () => {
+  const {
+    firstCurrency: baseCurrency,
+    secondCurrency: quoteCurrency,
+    data: rateData,
+  } = useRateContext();
+
   const [activeDateRange, setActiveDateRange] = useState(30);
   const fromDate = getPreviousDate(activeDateRange);
-  const baseCurrency = "RON";
-  const quoteCurrency = "EUR";
 
   const { isPending, error, data } = useQuery({
     queryKey: [`historyChartData-${fromDate}-${baseCurrency}-${quoteCurrency}`],
@@ -90,7 +95,7 @@ const History = () => {
             data={data.map((item: Rate) => item.rate)}
             labels={data.map((item: Rate) => item.date)}
             title={`${baseCurrency}/${quoteCurrency}`}
-            rate={0.853}
+            rate={Array.isArray(rateData) ? rateData[0].rate : 0}
             baseCurrency={baseCurrency}
             quoteCurrency={quoteCurrency}
           />
