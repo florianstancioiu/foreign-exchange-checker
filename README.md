@@ -96,7 +96,7 @@ Your users should be able to:
 ### What I learned
 
 - I learned to change the size and color of the scrollbar
-- I learned to position a popover element relative to its button
+- I learned to position a popover element relative to its button using `position-area` property
 - I learned to set a gradient as the backgroundColor for a line chart (Chart.js)
 - I learned to use outline in order to style :focus-visible states
 
