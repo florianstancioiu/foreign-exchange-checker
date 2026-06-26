@@ -17,8 +17,8 @@ const CompareItem = ({
   isFavorite,
 }: CompareItemProps) => {
   return (
-    <section className="border border-neutral-500 rounded-[10px] bg-neutral-600 p-3 flex gap-x-2.5 justify-between items-center md:py-3 md:px-4">
-      <div className="flex items-center gap-2.5 md:gap-5">
+    <section className="border border-neutral-500 rounded-[10px] bg-neutral-600 p-3 flex gap-x-2.5 justify-between items-center md:py-3 md:px-4 hover:border-neutral-300">
+      <div className="flex items-center gap-2.5 md:gap-5 cursor-pointer">
         <img
           src={`/foreign-exchange-checker/images/svg-flags/${currency.substring(0, 2).toUpperCase()}.svg`}
           alt={`${currencyTitle} flag`}
