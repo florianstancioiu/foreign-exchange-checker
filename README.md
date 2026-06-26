@@ -117,6 +117,7 @@ Your users should be able to:
 - [React Smart Ticker](https://github.com/eugen-k/react-smart-ticker) - This helped me add the functionality of a ticker to the Header component
 - [Manipulating the DOM with Refs](https://react.dev/learn/manipulating-the-dom-with-refs) - This aided me in my task of hiding the currency picker popover element
 - [outline-offset](https://tailwindcss.com/docs/outline-offset) - This helped me to achieve the desired effect for :focus-visible btns
+- [useLocalStorage](https://usehooks-ts.com/react-hook/use-local-storage) - This helped me deal with localStorage in a clear way
 
 ### AI Collaboration
 
