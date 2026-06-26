@@ -1,8 +1,10 @@
 import Button from "../UI/Button/Button";
 import RateConverter from "../RateConverter/RateConverter";
 import ExchangeSvg from "../../images/icon-exchange.svg?react";
+import FavoriteSvg from "../../images/icon-star.svg?react";
 import FavoritedSvg from "../../images/icon-star-filled.svg?react";
 import { useRateContext } from "../../contexts/RateContext";
+import { useFavoritesContext } from "../../contexts/FavoritesContext";
 
 const CheckRate = () => {
   const {
@@ -18,6 +20,8 @@ const CheckRate = () => {
     error,
     data,
   } = useRateContext();
+
+  const { isFavorited, toggleFavorite } = useFavoritesContext();
 
   return (
     <section className="px-4 mb-10 md:px-6 xl:px-8">
@@ -59,10 +63,25 @@ const CheckRate = () => {
               : ""}
           </p>
           <div className="flex gap-x-2 items-center justify-center md:gap-x-3">
-            <Button className="flex gap-x-2 px-3 py-2 items-center bg-lime-500 border border-lime-500 text-neutral-900 text-xs">
-              <FavoritedSvg />
-              <p className="uppercase">Favorited</p>
-            </Button>
+            {isFavorited(firstCurrency, secondCurrency) && (
+              <Button
+                onClick={() => toggleFavorite(firstCurrency, secondCurrency)}
+                className="flex gap-x-2 px-3 py-2 items-center bg-lime-500 border border-lime-500 text-neutral-900 text-xs"
+              >
+                <FavoritedSvg />
+                <p className="uppercase">Favorited</p>
+              </Button>
+            )}
+            {!isFavorited(firstCurrency, secondCurrency) && (
+              <Button
+                onClick={() => toggleFavorite(firstCurrency, secondCurrency)}
+                className="flex gap-x-2 px-3 py-2 items-center text-xs"
+              >
+                <FavoriteSvg />
+                <p className="uppercase">Favorite</p>
+              </Button>
+            )}
+
             <Button className="bg-neutral-700 border border-lime-500 px-2 sm:px-3 py-2 text-neutral-50">
               Log Conversion
             </Button>

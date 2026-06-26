@@ -1,6 +1,7 @@
 import { type ReactNode } from "react";
 import Dropdown from "../UI/Dropdown/Dropdown";
 import Tabs from "../UI/Tabs/Tabs";
+import { useFavoritesContext } from "../../contexts/FavoritesContext";
 
 export type TabsMenuProps = {
   variant: "history" | "compare" | "favorites" | "log";
@@ -34,10 +35,16 @@ const dropdownValues = [
 ];
 
 const TabsMenu = ({ variant, children }: TabsMenuProps) => {
-  const actualDropdownValues = dropdownValues.map((val) => ({
-    ...val,
-    isActive: val.title === variant,
-  }));
+  const { favorites } = useFavoritesContext();
+  const actualDropdownValues = dropdownValues.map((val) => {
+    const numberOfFavorites = favorites !== undefined ? favorites.length : 0;
+
+    return {
+      ...val,
+      isActive: val.title === variant,
+      suffix: val.title === "favorites" ? numberOfFavorites : undefined,
+    };
+  });
 
   return (
     <div className="px-4 md:px-6 xl:px-8">
