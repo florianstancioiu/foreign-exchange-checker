@@ -2,6 +2,7 @@ import { type ReactNode } from "react";
 import Dropdown from "../UI/Dropdown/Dropdown";
 import Tabs from "../UI/Tabs/Tabs";
 import { useFavoritesContext } from "../../contexts/FavoritesContext";
+import { useLogsContext } from "../../contexts/LogsContext";
 
 export type TabsMenuProps = {
   variant: "history" | "compare" | "favorites" | "log";
@@ -36,13 +37,21 @@ const dropdownValues = [
 
 const TabsMenu = ({ variant, children }: TabsMenuProps) => {
   const { favorites } = useFavoritesContext();
+  const { logs } = useLogsContext();
+
   const actualDropdownValues = dropdownValues.map((val) => {
     const numberOfFavorites = favorites !== undefined ? favorites.length : 0;
+    const numberOfLogs = logs !== undefined ? logs.length : 0;
 
     return {
       ...val,
       isActive: val.title === variant,
-      suffix: val.title === "favorites" ? numberOfFavorites : undefined,
+      suffix:
+        val.title === "favorites"
+          ? numberOfFavorites
+          : val.title === "log"
+            ? numberOfLogs
+            : undefined,
     };
   });
 
