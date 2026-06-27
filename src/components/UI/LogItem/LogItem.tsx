@@ -3,16 +3,16 @@ import DeleteSvg from "../../../images/icon-delete.svg?react";
 
 export type LogItemProps = {
   dateRange: string;
-  firstCurrency: string;
-  secondCurrency: string;
+  base: string;
+  quote: string;
   firstValue: number;
   secondValue: number;
 };
 
 const LogItem = ({
   dateRange,
-  firstCurrency,
-  secondCurrency,
+  base,
+  quote,
   firstValue,
   secondValue,
 }: LogItemProps) => {
@@ -23,9 +23,9 @@ const LogItem = ({
           {dateRange}
         </p>
         <div className="flex items-center gap-2.5 text-sm font-normal leading-[120%] tracking-[1px] text-neutral-50 uppercase">
-          <span>{firstCurrency}</span>
+          <span>{base}</span>
           <ArrowRightSvg />
-          <span>{secondCurrency}</span>
+          <span>{quote}</span>
         </div>
       </div>
       <div className="flex justify-between items-center gap-x-2.5 md:gap-x-4">
