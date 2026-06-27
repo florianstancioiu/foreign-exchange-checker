@@ -1,4 +1,4 @@
-const getStringDate = (date: Date) => {
+export const getStringDate = (date: Date) => {
   let month: string | number = date.getUTCMonth() + 1;
   month = month < 10 ? `0${month}` : month;
 
@@ -7,6 +7,8 @@ const getStringDate = (date: Date) => {
 
   return `${date.getUTCFullYear()}-${month}-${day}`;
 };
+
+export const getTodaysStringDate = () => getStringDate(new Date());
 
 export const getPreviousDate = (numberOfDaysInThePast: number) => {
   const date = new Date();

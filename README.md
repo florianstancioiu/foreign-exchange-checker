@@ -88,6 +88,7 @@ Your users should be able to:
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
+- [Frankfurter API](https://frankfurter.dev/) - The underlying API that powers the app
 - [React](https://reactjs.org/) - JS library
 - [TypeScript](https://www.typescriptlang.org/) - JavaScript with types
 - [TailwindCSS](https://tailwindcss.com/) - For styles
