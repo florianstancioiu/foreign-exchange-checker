@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import LinkWithQuery from "../LinkWithQuery/LinkWithQuery";
 import { twMerge } from "tailwind-merge";
 
 export type TabValue = {
@@ -18,7 +18,7 @@ const Tabs = ({ values, className }: TabsProps) => {
   return (
     <div className={twMerge("pb-5", className)}>
       {values.map((val) => (
-        <Link
+        <LinkWithQuery
           key={val.id}
           className={`${val.isActive ? "border-lime-500" : "border-neutral-600"} uppercase text-base border-b-2 py-2.5 px-4 focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg`}
           to={val.url}
@@ -31,7 +31,7 @@ const Tabs = ({ values, className }: TabsProps) => {
           ) : (
             <></>
           )}
-        </Link>
+        </LinkWithQuery>
       ))}
     </div>
   );

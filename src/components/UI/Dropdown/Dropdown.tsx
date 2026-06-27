@@ -1,5 +1,5 @@
 import ChevronDownSvg from "../../../images/icon-chevron-down.svg?react";
-import { Link } from "react-router";
+import LinkWithQuery from "../LinkWithQuery/LinkWithQuery";
 import { useId } from "react";
 
 export type DropdownValue = {
@@ -44,7 +44,7 @@ const Dropdown = ({ values, className }: DropdownProps) => {
         className="dropdown-content absolute bg-neutral-700 rounded-[10px] p-2 z-2 w-full"
       >
         {values.map((val) => (
-          <Link
+          <LinkWithQuery
             className="w-full p-2.5 flex justify-between focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
             key={val.id}
             to={val.url}
@@ -59,7 +59,7 @@ const Dropdown = ({ values, className }: DropdownProps) => {
             ) : (
               <></>
             )}
-          </Link>
+          </LinkWithQuery>
         ))}
       </div>
     </div>
