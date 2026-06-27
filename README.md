@@ -73,12 +73,13 @@ Your users should be able to:
 
 ### Screenshots
 
-![](./screenshots/mobile.png)
-![](./screenshots/desktop.png)
+![](./public/images/screenshots/mobile.png)
+![](./public/images/screenshots/desktop.png)
 
 ### Links
 
 - URL: [https://florianstancioiu.github.io/foreign-exchange-checker/](https://florianstancioiu.github.io/foreign-exchange-checker/)
+- Github URL: [https://github.com/florianstancioiu/foreign-exchange-checker](https://github.com/florianstancioiu/foreign-exchange-checker)
 
 ## My process
 
