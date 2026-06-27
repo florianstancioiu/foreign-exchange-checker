@@ -153,6 +153,6 @@ I didn't explicitly use any kind of AI tool during the development of this solut
 | June 24th, 2026 | 2 hours    | I worked on the CheckRate component and handled loading and error states for a couple of requests              |
 | June 25th, 2026 | 3.5 hours  | I extracted the logic from CheckRate to a RateContext file & implemented the functionality in the Compare page |
 | June 26th, 2026 | 1 hour     | I implemented the functionality of CheckRate Favorite btn, I also worked a bit on the Favorite page            |
-| June 27th, 2026 | 2 hours    | I implemented the Log Conversion functionality                                                                 |
+| June 27th, 2026 | 4 hours    | I implemented the Log Conversion functionality & made the CheckRate variables sync in the URL                  |
 
-_Total time spent working on the project:_ **32 hours**
+_Total time spent working on the project:_ **34 hours**
