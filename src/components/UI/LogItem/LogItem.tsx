@@ -1,7 +1,9 @@
 import ArrowRightSvg from "../../../images/icon-arrow-right.svg?react";
 import DeleteSvg from "../../../images/icon-delete.svg?react";
+import { useLogsContext } from "../../../contexts/LogsContext";
 
 export type LogItemProps = {
+  id: string;
   dateRange: string;
   base: string;
   quote: string;
@@ -10,14 +12,17 @@ export type LogItemProps = {
 };
 
 const LogItem = ({
+  id,
   dateRange,
   base,
   quote,
   firstValue,
   secondValue,
 }: LogItemProps) => {
+  const { removeLog } = useLogsContext();
+
   return (
-    <section className="border border-neutral-500 rounded-[10px] bg-neutral-600 p-3 flex gap-x-2.5 justify-between items-center">
+    <section className="border border-neutral-500 rounded-[10px] bg-neutral-600 p-3 flex gap-x-2.5 justify-between items-center hover:border-neutral-300">
       <div className="flex flex-col gap-y-1 md:flex-row md:gap-x-4">
         <p className="text-neutral-200 text-sm font-normal leading-[120%] tracking-[1px] md:min-w-16">
           {dateRange}
@@ -39,7 +44,8 @@ const LogItem = ({
         </div>
         <button
           type="button"
-          className="size-8 border border-neutral-500 rounded-[10px] grid place-content-center cursor-pointer focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
+          onClick={() => removeLog(id)}
+          className="size-8 border border-neutral-500 rounded-[10px] grid place-content-center cursor-pointer focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg hover:bg-neutral-500"
         >
           <DeleteSvg className="text-neutral-50" />
         </button>
