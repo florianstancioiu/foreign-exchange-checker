@@ -1,6 +1,7 @@
-import { use, createContext, useState, type ReactNode } from "react";
+import { use, createContext, type ReactNode } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { type Rate } from "../types/rate";
+import { useSearchParams } from "react-router";
 
 export type RateState = {
   firstCurrency: string;
@@ -18,14 +19,29 @@ export type RateState = {
 
 const RateContext = createContext<RateState | null>(null);
 
+const initialCurrencies = {
+  firstCurrency: "USD",
+  secondCurrency: "EUR",
+};
+
 export type RateContextProps = {
   children: ReactNode;
 };
 
 export const RateContextProvider = ({ children }: RateContextProps) => {
-  const [firstCurrency, setFirstCurrency] = useState("USD");
-  const [secondCurrency, setSecondCurrency] = useState("EUR");
-  const [sendValue, setSendValue] = useState(0);
+  const [searchParams, setSearchParams] = useSearchParams({
+    firstCurrency: initialCurrencies.firstCurrency,
+    secondCurrency: initialCurrencies.secondCurrency,
+    sendValue: "0",
+    receiveValue: "0",
+  });
+
+  const firstCurrency =
+    searchParams.get("firstCurrency") ?? initialCurrencies.firstCurrency;
+  const secondCurrency =
+    searchParams.get("secondCurrency") ?? initialCurrencies.secondCurrency;
+  const sendValue = parseFloat(searchParams.get("sendValue") ?? "0");
+  let receiveValue = 0;
 
   const { isPending, error, data } = useQuery({
     queryKey: [
@@ -33,24 +49,53 @@ export const RateContextProvider = ({ children }: RateContextProps) => {
     ],
     queryFn: async () => {
       const response = await fetch(
-        `https://api.frankfurter.dev/v2/rates?base=${firstCurrency.toUpperCase()}&quotes=${secondCurrency.toUpperCase()}`,
+        `https://api.frankfurter.dev/v2/rates?base=${firstCurrency?.toUpperCase()}&quotes=${secondCurrency?.toUpperCase()}`,
       );
 
       return await response.json();
     },
   });
 
-  const receiveValue =
-    !isPending && !error && data.length === 1 ? data[0].rate * sendValue : 0;
+  if (!isPending && !error && data.length > 0) {
+    receiveValue =
+      data[0].rate * parseFloat(searchParams.get("sendValue") ?? "0");
+  }
 
-  const setFirstCurrencyHandler = (iso: string) => setFirstCurrency(iso);
-  const setSecondCurrencyHandler = (iso: string) => setSecondCurrency(iso);
+  const setFirstCurrencyHandler = (iso: string) =>
+    setSearchParams((params) => {
+      params.set("firstCurrency", iso);
+
+      return params;
+    });
+  const setSecondCurrencyHandler = (iso: string) =>
+    setSearchParams((params) => {
+      params.set("secondCurrency", iso);
+
+      return params;
+    });
+
+  const setSendValue = (val: number) =>
+    setSearchParams((params) => {
+      params.set("sendValue", `${val}`);
+
+      return params;
+    });
 
   const onExchangeBtnClickHandler = () => {
-    const initialCurrency = firstCurrency;
+    setSearchParams((params) => {
+      const initialFirstCurrency = searchParams.get("firstCurrency");
 
-    setFirstCurrency(secondCurrency);
-    setSecondCurrency(initialCurrency);
+      params.set(
+        "firstCurrency",
+        params.get("secondCurrency") ?? initialCurrencies.secondCurrency,
+      );
+      params.set(
+        "secondCurrency",
+        initialFirstCurrency ?? initialCurrencies.firstCurrency,
+      );
+
+      return params;
+    });
   };
 
   return (

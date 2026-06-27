@@ -13,15 +13,15 @@ const queryClient = new QueryClient();
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-      <LogsContextProvider>
-        <FavoritesContextProvider>
-          <RateContextProvider>
-            <HashRouter>
+      <HashRouter>
+        <LogsContextProvider>
+          <FavoritesContextProvider>
+            <RateContextProvider>
               <Routes />
-            </HashRouter>
-          </RateContextProvider>
-        </FavoritesContextProvider>
-      </LogsContextProvider>
+            </RateContextProvider>
+          </FavoritesContextProvider>
+        </LogsContextProvider>
+      </HashRouter>
     </QueryClientProvider>
   </StrictMode>,
 );
