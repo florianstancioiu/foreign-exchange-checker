@@ -5,6 +5,7 @@ import FavoriteSvg from "../../images/icon-star.svg?react";
 import FavoritedSvg from "../../images/icon-star-filled.svg?react";
 import { useRateContext } from "../../contexts/RateContext";
 import { useFavoritesContext } from "../../contexts/FavoritesContext";
+import { useLogsContext } from "../../contexts/LogsContext";
 
 const CheckRate = () => {
   const {
@@ -22,6 +23,13 @@ const CheckRate = () => {
   } = useRateContext();
 
   const { isFavorited, toggleFavorite } = useFavoritesContext();
+  const { isLogged, toggleLog, getLogId } = useLogsContext();
+  const logConversionBtnId = getLogId(
+    firstCurrency,
+    secondCurrency,
+    sendValue,
+    receiveValue,
+  );
 
   return (
     <section className="px-4 mb-10 md:px-6 xl:px-8">
@@ -66,7 +74,7 @@ const CheckRate = () => {
             {isFavorited(firstCurrency, secondCurrency) && (
               <Button
                 onClick={() => toggleFavorite(firstCurrency, secondCurrency)}
-                className="flex gap-x-2 px-3 py-2 items-center bg-lime-500 border border-lime-500 text-neutral-900 text-xs"
+                className="flex gap-x-2 px-3 py-2 items-center bg-lime-500 border border-lime-500 text-neutral-900 text-xs hover:bg-lime-500"
               >
                 <FavoritedSvg />
                 <p className="uppercase">Favorited</p>
@@ -75,16 +83,42 @@ const CheckRate = () => {
             {!isFavorited(firstCurrency, secondCurrency) && (
               <Button
                 onClick={() => toggleFavorite(firstCurrency, secondCurrency)}
-                className="flex gap-x-2 px-3 py-2 items-center text-xs"
+                className="flex gap-x-2 px-3 py-2 items-center text-xs hover:bg-lime-500 hover:text-neutral-900"
               >
                 <FavoriteSvg />
                 <p className="uppercase">Favorite</p>
               </Button>
             )}
-
-            <Button className="bg-neutral-700 border border-lime-500 px-2 sm:px-3 py-2 text-neutral-50">
-              Log Conversion
-            </Button>
+            {isLogged(logConversionBtnId) && (
+              <Button
+                onClick={() =>
+                  toggleLog(
+                    firstCurrency,
+                    secondCurrency,
+                    sendValue,
+                    receiveValue,
+                  )
+                }
+                className="bg-neutral-700 border border-lime-500 px-2 sm:px-3 py-2 text-neutral-50 hover:bg-lime-800"
+              >
+                Logged Conversion
+              </Button>
+            )}
+            {!isLogged(logConversionBtnId) && (
+              <Button
+                onClick={() =>
+                  toggleLog(
+                    firstCurrency,
+                    secondCurrency,
+                    sendValue,
+                    receiveValue,
+                  )
+                }
+                className="bg-neutral-700 border px-2 sm:px-3 py-2 text-neutral-50 hover:bg-lime-800"
+              >
+                Log Conversion
+              </Button>
+            )}
           </div>
         </div>
       </div>
