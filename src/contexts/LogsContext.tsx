@@ -27,6 +27,7 @@ export type LogsState = {
     receiveValue: number,
   ) => string;
   clearAll: () => void;
+  removeLog: (id: string) => void;
 };
 
 const LogsContext = createContext<LogsState | null>(null);
@@ -90,6 +91,9 @@ export const LogsContextProvider = ({ children }: LogsContextProps) => {
     setLogs([]);
   };
 
+  const removeLog = (id: string) =>
+    setLogs((logItems) => logItems?.filter((item) => item.id !== id));
+
   const isLogged = (id: string) => {
     if (logs === undefined) {
       return false;
@@ -105,6 +109,7 @@ export const LogsContextProvider = ({ children }: LogsContextProps) => {
         toggleLog,
         isLogged,
         clearAll,
+        removeLog,
         getLogId,
       }}
     >
