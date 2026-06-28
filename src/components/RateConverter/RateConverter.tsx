@@ -4,10 +4,10 @@ import CurrencyPicker from "../UI/CurrencyPicker/CurrencyPicker";
 export type RateConverterProps = {
   isReceive?: boolean;
   title: string;
-  value: number;
+  value: number | string;
   currency: string;
   setCurrency: (iso: string) => void;
-  setSendValue?: (value: number) => void;
+  setSendValue?: (value: number | string) => void;
 };
 
 const RateConverter = ({
@@ -19,9 +19,10 @@ const RateConverter = ({
   setSendValue,
 }: RateConverterProps) => {
   const onChangeSendValueHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    const sendValue = parseFloat(event.target.value);
-    if (setSendValue && !isNaN(sendValue)) {
-      setSendValue(sendValue);
+    const positiveFloatRegex = /^[0-9]*(?:\.[0-9]*)?$/;
+
+    if (setSendValue && positiveFloatRegex.test(event.target.value)) {
+      setSendValue(event.target.value);
     }
   };
 
@@ -35,7 +36,11 @@ const RateConverter = ({
           <p
             className={`${isReceive ? "text-lime-500" : ""} text-3xl font-semibold leading-[100%] tracking-[-0.5px]`}
           >
-            {value.toFixed(2)}
+            {typeof value === "number" && isFinite(value)
+              ? value.toFixed(2)
+              : typeof value === "string" && value.trim() === ""
+                ? value
+                : "Error"}
           </p>
         ) : (
           <input

@@ -122,6 +122,7 @@ Your users should be able to:
 - [useLocalStorage](https://usehooks-ts.com/react-hook/use-local-storage) - This helped me deal with localStorage in a clear way
 - [How to preserve query parameters in React Router links](https://typeofnan.dev/how-to-preserve-query-parameters-in-react-router-links/) - This helped me create a version of `<Link>` that preserves the query params
 - [How to type an array of anchor elements and paragraph elements in TypeScript](https://stackoverflow.com/q/76086402/12159189) - This helped create the `LinkWithQueryProps` type
+- [Regex for positive float numbers](https://stackoverflow.com/a/41609228/12159189) - This helped me with a regex that works for positive floats
 
 ### AI Collaboration
 

@@ -4,7 +4,7 @@ import { getTodaysStringDate } from "../helpers/dates";
 
 type LogItem = {
   id: string;
-  firstCurrency: number;
+  firstCurrency: number | string;
   secondCurrency: number;
   date: Date;
   base: string;
@@ -16,14 +16,14 @@ export type LogsState = {
   toggleLog: (
     base: string,
     quote: string,
-    firstCurrency: number,
+    firstCurrency: number | string,
     secondCurrency: number,
   ) => void;
   isLogged: (id: string) => boolean;
   getLogId: (
     base: string,
     quote: string,
-    sendValue: number,
+    sendValue: number | string,
     receiveValue: number,
   ) => string;
   clearAll: () => void;
@@ -42,7 +42,7 @@ export const LogsContextProvider = ({ children }: LogsContextProps) => {
   const getLogId = (
     base: string,
     quote: string,
-    sendValue: number,
+    sendValue: number | string,
     receiveValue: number,
   ) => {
     return `${base.toUpperCase()}-${quote.toUpperCase()}-${getTodaysStringDate()}-${sendValue}-${receiveValue}`;
@@ -51,7 +51,7 @@ export const LogsContextProvider = ({ children }: LogsContextProps) => {
   const toggleLog = (
     base: string,
     quote: string,
-    firstCurrency: number,
+    firstCurrency: number | string,
     secondCurrency: number,
   ) => {
     const id = getLogId(base, quote, firstCurrency, secondCurrency);

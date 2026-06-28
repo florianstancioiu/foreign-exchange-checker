@@ -6,8 +6,8 @@ import { useSearchParams } from "react-router";
 export type RateState = {
   firstCurrency: string;
   secondCurrency: string;
-  sendValue: number;
-  setSendValue: (value: number) => void;
+  sendValue: number | string;
+  setSendValue: (value: number | string) => void;
   isPending: boolean;
   error: Error | null;
   data: Rate[];
@@ -39,7 +39,7 @@ export const RateContextProvider = ({ children }: RateContextProps) => {
     searchParams.get("firstCurrency") ?? initialCurrencies.firstCurrency;
   const secondCurrency =
     searchParams.get("secondCurrency") ?? initialCurrencies.secondCurrency;
-  const sendValue = parseFloat(searchParams.get("sendValue") ?? "0");
+  const sendValue = searchParams.get("sendValue") ?? "0";
   let receiveValue = 0;
 
   const { isPending, error, data } = useQuery({
@@ -73,7 +73,7 @@ export const RateContextProvider = ({ children }: RateContextProps) => {
       return params;
     });
 
-  const setSendValue = (val: number) =>
+  const setSendValue = (val: number | string) =>
     setSearchParams((params) => {
       params.set("sendValue", `${val}`);
 
