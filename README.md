@@ -15,7 +15,6 @@ This is a solution to the [FX Checker challenge on Frontend Mentor](https://www.
   - [Useful resources](#useful-resources)
   - [AI Collaboration](#ai-collaboration)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 - [Daily summaries](#daily-summaries)
 
 ## Overview
@@ -93,7 +92,7 @@ Your users should be able to:
 - [React](https://reactjs.org/) - JS library
 - [TypeScript](https://www.typescriptlang.org/) - JavaScript with types
 - [TailwindCSS](https://tailwindcss.com/) - For styles
-- [Vite](https://vite.dev/) - Build tool
+- [Charts.js](https://www.chartjs.org/) - For the line chart
 
 ### What I learned
 
@@ -134,10 +133,6 @@ I didn't explicitly use any kind of AI tool during the development of this solut
 - Threads - [@florianstancioiu01](https://www.threads.com/@florianstancioiu01)
 - LinkedIn - [florianstancioiu](https://www.linkedin.com/in/florian-stancioiu-765661349/)
 - freeCodeCamp - [florianstancioiu](https://www.freecodecamp.org/florianstancioiu)
-
-## Acknowledgments
-
-**Will update or delete this section in the future**
 
 ## Daily summaries
 
