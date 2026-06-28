@@ -45,6 +45,8 @@ const History = () => {
     <>
       {change > 0 ? (
         <p className="text-green-500">+{change.toFixed(4)}</p>
+      ) : change === 0 ? (
+        <p>{change.toFixed(4)}</p>
       ) : (
         <p className="text-red-500">{change.toFixed(4)}</p>
       )}
@@ -57,6 +59,10 @@ const History = () => {
         <p className="text-green-500 flex items-center">
           <ChevronDownSvg className="rotate-180 size-6" />
           <span>+{changePercentage}%</span>
+        </p>
+      ) : change === 0 ? (
+        <p className="flex items-center">
+          <span>{changePercentage}%</span>
         </p>
       ) : (
         <p className="text-red-500 flex items-center">
