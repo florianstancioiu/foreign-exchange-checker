@@ -8,6 +8,15 @@ export const getStringDate = (date: Date) => {
   return `${date.getUTCFullYear()}-${month}-${day}`;
 };
 
+export const getConversionLogDate = (date: string | Date) => {
+  const acctualDate = typeof date === "string" ? new Date(date) : date;
+  const day = acctualDate.getUTCDate();
+  const monthNumber = acctualDate.getUTCMonth();
+  const shortMonth = getShortMonth(monthNumber);
+
+  return `${shortMonth} ${day}`;
+};
+
 export const getTodaysStringDate = () => getStringDate(new Date());
 
 export const getPreviousDate = (numberOfDaysInThePast: number) => {

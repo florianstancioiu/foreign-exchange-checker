@@ -3,8 +3,8 @@ import DetailsContainer from "../components/UI/DetailsContainer/DetailsContainer
 import LogItem from "../components/UI/LogItem/LogItem";
 import Button from "../components/UI/Button/Button";
 import { useLogsContext } from "../contexts/LogsContext";
-import { getStringDate } from "../helpers/dates";
 import EmptyPage from "../components/UI/EmptyPage/EmptyPage";
+import { getConversionLogDate } from "../helpers/dates";
 
 type LogHeaderContent = {
   logged: number;
@@ -52,7 +52,7 @@ const Log = () => {
             <LogItem
               key={item.id}
               id={item.id}
-              dateRange={getStringDate(new Date())}
+              dateRange={getConversionLogDate(item.date)}
               base={item.base}
               quote={item.quote}
               firstValue={
