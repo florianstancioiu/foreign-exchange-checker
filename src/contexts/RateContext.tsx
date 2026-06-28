@@ -33,7 +33,6 @@ export const RateContextProvider = ({ children }: RateContextProps) => {
     firstCurrency: initialCurrencies.firstCurrency,
     secondCurrency: initialCurrencies.secondCurrency,
     sendValue: "0",
-    receiveValue: "0",
   });
 
   const firstCurrency =
