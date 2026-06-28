@@ -80,7 +80,9 @@ const Compare = () => {
         headerContent={
           <CompareHeaderContent
             pairs={compareRates.length}
-            sendValue={sendValue}
+            sendValue={
+              typeof sendValue === "string" ? parseFloat(sendValue) : sendValue
+            }
             currency={firstCurrency}
           />
         }
@@ -93,7 +95,12 @@ const Compare = () => {
               key={`${item.base}-${item.quote}`}
               currency={item.quote}
               currencyTitle={item.name}
-              value={item.rate * sendValue}
+              value={
+                item.rate *
+                (typeof sendValue === "string"
+                  ? parseFloat(sendValue)
+                  : sendValue)
+              }
               subValue={item.rate}
               isFavorite={false}
             />

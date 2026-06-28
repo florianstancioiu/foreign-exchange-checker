@@ -55,7 +55,11 @@ const Log = () => {
               dateRange={getStringDate(new Date())}
               base={item.base}
               quote={item.quote}
-              firstValue={item.firstCurrency}
+              firstValue={
+                typeof item.firstCurrency === "string"
+                  ? parseFloat(item.firstCurrency)
+                  : item.firstCurrency
+              }
               secondValue={item.secondCurrency}
             />
           ))}
