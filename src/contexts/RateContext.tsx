@@ -55,9 +55,11 @@ export const RateContextProvider = ({ children }: RateContextProps) => {
     },
   });
 
-  if (!isPending && !error && data.length > 0) {
+  if (!isPending && !error && data.length >= 0) {
     receiveValue =
-      data[0].rate * parseFloat(searchParams.get("sendValue") ?? "0");
+      data.length === 0
+        ? parseFloat(sendValue)
+        : data[0].rate * parseFloat(searchParams.get("sendValue") ?? "0");
   }
 
   const setFirstCurrencyHandler = (iso: string) =>
