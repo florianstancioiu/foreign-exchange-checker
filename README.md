@@ -79,6 +79,7 @@ Your users should be able to:
 
 - URL: [https://florianstancioiu.github.io/foreign-exchange-checker/](https://florianstancioiu.github.io/foreign-exchange-checker/)
 - Github URL: [https://github.com/florianstancioiu/foreign-exchange-checker](https://github.com/florianstancioiu/foreign-exchange-checker)
+- Frontend Mentor URL: [https://www.frontendmentor.io/solutions/fx-checker-made-with-react-typescript-and-tailwindcss-mbJ1MOWi1B](https://www.frontendmentor.io/solutions/fx-checker-made-with-react-typescript-and-tailwindcss-mbJ1MOWi1B)
 
 ## My process
 
