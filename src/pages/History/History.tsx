@@ -1,15 +1,15 @@
-import TabsMenu from "../components/TabsMenu/TabsMenu";
-import StatsItem from "../components/UI/StatsItem/StatsItem";
-import ChevronDownSvg from "../images/icon-chevron-down.svg?react";
-import DateRange from "../components/UI/DateRange/DateRange";
-import LineChart from "../components/UI/LineChart/LineChart";
+import TabsMenu from "../../components/TabsMenu/TabsMenu";
+import StatsItem from "../../components/UI/StatsItem/StatsItem";
+import ChevronDownSvg from "../../images/icon-chevron-down.svg?react";
+import DateRange from "../../components/UI/DateRange/DateRange";
+import LineChart from "../../components/UI/LineChart/LineChart";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import { getPreviousDate } from "../helpers/dates";
-import { type Rate } from "../types/rate";
-import { getRateStats } from "../helpers/rates";
-import EmptyPage from "../components/UI/EmptyPage/EmptyPage";
-import { useRateContext } from "../contexts/RateContext";
+import { getPreviousDate } from "../../helpers/dates";
+import { type Rate } from "../../types/rate";
+import { getRateStats } from "../../helpers/rates";
+import EmptyPage from "../../components/UI/EmptyPage/EmptyPage";
+import { useRateContext } from "../../contexts/RateContext";
 
 const History = () => {
   const {

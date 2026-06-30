@@ -1,23 +1,9 @@
-import TabsMenu from "../components/TabsMenu/TabsMenu";
-import DetailsContainer from "../components/UI/DetailsContainer/DetailsContainer";
-import FavoriteItem from "../components/UI/FavoriteItem/FavoriteItem";
-import EmptyPage from "../components/UI/EmptyPage/EmptyPage";
-import { useFavoritesContext } from "../contexts/FavoritesContext";
-
-type FavoritesHeaderContent = {
-  numberOfFavorites: number;
-};
-
-const FavoritesHeader = ({ numberOfFavorites }: FavoritesHeaderContent) => (
-  <div className="flex justify-between items-start mb-4 md:mb-5">
-    <p className="uppercase text-base font-medium leading-[120%] tracking-[1px] text-neutral-50">
-      Pinned pairs
-    </p>
-    <p className="uppercase text-sm font-normal leading-[120%] tracking-[1px] text-neutral-200 mb-2.5">
-      {numberOfFavorites} favorites
-    </p>
-  </div>
-);
+import TabsMenu from "../../components/TabsMenu/TabsMenu";
+import DetailsContainer from "../../components/UI/DetailsContainer/DetailsContainer";
+import FavoriteItem from "../../components/UI/FavoriteItem/FavoriteItem";
+import EmptyPage from "../../components/UI/EmptyPage/EmptyPage";
+import { useFavoritesContext } from "../../contexts/FavoritesContext";
+import FavoritesHeaderContent from "./FavoritesHeaderContent";
 
 const Favorites = () => {
   const { favorites } = useFavoritesContext();
@@ -27,7 +13,7 @@ const Favorites = () => {
     <TabsMenu variant="favorites">
       <DetailsContainer
         headerContent={
-          <FavoritesHeader numberOfFavorites={numberOfFavorites} />
+          <FavoritesHeaderContent numberOfFavorites={numberOfFavorites} />
         }
       >
         {typeof favorites !== undefined &&

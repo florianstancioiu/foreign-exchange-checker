@@ -1,10 +1,10 @@
 import { Routes as RouterRoutes, Route } from "react-router";
-import AppLayout from "./pages/layouts/AppLayout";
+import AppLayout from "./layouts/AppLayout";
 
-import History from "./pages/History";
-import Compare from "./pages/Compare";
-import Favorites from "./pages/Favorites";
-import Log from "./pages/Log";
+import History from "./pages/History/History";
+import Compare from "./pages/Compare/Compare";
+import Favorites from "./pages/Favorites/Favorites";
+import Log from "./pages/Log/Log";
 
 const Routes = () => {
   return (
