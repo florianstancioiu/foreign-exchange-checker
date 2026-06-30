@@ -30,26 +30,39 @@ const CompareItem = ({
           className="size-6 rounded-full"
         />
         <div>
-          <p className="text-sm font-normal leading-[120%] tracking-[1px] text-neutral-50 mb-1.5 uppercase">
+          <p
+            data-testid="compare_item_currency"
+            className="text-sm font-normal leading-[120%] tracking-[1px] text-neutral-50 mb-1.5 uppercase"
+          >
             {currency}
           </p>
-          <p className="text-xs font-normal leading-[120%] tracking-[0.5px] text-neutral-200">
+          <p
+            data-testid="compare_item_currency_title"
+            className="text-xs font-normal leading-[120%] tracking-[0.5px] text-neutral-200"
+          >
             {currencyTitle}
           </p>
         </div>
       </div>
       <div className="flex justify-between items-center gap-x-2.5 md:gap-5">
         <div className="text-right">
-          <p className="text-base font-normal leading-[120%] tracking-[1px] text-neutral-50 mb-1.5">
+          <p
+            data-testid="compare_item_value"
+            className="text-base font-normal leading-[120%] tracking-[1px] text-neutral-50 mb-1.5"
+          >
             {value.toFixed(2)}
           </p>
-          <p className="text-[10px] font-normal leading-[100%] text-neutral-200">
+          <p
+            data-testid="compare_item_sub_value"
+            className="text-[10px] font-normal leading-[100%] text-neutral-200"
+          >
             @ {subValue.toFixed(4)}
           </p>
         </div>
         {isFavorite ? (
           <button
             type="button"
+            data-testid="compare_item_favorite_btn"
             onClick={() => toggleFavorite(firstCurrency, currency)}
             aria-label={`Unfavorite the ${firstCurrency} - ${currency} pair`}
             className="size-8 border border-lime-500 text-lime-500 rounded-[10px] grid place-content-center cursor-pointer focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg hover:bg-neutral-500"
@@ -59,6 +72,7 @@ const CompareItem = ({
         ) : (
           <button
             type="button"
+            data-testid="compare_item_favorite_btn"
             onClick={() => toggleFavorite(firstCurrency, currency)}
             aria-label={`Favorite the ${firstCurrency} - ${currency} pair`}
             className="size-8 border border-neutral-500 rounded-[10px] grid place-content-center cursor-pointer focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg hover:bg-neutral-500"
