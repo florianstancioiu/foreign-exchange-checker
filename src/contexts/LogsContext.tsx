@@ -32,21 +32,21 @@ export type LogsState = {
 
 const LogsContext = createContext<LogsState | null>(null);
 
+const getLogId = (
+  base: string,
+  quote: string,
+  sendValue: number | string,
+  receiveValue: number,
+) => {
+  return `${base.toUpperCase()}-${quote.toUpperCase()}-${getTodaysStringDate()}-${sendValue}-${receiveValue}`;
+};
+
 export type LogsContextProps = {
   children: ReactNode;
 };
 
 export const LogsContextProvider = ({ children }: LogsContextProps) => {
   const [logs, setLogs] = useLocalStorage<LogItem[] | undefined>("logs:v1", []);
-
-  const getLogId = (
-    base: string,
-    quote: string,
-    sendValue: number | string,
-    receiveValue: number,
-  ) => {
-    return `${base.toUpperCase()}-${quote.toUpperCase()}-${getTodaysStringDate()}-${sendValue}-${receiveValue}`;
-  };
 
   const toggleLog = (
     base: string,
