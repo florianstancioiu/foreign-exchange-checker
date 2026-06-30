@@ -10,7 +10,7 @@ const baseCurrency = "RON";
 
 const LiveMarkets = () => {
   const { isPending, error, data } = useQuery({
-    queryKey: ["liveMarketsData"],
+    queryKey: ["liveMarketsData", getYesterday()],
     queryFn: async () => {
       const response = await fetch(
         `https://api.frankfurter.dev/v2/rates?base=${baseCurrency}&quotes=${liveMarketsCurrencies.join(",")}&from=${getYesterday()}`,

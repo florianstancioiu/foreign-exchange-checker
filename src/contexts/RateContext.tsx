@@ -44,9 +44,7 @@ export const RateContextProvider = ({ children }: RateContextProps) => {
   let receiveValue = 0;
 
   const { isPending, error, data } = useQuery({
-    queryKey: [
-      `baseCurrencyToQuoteCurrency-${firstCurrency}-${secondCurrency}`,
-    ],
+    queryKey: ["baseCurrencyToQuoteCurrency", firstCurrency, secondCurrency],
     queryFn: async () => {
       const response = await fetch(
         `https://api.frankfurter.dev/v2/rates?base=${firstCurrency?.toUpperCase()}&quotes=${secondCurrency?.toUpperCase()}`,

@@ -59,7 +59,7 @@ const Compare = () => {
     .toUpperCase();
 
   const { isPending, error, data } = useQuery({
-    queryKey: [`compareCurrencies-${firstCurrency}-${compareRatesString}`],
+    queryKey: ["compareCurrencies", firstCurrency, compareRatesString],
     queryFn: async () => {
       const response = await fetch(
         `https://api.frankfurter.dev/v2/rates?base=${firstCurrency.toUpperCase()}&quotes=${compareRatesString}`,

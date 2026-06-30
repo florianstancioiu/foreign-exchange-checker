@@ -47,6 +47,7 @@ const CurrencyPicker = ({
     queryKey: ["currenciesData"],
     queryFn: async () => {
       const response = await fetch("https://api.frankfurter.dev/v2/currencies");
+
       return await response.json();
     },
   });
