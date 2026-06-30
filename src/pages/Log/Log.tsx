@@ -18,7 +18,7 @@ const Log = () => {
           />
         }
       >
-        {typeof logs !== "undefined" &&
+        {logs !== undefined &&
           logs.map((item) => (
             <LogItem
               key={item.id}
@@ -34,7 +34,7 @@ const Log = () => {
               secondValue={item.secondCurrency}
             />
           ))}
-        {(typeof logs === "undefined" || logs.length === 0) && (
+        {(logs === undefined || logs.length === 0) && (
           <EmptyPage
             title="No conversions logged yet"
             content={

@@ -16,7 +16,7 @@ const Favorites = () => {
           <FavoritesHeaderContent numberOfFavorites={numberOfFavorites} />
         }
       >
-        {typeof favorites !== undefined &&
+        {favorites !== undefined &&
           favorites?.length !== 0 &&
           favorites?.map((item) => (
             <FavoriteItem
@@ -27,7 +27,7 @@ const Favorites = () => {
               percentageValue={0}
             />
           ))}
-        {typeof favorites === undefined ||
+        {favorites === undefined ||
           (favorites?.length === 0 && (
             <EmptyPage
               title="No pinned pairs yet"

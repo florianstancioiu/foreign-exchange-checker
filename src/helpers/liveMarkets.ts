@@ -19,7 +19,7 @@ export const getLiveMarkets = (ratesData?: Rate[]) => {
   for (let i = 0; i < todaysData.length; i++) {
     for (let j = 0; j < yesterdayData.length; j++) {
       const market = todaysData[i];
-      const yesterdayMarket = yesterdayData[i];
+      const yesterdayMarket = yesterdayData[j];
 
       if (market.quote === yesterdayMarket.quote) {
         const rateDiff = market.rate - yesterdayMarket.rate;
