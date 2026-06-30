@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useRateContext } from "../contexts/RateContext";
 import { type Rate } from "../types/rate";
 import EmptyPage from "../components/UI/EmptyPage/EmptyPage";
+import { useFavoritesContext } from "../contexts/FavoritesContext";
 
 type CompareHeaderContentProps = {
   pairs: number;
@@ -51,6 +52,7 @@ const CompareHeaderContent = ({
 
 const Compare = () => {
   const { firstCurrency, sendValue } = useRateContext();
+  const { isFavorited } = useFavoritesContext();
   const compareRatesString = compareRates
     .map((r) => r.iso_code)
     .join(",")
@@ -102,7 +104,7 @@ const Compare = () => {
                   : sendValue)
               }
               subValue={item.rate}
-              isFavorite={false}
+              isFavorite={isFavorited(firstCurrency, item.quote)}
             />
           ))}
         {isPending && (
