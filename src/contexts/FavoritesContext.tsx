@@ -1,4 +1,4 @@
-import { use, createContext, type ReactNode } from "react";
+import { createContext, type ReactNode, useContext } from "react";
 import { useLocalStorage } from "usehooks-ts";
 
 type FavoriteLSItem = {
@@ -83,7 +83,7 @@ export const FavoritesContextProvider = ({
 };
 
 export const useFavoritesContext = () => {
-  const context = use(FavoritesContext);
+  const context = useContext(FavoritesContext);
 
   if (!context) {
     throw new Error(

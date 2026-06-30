@@ -1,4 +1,4 @@
-import { use, createContext, type ReactNode } from "react";
+import { createContext, type ReactNode, useContext } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { type Rate } from "../types/rate";
 import { useSearchParams } from "react-router";
@@ -129,7 +129,7 @@ export const RateContextProvider = ({ children }: RateContextProps) => {
 };
 
 export const useRateContext = () => {
-  const context = use(RateContext);
+  const context = useContext(RateContext);
 
   if (!context) {
     throw new Error(

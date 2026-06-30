@@ -1,4 +1,4 @@
-import { use, createContext, type ReactNode } from "react";
+import { createContext, type ReactNode, useContext } from "react";
 import { useLocalStorage } from "usehooks-ts";
 import { getTodaysStringDate } from "../helpers/dates";
 
@@ -120,7 +120,7 @@ export const LogsContextProvider = ({ children }: LogsContextProps) => {
 };
 
 export const useLogsContext = () => {
-  const context = use(LogsContext);
+  const context = useContext(LogsContext);
 
   if (!context) {
     throw new Error(
