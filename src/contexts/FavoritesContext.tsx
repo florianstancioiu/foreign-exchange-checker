@@ -46,13 +46,14 @@ export const FavoritesContextProvider = ({
         ];
       }
 
-      favs?.push({
-        id,
-        base: upperBase,
-        quote: upperQuote,
-      });
-
-      return favs;
+      return [
+        ...favs,
+        {
+          id,
+          base: upperBase,
+          quote: upperQuote,
+        },
+      ];
     });
   };
 

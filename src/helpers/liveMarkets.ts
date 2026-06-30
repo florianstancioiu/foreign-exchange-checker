@@ -17,7 +17,7 @@ export const getLiveMarkets = (ratesData?: Rate[]) => {
   const liveMarkets = [];
 
   for (let i = 0; i < todaysData.length; i++) {
-    for (let j = 0; j < yesterdayData.length; i++) {
+    for (let j = 0; j < yesterdayData.length; j++) {
       const market = todaysData[i];
       const yesterdayMarket = yesterdayData[i];
 

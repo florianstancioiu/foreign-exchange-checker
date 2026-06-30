@@ -17,7 +17,7 @@ const Button = ({
   return (
     <button
       type="button"
-      aria-label={ariaLabel !== "undefined" ? ariaLabel : ""}
+      aria-label={ariaLabel ?? undefined}
       onClick={() => {
         if (onClick) {
           onClick();

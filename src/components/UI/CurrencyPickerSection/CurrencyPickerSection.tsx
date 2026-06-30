@@ -33,7 +33,7 @@ const CurrencyPickerSection = ({
         {data.map((val) => {
           // hide currencies that lack a svg flag icon
           if (unavailableCurrencies.includes(val.iso_code.toLowerCase())) {
-            return;
+            return null;
           }
 
           return (

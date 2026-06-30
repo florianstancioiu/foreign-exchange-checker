@@ -74,16 +74,17 @@ export const LogsContextProvider = ({ children }: LogsContextProps) => {
         ];
       }
 
-      logItems?.push({
-        id,
-        firstCurrency,
-        secondCurrency,
-        date: new Date(),
-        base: base.toUpperCase(),
-        quote: quote.toUpperCase(),
-      });
-
-      return logItems;
+      return [
+        ...logItems,
+        {
+          id,
+          firstCurrency,
+          secondCurrency,
+          date: new Date(),
+          base: base.toUpperCase(),
+          quote: quote.toUpperCase(),
+        },
+      ];
     });
   };
 

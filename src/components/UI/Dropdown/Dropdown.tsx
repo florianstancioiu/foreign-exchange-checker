@@ -49,7 +49,7 @@ const Dropdown = ({ values, className }: DropdownProps) => {
             key={val.id}
             to={val.url}
           >
-            <span className="text-base font-normal leading-[120% text-neutral-50 tracking-[1px] uppercase">
+            <span className="text-base font-normal leading-[120%] text-neutral-50 tracking-[1px] uppercase">
               {val.title}
             </span>
             {val.suffix !== undefined ? (
