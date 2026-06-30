@@ -15,6 +15,7 @@ export type RateState = {
   setFirstCurrencyHandler: (iso: string) => void;
   setSecondCurrencyHandler: (iso: string) => void;
   onExchangeBtnClickHandler: () => void;
+  loadCurrencies: (firstCurrency: string, secondCurrency: string) => void;
 };
 
 const RateContext = createContext<RateState | null>(null);
@@ -99,6 +100,14 @@ export const RateContextProvider = ({ children }: RateContextProps) => {
     });
   };
 
+  const loadCurrencies = (firstCurrency: string, secondCurrency: string) =>
+    setSearchParams((params) => {
+      params.set("firstCurrency", firstCurrency);
+      params.set("secondCurrency", secondCurrency);
+
+      return params;
+    });
+
   return (
     <RateContext.Provider
       value={{
@@ -113,6 +122,7 @@ export const RateContextProvider = ({ children }: RateContextProps) => {
         setFirstCurrencyHandler,
         setSecondCurrencyHandler,
         onExchangeBtnClickHandler,
+        loadCurrencies,
       }}
     >
       {children}
