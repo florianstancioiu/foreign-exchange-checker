@@ -101,6 +101,7 @@ Your users should be able to:
 - I learned to position a popover element relative to its button using `position-area` property
 - I learned to set a gradient as the backgroundColor for a line chart (Chart.js)
 - I learned to use outline in order to style :focus-visible states
+- I learned the basics of Tanstack Query
 
 ### Continued development
 
