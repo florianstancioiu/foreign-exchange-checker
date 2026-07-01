@@ -1,0 +1,77 @@
+import { render, screen } from "@testing-library/react";
+import CurrencyPickerSection from "./CurrencyPickerSection";
+import nock from "nock";
+import AppWithProviders from "../../../tests/AppWithProviders";
+import baseCurrencyToQuoteCurrency from "../../../tests/data/baseCurrencyToQuoteCurrency";
+import currencies from "../../../tests/data/currencies";
+import userEvent from "@testing-library/user-event";
+
+describe("<CurrencyPicker />", () => {
+  beforeEach(async () => {
+    nock("https://api.frankfurter.dev/v2/rates")
+      .get("?base=USD&quotes=EUR")
+      .reply(200, baseCurrencyToQuoteCurrency);
+  });
+
+  afterEach(() => {
+    nock.cleanAll();
+    nock.enableNetConnect();
+  });
+
+  test("component render", async () => {
+    const title = "Available currencies";
+    const onClickItem = vitest.fn();
+
+    render(
+      <AppWithProviders>
+        <CurrencyPickerSection
+          title={title}
+          titleValue={currencies.length}
+          data={currencies}
+          onClickItem={onClickItem}
+        />
+      </AppWithProviders>,
+    );
+
+    const sectionTitle = await screen.getByTestId(
+      "currency_picker_section_title",
+    );
+    const sectionTitleValue = await screen.getByTestId(
+      "currency_picker_section_title_value",
+    );
+    const currencyPickerItems = await screen.getAllByTestId(
+      "currency_picker_item",
+    );
+
+    expect(sectionTitle).toHaveTextContent(title);
+    expect(sectionTitleValue).toHaveTextContent(`${currencies.length}`);
+    expect(currencyPickerItems.length).toEqual(165);
+  });
+
+  test("onClickItem", async () => {
+    const title = "Available currencies";
+    const onClickItem = vitest.fn();
+    const albanianLek = currencies[2];
+
+    render(
+      <AppWithProviders>
+        <CurrencyPickerSection
+          title={title}
+          titleValue={currencies.length}
+          data={currencies}
+          onClickItem={onClickItem}
+        />
+      </AppWithProviders>,
+    );
+
+    const currencyPickerItems = await screen.getAllByTestId(
+      "currency_picker_item",
+    );
+    const thirdCurrencyPickerItem = currencyPickerItems[2];
+
+    await userEvent.click(thirdCurrencyPickerItem);
+
+    expect(onClickItem).toHaveBeenCalledOnce();
+    expect(onClickItem).toHaveBeenCalledWith(albanianLek.iso_code);
+  });
+});
