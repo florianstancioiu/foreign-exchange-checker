@@ -12,6 +12,7 @@ const EmptyMarketItem = ({ title, className }: EmptyMarketItemProps) => {
         `flex items-center gap-x-2 px-5 py-2 bg-neutral-700 border-r border-neutral-500 md:py-3 select-none text-neutral-50`,
         className,
       )}
+      data-testid="empty_market_item"
     >
       {title}
     </div>
