@@ -155,5 +155,6 @@ I didn't explicitly use any kind of AI tool during the development of this solut
 | June 27th, 2026 | 4 hours    | I implemented the Log Conversion functionality & made the CheckRate variables sync in the URL                  |
 | June 28th, 2026 | 2 hours    | I fixes some issues that I noted in the ISSUES.md file                                                         |
 | June 30th, 2026 | 6 hours    | I wrote tests for a couple of components & I figured out a way to reliably mock Tanstack Query requests        |
+| July 1st, 2026  | 2 hours    | I wrote tests for a bunch of UI components                                                                     |
 
-_Total time spent working on the project:_ **42 hours**
+_Total time spent working on the project:_ **44 hours**
