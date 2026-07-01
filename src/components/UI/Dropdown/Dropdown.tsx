@@ -17,13 +17,17 @@ export type DropdownProps = {
 
 const Dropdown = ({ values, className }: DropdownProps) => {
   const dropdownContentId = useId();
-  const activeValue = values.find((val) => val.isActive) || values[0];
+  const activeValue = values.find((val) => val.isActive) ?? values[0];
 
   return (
-    <div className={className !== undefined ? className : ""}>
+    <div
+      data-testid="dropdown"
+      className={className !== undefined ? className : ""}
+    >
       <button
         type="button"
         popoverTarget={dropdownContentId}
+        data-testid="dropdown_active_button"
         className="dropdown-anchor px-3 rounded-lg border border-neutral-400 bg-neutral-700 flex justify-between items-center h-10 cursor-pointer w-full focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
       >
         <p className="text-base font-normal leading-[120%] tracking-[1px] flex items-center gap-x-2">
@@ -48,6 +52,7 @@ const Dropdown = ({ values, className }: DropdownProps) => {
             className="w-full p-2.5 flex justify-between focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
             key={val.id}
             to={val.url}
+            data-testid="dropdown_link"
           >
             <span className="text-base font-normal leading-[120%] text-neutral-50 tracking-[1px] uppercase">
               {val.title}
