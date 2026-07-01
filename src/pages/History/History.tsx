@@ -10,6 +10,7 @@ import { type Rate } from "../../types/rate";
 import { getRateStats } from "../../helpers/rates";
 import EmptyPage from "../../components/UI/EmptyPage/EmptyPage";
 import { useRateContext } from "../../contexts/RateContext";
+import ranges from "../../helpers/ranges";
 
 const History = () => {
   const {
@@ -85,14 +86,7 @@ const History = () => {
               <StatsItem title="% Change" value={changePercentageStatValue} />
             </div>
             <DateRange
-              ranges={[
-                { id: 1, title: "1D", value: 1 },
-                { id: 2, title: "1W", value: 7 },
-                { id: 3, title: "1M", value: 30 },
-                { id: 4, title: "3M", value: 90 },
-                { id: 5, title: "1Y", value: 365 },
-                { id: 6, title: "5Y", value: 1825 },
-              ]}
+              ranges={ranges}
               active={activeDateRange}
               onChangeActive={onChangeActiveHandler}
             />
