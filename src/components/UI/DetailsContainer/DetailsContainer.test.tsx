@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import DetailsContainer from "./DetailsContainer";
 
-describe("<DateRange />", () => {
+describe("<DetailsContainer />", () => {
   const HeaderContent = () => <h1>Header Content</h1>;
   const DetailsContainerChildren = () => <p>children</p>;
 
