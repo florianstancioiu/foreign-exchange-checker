@@ -10,7 +10,7 @@ const LinkWithQuery = ({ children, to, ...props }: LinkWithQueryProps) => {
   const { search } = useLocation();
 
   return (
-    <Link to={to + search} {...props}>
+    <Link to={to + search} data-testid="link_with_query" {...props}>
       {children}
     </Link>
   );
