@@ -24,10 +24,16 @@ const LogItem = ({
   return (
     <section className="border border-neutral-500 rounded-[10px] bg-neutral-600 p-3 flex gap-x-2.5 justify-between items-center hover:border-neutral-300">
       <div className="flex flex-col gap-y-1 md:flex-row md:gap-x-4">
-        <p className="text-neutral-200 text-sm font-normal leading-[120%] tracking-[1px] md:min-w-16">
+        <p
+          className="text-neutral-200 text-sm font-normal leading-[120%] tracking-[1px] md:min-w-16"
+          data-testid="log_item_daterange"
+        >
           {dateRange}
         </p>
-        <div className="flex items-center gap-2.5 text-sm font-normal leading-[120%] tracking-[1px] text-neutral-50 uppercase">
+        <div
+          className="flex items-center gap-2.5 text-sm font-normal leading-[120%] tracking-[1px] text-neutral-50 uppercase"
+          data-testid="log_item_base_quote"
+        >
           <span>{base}</span>
           <ArrowRightSvg />
           <span>{quote}</span>
@@ -35,10 +41,16 @@ const LogItem = ({
       </div>
       <div className="flex justify-between items-center gap-x-2.5 md:gap-x-4">
         <div className="md:flex md:gap-x-5">
-          <p className="text-base text-right font-normal leading-[120%] tracking-[1px] text-neutral-100">
+          <p
+            className="text-base text-right font-normal leading-[120%] tracking-[1px] text-neutral-100"
+            data-testid="log_item_first_value"
+          >
             {(Math.round(firstValue * 100) / 100).toFixed(2)}
           </p>
-          <p className="text-lime-500 text-right text-base font-normal leading-[120%] tracking-[1px]">
+          <p
+            className="text-lime-500 text-right text-base font-normal leading-[120%] tracking-[1px]"
+            data-testid="log_item_second_value"
+          >
             {(Math.round(secondValue * 100) / 100).toFixed(2)}
           </p>
         </div>
