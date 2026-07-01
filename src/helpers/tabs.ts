@@ -1,7 +1,6 @@
 export default [
   {
     id: 1,
-    isActive: true,
     url: "/",
     title: "history",
   },
