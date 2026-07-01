@@ -6,7 +6,7 @@ import baseCurrencyToQuoteCurrency from "../../../tests/data/baseCurrencyToQuote
 import currencies from "../../../tests/data/currencies";
 import userEvent from "@testing-library/user-event";
 
-describe("<CurrencyPicker />", () => {
+describe("<CurrencyPickerSection />", () => {
   beforeEach(async () => {
     nock("https://api.frankfurter.dev/v2/rates")
       .get("?base=USD&quotes=EUR")
