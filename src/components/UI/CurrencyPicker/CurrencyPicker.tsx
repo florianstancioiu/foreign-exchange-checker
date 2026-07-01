@@ -44,7 +44,7 @@ const CurrencyPicker = ({
   const popoverRef = useRef<null | HTMLDivElement>(null);
 
   const { isPending, error, data } = useQuery({
-    queryKey: ["currenciesData"],
+    queryKey: ["currencies"],
     queryFn: async () => {
       const response = await fetch("https://api.frankfurter.dev/v2/currencies");
 
@@ -72,7 +72,7 @@ const CurrencyPicker = ({
     );
   });
 
-  const onSetActiveIsoHanlder = (iso: string) => {
+  const onSetActiveIsoHandler = (iso: string) => {
     setActiveIso(iso);
 
     if (popoverRef.current) {
@@ -87,15 +87,18 @@ const CurrencyPicker = ({
           type="button"
           popoverTarget={currencyPickerId}
           title={activeCurrency.name}
+          data-testid="currency_picker_active_button"
           className="p-2.5 rounded-lg border border-neutral-400 bg-neutral-500 flex gap-x-2 items-center cursor-pointer focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
         >
           <img
             src={`/foreign-exchange-checker/images/svg-flags/${activeCurrency.iso_code.toUpperCase().substring(0, 2)}.svg`}
             alt={`${activeCurrency.name} flag`}
+            data-testid="currency_picker_active_currency_flag"
             className="size-5 rounded-full"
           />
           <p
             className="uppercase text-sm font-normal leading-[120%] tracking-[1px]"
+            data-testid="currency_picker_active_iso_code"
             title={activeCurrency.name}
           >
             {activeCurrency.iso_code}
@@ -106,6 +109,7 @@ const CurrencyPicker = ({
       {isPending && (
         <button
           type="button"
+          data-testid="currency_picker_is_loading_button"
           className="p-2.5 rounded-lg border border-neutral-400 bg-neutral-500 flex gap-x-2 items-center focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg cursor-not-allowed"
         >
           <p className="uppercase text-sm font-normal leading-[120%] tracking-[1px]">
@@ -116,6 +120,7 @@ const CurrencyPicker = ({
       {error && (
         <button
           type="button"
+          data-testid="currency_picker_error_button"
           className="p-2.5 rounded-lg border border-neutral-400 bg-neutral-500 flex gap-x-2 items-center focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg cursor-not-allowed"
         >
           <p className="text-red-500 uppercase text-sm font-normal leading-[120%] tracking-[1px]">
@@ -136,6 +141,7 @@ const CurrencyPicker = ({
             aria-label="Search currencies"
             value={searchKeyword}
             onChange={onChangeSearchKeywordHandler}
+            data-testid="currency_picker_search_input"
             className="text-neutral-50 mb-2.5 border border-neutral-400 bg-neutral-600 shadow-search-input p-3 placeholder:text-neutral-200 w-full text-xs font-normal leading-[120%] tracking-[0.5px] rounded-lg pl-9 focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
             placeholder="Search currencies..."
           />
@@ -147,14 +153,14 @@ const CurrencyPicker = ({
               titleValue={3}
               data={popularCurrencies}
               activeIso={activeISO}
-              onClickItem={onSetActiveIsoHanlder}
+              onClickItem={onSetActiveIsoHandler}
             />
             <CurrencyPickerSection
               title="Other Currencies"
               titleValue={data.length - numberOfUnavailableCurrencies}
               data={data}
               activeIso={activeISO}
-              onClickItem={onSetActiveIsoHanlder}
+              onClickItem={onSetActiveIsoHandler}
             />
           </>
         ) : (
@@ -163,7 +169,7 @@ const CurrencyPicker = ({
             titleValue={searchedData?.length}
             data={searchedData ?? []}
             activeIso={activeISO}
-            onClickItem={onSetActiveIsoHanlder}
+            onClickItem={onSetActiveIsoHandler}
           />
         )}
       </div>
