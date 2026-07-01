@@ -3,7 +3,7 @@ import SearchSvg from "../../../images/icon-search.svg?react";
 import { useId, useState, useRef } from "react";
 import CurrencyPickerSection from "../CurrencyPickerSection/CurrencyPickerSection";
 import { useQuery } from "@tanstack/react-query";
-import { numberOfUnavailableCurrencies } from "../../../helpers/unavailableCurrencies";
+import unavailableCurrencies from "../../../helpers/unavailableCurrencies";
 import { type CurrencyPickerItemProps } from "../CurrencyPickerItem/CurrencyPickerItem";
 import { type ChangeEvent } from "react";
 
@@ -63,13 +63,29 @@ const CurrencyPicker = ({
       currency.iso_code.toUpperCase() === activeISO.toUpperCase(),
   );
 
-  const searchedData = data?.filter((item: Currency) => {
-    const lowerCaseSearchKeyword = searchKeyword.trim().toLowerCase();
+  const searchedData = data
+    ?.filter((item: Currency) => {
+      if (unavailableCurrencies.includes(item.iso_code.toLowerCase())) {
+        return false;
+      }
 
-    return (
-      item.name.toLowerCase().includes(lowerCaseSearchKeyword) ||
-      item.iso_code.toLowerCase().includes(lowerCaseSearchKeyword)
-    );
+      return true;
+    })
+    .filter((item: Currency) => {
+      const lowerCaseSearchKeyword = searchKeyword.trim().toLowerCase();
+
+      return (
+        item.name.toLowerCase().includes(lowerCaseSearchKeyword) ||
+        item.iso_code.toLowerCase().includes(lowerCaseSearchKeyword)
+      );
+    });
+
+  const actualData = data?.filter((item: Currency) => {
+    if (unavailableCurrencies.includes(item.iso_code.toLowerCase())) {
+      return false;
+    }
+
+    return true;
   });
 
   const onSetActiveIsoHandler = (iso: string) => {
@@ -157,8 +173,8 @@ const CurrencyPicker = ({
             />
             <CurrencyPickerSection
               title="Other Currencies"
-              titleValue={data.length - numberOfUnavailableCurrencies}
-              data={data}
+              titleValue={actualData.length}
+              data={actualData}
               activeIso={activeISO}
               onClickItem={onSetActiveIsoHandler}
             />
