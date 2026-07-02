@@ -43,7 +43,11 @@ export const RateContextProvider = ({ children }: RateContextProps) => {
   const sendValue = searchParams.get("sendValue") ?? "0";
   let receiveValue = 0;
 
-  const { isPending, error, data } = useQuery({
+  const {
+    isPending,
+    error,
+    data: baseToQuoteData,
+  } = useQuery({
     queryKey: ["baseCurrencyToQuoteCurrency", firstCurrency, secondCurrency],
     queryFn: async () => {
       const response = await fetch(
@@ -54,7 +58,9 @@ export const RateContextProvider = ({ children }: RateContextProps) => {
     },
   });
 
-  if (!isPending && !error && Array.isArray(data) && data.length >= 0) {
+  const data = Array.isArray(baseToQuoteData) ? baseToQuoteData : [];
+
+  if (!isPending && !error && data.length >= 0) {
     receiveValue =
       data.length === 0
         ? parseFloat(sendValue)

@@ -6,7 +6,7 @@ type LogItem = {
   id: string;
   firstCurrency: number | string;
   secondCurrency: number;
-  date: Date;
+  date: Date | string;
   base: string;
   quote: string;
 };
