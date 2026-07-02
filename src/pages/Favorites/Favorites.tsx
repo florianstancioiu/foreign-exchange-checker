@@ -23,8 +23,6 @@ const Favorites = () => {
               key={item.id}
               firstCurrency={item.base}
               secondCurrency={item.quote}
-              value={0}
-              percentageValue={0}
             />
           ))}
         {favorites === undefined ||
