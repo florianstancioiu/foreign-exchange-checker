@@ -36,7 +36,7 @@ const popularCurrencies: Currency[] = [
 ];
 
 const CurrencyPicker = ({
-  activeISO = "Eur",
+  activeISO = "EUR",
   setActiveIso,
 }: CurrencyPickerProps) => {
   const currencyPickerId = useId();
