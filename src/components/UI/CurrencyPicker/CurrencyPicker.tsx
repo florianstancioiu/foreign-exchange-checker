@@ -19,17 +19,17 @@ export type CurrencyPickerProps = {
 const popularCurrencies: Currency[] = [
   {
     id: 1,
-    iso_code: "usd",
+    iso_code: "USD",
     name: "Us Dollar",
   },
   {
     id: 2,
-    iso_code: "Eur",
+    iso_code: "EUR",
     name: "Euro",
   },
   {
     id: 3,
-    iso_code: "ron",
+    iso_code: "RON",
     name: "Leu",
     isActive: true,
   },
@@ -52,20 +52,21 @@ const CurrencyPicker = ({
     },
   });
 
+  const dataArray = !Array.isArray(data) ? [] : data;
+
   const onChangeSearchKeywordHandler = (
     event: ChangeEvent<HTMLInputElement>,
   ) => {
     setSearchKeyword(event.target.value);
   };
 
-  const activeCurrency = data?.find(
-    (currency: Currency) =>
-      currency.iso_code.toUpperCase() === activeISO.toUpperCase(),
+  const activeCurrency = dataArray?.find(
+    (currency: Currency) => currency.iso_code === activeISO,
   );
 
-  const searchedData = data
+  const searchedData = dataArray
     ?.filter((item: Currency) => {
-      if (unavailableCurrencies.includes(item.iso_code.toLowerCase())) {
+      if (unavailableCurrencies.includes(item.iso_code)) {
         return false;
       }
 
@@ -80,8 +81,8 @@ const CurrencyPicker = ({
       );
     });
 
-  const actualData = data?.filter((item: Currency) => {
-    if (unavailableCurrencies.includes(item.iso_code.toLowerCase())) {
+  const actualData = dataArray?.filter((item: Currency) => {
+    if (unavailableCurrencies.includes(item.iso_code)) {
       return false;
     }
 

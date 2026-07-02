@@ -47,14 +47,14 @@ export const RateContextProvider = ({ children }: RateContextProps) => {
     queryKey: ["baseCurrencyToQuoteCurrency", firstCurrency, secondCurrency],
     queryFn: async () => {
       const response = await fetch(
-        `https://api.frankfurter.dev/v2/rates?base=${firstCurrency?.toUpperCase()}&quotes=${secondCurrency?.toUpperCase()}`,
+        `https://api.frankfurter.dev/v2/rates?base=${firstCurrency}&quotes=${secondCurrency}`,
       );
 
       return await response.json();
     },
   });
 
-  if (!isPending && !error && data.length >= 0) {
+  if (!isPending && !error && Array.isArray(data) && data.length >= 0) {
     receiveValue =
       data.length === 0
         ? parseFloat(sendValue)

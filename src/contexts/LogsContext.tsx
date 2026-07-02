@@ -38,7 +38,7 @@ const getLogId = (
   sendValue: number | string,
   receiveValue: number,
 ) => {
-  return `${base.toUpperCase()}-${quote.toUpperCase()}-${getTodaysStringDate()}-${sendValue}-${receiveValue}`;
+  return `${base}-${quote}-${getTodaysStringDate()}-${sendValue}-${receiveValue}`;
 };
 
 export type LogsContextProps = {
@@ -68,8 +68,8 @@ export const LogsContextProvider = ({ children }: LogsContextProps) => {
             firstCurrency,
             secondCurrency,
             date: new Date(),
-            base: base.toUpperCase(),
-            quote: quote.toUpperCase(),
+            base,
+            quote,
           },
         ];
       }
@@ -81,8 +81,8 @@ export const LogsContextProvider = ({ children }: LogsContextProps) => {
           firstCurrency,
           secondCurrency,
           date: new Date(),
-          base: base.toUpperCase(),
-          quote: quote.toUpperCase(),
+          base,
+          quote,
         },
       ];
     });

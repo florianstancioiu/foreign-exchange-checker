@@ -27,9 +27,7 @@ export const FavoritesContextProvider = ({
   >("favorites:v1", []);
 
   const toggleFavorite = (base: string, quote: string) => {
-    const upperBase = base.toUpperCase();
-    const upperQuote = quote.toUpperCase();
-    const id = `${upperBase}-${upperQuote}`;
+    const id = `${base}-${quote}`;
 
     setFavorites((favs) => {
       if (favs?.find((item) => item.id === id)) {
@@ -40,8 +38,8 @@ export const FavoritesContextProvider = ({
         return [
           {
             id,
-            base: upperBase,
-            quote: upperQuote,
+            base,
+            quote,
           },
         ];
       }
@@ -50,8 +48,8 @@ export const FavoritesContextProvider = ({
         ...favs,
         {
           id,
-          base: upperBase,
-          quote: upperQuote,
+          base,
+          quote,
         },
       ];
     });
@@ -62,11 +60,7 @@ export const FavoritesContextProvider = ({
       return false;
     }
 
-    return (
-      favorites.findIndex(
-        (item) => item.id === `${base.toUpperCase()}-${quote.toUpperCase()}`,
-      ) >= 0
-    );
+    return favorites.findIndex((item) => item.id === `${base}-${quote}`) >= 0;
   };
 
   return (

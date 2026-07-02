@@ -12,16 +12,13 @@ import CompareHeaderContent from "./CompareHeaderContent";
 const Compare = () => {
   const { firstCurrency, sendValue } = useRateContext();
   const { isFavorited } = useFavoritesContext();
-  const compareRatesString = compareRates
-    .map((r) => r.iso_code)
-    .join(",")
-    .toUpperCase();
+  const compareRatesString = compareRates.map((r) => r.iso_code).join(",");
 
   const { isPending, error, data } = useQuery({
     queryKey: ["compareCurrencies", firstCurrency, compareRatesString],
     queryFn: async () => {
       const response = await fetch(
-        `https://api.frankfurter.dev/v2/rates?base=${firstCurrency.toUpperCase()}&quotes=${compareRatesString}`,
+        `https://api.frankfurter.dev/v2/rates?base=${firstCurrency}&quotes=${compareRatesString}`,
       );
 
       return await response.json();
@@ -30,9 +27,7 @@ const Compare = () => {
 
   const enhancedData = data?.map((item: Rate) => ({
     ...item,
-    name: compareRates.find(
-      (rate) => rate.iso_code.toLowerCase() === item.quote.toLowerCase(),
-    )?.name,
+    name: compareRates.find((rate) => rate.iso_code === item.quote)?.name,
   }));
 
   return (

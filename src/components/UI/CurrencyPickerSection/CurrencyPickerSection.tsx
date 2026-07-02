@@ -37,7 +37,7 @@ const CurrencyPickerSection = ({
             key={val.iso_code}
             iso_code={val.iso_code}
             name={val.name}
-            isActive={val.iso_code.toLowerCase() === activeIso?.toLowerCase()}
+            isActive={val.iso_code === activeIso}
             onClick={onClickItem}
           />
         ))}
