@@ -34,7 +34,7 @@ const Header = () => {
           </div>
           <Button
             onClick={toggleLightMode}
-            className="p-2 ml-2 light:bg-neutral-50 light:hover:bg-neutral-900 group"
+            className="p-2 ml-2 light:bg-blue-400 light:hover:bg-neutral-900 group"
           >
             {!lightMode && <SunSvg className="size-5 text-neutral-50" />}
             {lightMode && (
