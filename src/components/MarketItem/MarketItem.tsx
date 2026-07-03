@@ -16,17 +16,17 @@ const MarketItem = ({
   rateDiffPercentage,
 }: MarketItemProps) => {
   return (
-    <div className="flex items-center gap-x-2 px-5 py-2 bg-neutral-700 border-r border-neutral-500 md:py-3 select-none light:bg-neutral-400 light:border-neutral-300">
-      <p className="text-neutral-200 light:text-neutral-100">
+    <div className="flex items-center gap-x-2 px-5 py-2 bg-neutral-700 border-r border-neutral-500 md:py-3 select-none light:bg-neutral-50 light:border-neutral-100">
+      <p className="text-neutral-200 light:text-neutral-800 light:font-bold">
         {baseCurrency}/{quoteCurrency}
       </p>
-      <p className="text-neutral-50">{rate}</p>
+      <p className="text-neutral-50 light:text-neutral-700">{rate}</p>
       <p
-        className={`${rateDiff > 0 ? "text-green-500 light:text-green-400" : "text-red-500 light:text-red-400"} flex gap-x-1 items-center`}
+        className={`${rateDiff > 0 ? "text-green-500 light:text-green-700" : "text-red-500 light:text-red-700"} flex gap-x-1 items-center`}
       >
         <ChevronDownSvg
           fill="currentColor"
-          className={`${rateDiff > 0 ? "text-green-500 rotate-180 light:text-green-400" : "text-red-500 light:text-red-400"}`}
+          className={`${rateDiff > 0 ? "text-green-500 rotate-180 light:text-green-700" : "text-red-500 light:text-red-700"}`}
         />
         {rateDiffPercentage}%
       </p>

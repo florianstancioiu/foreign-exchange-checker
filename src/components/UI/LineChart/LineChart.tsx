@@ -56,12 +56,12 @@ const LineChart = ({
   };
 
   return (
-    <div className="bg-neutral-700 py-4 px-3 rounded-2xl border border-neutral-600 xl:p-5">
+    <div className="bg-neutral-700 py-4 px-3 rounded-2xl border border-neutral-600 xl:p-5 light:bg-blue-100 light:border-blue-200">
       <div className="flex justify-between items-center mb-5">
-        <p className="text-base font-medium leading-[120%] tracking-[1px] text-neutral-50 uppercase">
+        <p className="text-base font-medium leading-[120%] tracking-[1px] text-neutral-50 uppercase light:text-neutral-900">
           {baseCurrency}/{quoteCurrency}
         </p>
-        <p className="text-neutral-50 opacity-70 font-normal text-xs leading-[120%] tracking-[0.5px]">
+        <p className="text-neutral-50 opacity-70 font-normal text-xs leading-[120%] tracking-[0.5px] light:text-neutral-900">
           {rate.toFixed(4)} · {getChartDate()}
         </p>
       </div>

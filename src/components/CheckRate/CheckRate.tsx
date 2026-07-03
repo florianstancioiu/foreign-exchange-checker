@@ -36,8 +36,8 @@ const CheckRate = () => {
       <h1 className="uppercase text-xl font-normal leading-6 tracking-[-0.5px] mb-4">
         Check the rate
       </h1>
-      <div className="shadow-check-rate">
-        <div className="p-4 bg-neutral-700 rounded-[20px] rounded-br-none rounded-bl-none border-b border-dashed border-neutral-500 md:p-5">
+      <div className="shadow-check-rate light:shadow-none">
+        <div className="p-4 bg-neutral-700 rounded-[20px] rounded-br-none rounded-bl-none border-b border-dashed border-neutral-500 md:p-5 light:bg-neutral-50 light:border-blue-500">
           <div className="flex flex-col justify-center items-center gap-y-4 md:flex-row md:gap-x-6">
             <RateConverter
               title="Send"
@@ -62,7 +62,7 @@ const CheckRate = () => {
             />
           </div>
         </div>
-        <div className="p-4 bg-neutral-700 rounded-[20px] rounded-tr-none rounded-tl-none md:flex md:justify-between md:items-center">
+        <div className="p-4 bg-neutral-700 rounded-[20px] rounded-tr-none rounded-tl-none md:flex md:justify-between md:items-center light:bg-neutral-50">
           <p className="uppercase text-center font-normal leading-[100%] text-[10px] mb-4 md:mb-0 md:text-xs">
             {isPending ? "Loading conversion" : ""}
             {error ? "There was an error retrieving the conversion" : ""}
@@ -74,7 +74,7 @@ const CheckRate = () => {
             {isFavorited(firstCurrency, secondCurrency) && (
               <Button
                 onClick={() => toggleFavorite(firstCurrency, secondCurrency)}
-                className="flex gap-x-2 px-3 py-2 items-center bg-lime-500 border border-lime-500 text-neutral-900 text-xs hover:bg-lime-500"
+                className="flex gap-x-2 px-3 py-2 items-center bg-lime-500 border border-lime-500 text-neutral-900 text-xs hover:bg-lime-500 light:text-neutral-50"
               >
                 <FavoritedSvg />
                 <p className="uppercase">Favorited</p>
@@ -83,7 +83,7 @@ const CheckRate = () => {
             {!isFavorited(firstCurrency, secondCurrency) && (
               <Button
                 onClick={() => toggleFavorite(firstCurrency, secondCurrency)}
-                className="flex gap-x-2 px-3 py-2 items-center text-xs hover:bg-lime-500 hover:text-neutral-900"
+                className="flex gap-x-2 px-3 py-2 items-center text-xs hover:bg-lime-500 hover:text-neutral-900 light:text-neutral-50"
               >
                 <FavoriteSvg />
                 <p className="uppercase">Favorite</p>

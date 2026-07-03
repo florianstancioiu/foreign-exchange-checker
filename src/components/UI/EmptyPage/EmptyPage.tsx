@@ -9,7 +9,7 @@ const EmptyPage = ({ title, content }: EmptyPageProps) => {
   return (
     <div className="py-10 px-0 flex flex-col justify-center items-center gap-y-4">
       <p
-        className="font-normal text-neutral-100 leading-[120%] tracking-[-0.5px] text-xl"
+        className="font-normal text-neutral-100 leading-[120%] tracking-[-0.5px] text-xl light:text-neutral-900"
         data-testid="empty_page_title"
       >
         {title}
