@@ -32,9 +32,14 @@ const Header = () => {
             <span> · </span>
             <p>ECB Data</p>
           </div>
-          <Button onClick={toggleLightMode} className="p-2 ml-2">
-            {!lightMode && <SunSvg className="size-5" />}
-            {lightMode && <MoonSvg className="size-5 text-white" />}
+          <Button
+            onClick={toggleLightMode}
+            className="p-2 ml-2 light:bg-neutral-50 light:hover:bg-neutral-900 group"
+          >
+            {!lightMode && <SunSvg className="size-5 text-neutral-50" />}
+            {lightMode && (
+              <MoonSvg className="size-5 text-neutral-900 light:group-hover:text-neutral-50" />
+            )}
           </Button>
         </div>
       </div>
