@@ -22,7 +22,7 @@ const CurrencyPickerItem = ({
         }
       }}
       data-testid="currency_picker_item"
-      className="border border-neutral-600 bg-neutral-600 light:bg-blue-100 light:border-blue-200 rounded-sm py-3 px-2 flex justify-between items-center w-full cursor-pointer hover:border-neutral-200 light:hover:border-blue-400 focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg    "
+      className="border border-neutral-600 bg-neutral-600 light:bg-blue-100 light:border-blue-200 rounded-sm py-3 px-2 flex justify-between items-center w-full cursor-pointer hover:border-neutral-200 light:hover:border-blue-400 focus-visible:outline-lime-500 light:focus-visible:outline-blue-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg    "
     >
       <div className="flex items-center gap-x-3">
         <img

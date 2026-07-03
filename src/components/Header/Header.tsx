@@ -16,7 +16,7 @@ const Header = () => {
       <div className="flex justify-between p-4 items-center md:py-5 md:px-6">
         <LinkWithQuery
           to="/"
-          className="border border-transparent focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
+          className="border border-transparent focus-visible:outline-lime-500 light:focus-visible:outline-blue-200 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
           aria-label="Navigate to homepage"
         >
           {!lightMode && <LogoSvg className="w-28 md:w-auto" />}
@@ -34,7 +34,7 @@ const Header = () => {
           </div>
           <Button
             onClick={toggleLightMode}
-            className="p-2 ml-2 light:bg-neutral-50 light:hover:bg-neutral-900 group"
+            className="p-2 ml-2 light:bg-neutral-50 light:hover:bg-neutral-900 group light:focus-visible:outline-blue-200"
             ariaLabel="Toggle light mode"
           >
             {!lightMode && <SunSvg className="size-4 text-neutral-50" />}

@@ -105,7 +105,7 @@ const CurrencyPicker = ({
           popoverTarget={currencyPickerId}
           title={activeCurrency.name}
           data-testid="currency_picker_active_button"
-          className="p-2.5 rounded-lg border border-neutral-400 bg-neutral-500 light:bg-blue-500 light:border-blue-600 flex gap-x-2 items-center cursor-pointer focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
+          className="p-2.5 rounded-lg border border-neutral-400 bg-neutral-500 light:bg-blue-500 light:border-blue-600 flex gap-x-2 items-center cursor-pointer focus-visible:outline-lime-500 light:focus-visible:outline-blue-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
         >
           <img
             src={`/foreign-exchange-checker/images/svg-flags/${activeCurrency.iso_code.toUpperCase().substring(0, 2)}.svg`}
@@ -159,7 +159,7 @@ const CurrencyPicker = ({
             value={searchKeyword}
             onChange={onChangeSearchKeywordHandler}
             data-testid="currency_picker_search_input"
-            className="text-neutral-50 mb-2.5 border border-neutral-400 bg-neutral-600 light:bg-blue-300 light:text-neutral-900 light:shadow-none light:placeholder:text-neutral-600 shadow-search-input p-3 placeholder:text-neutral-200 w-full text-xs font-normal leading-[120%] tracking-[0.5px] rounded-lg pl-9 focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
+            className="text-neutral-50 mb-2.5 border border-neutral-400 bg-neutral-600 light:bg-blue-300 light:text-neutral-900 light:shadow-none light:placeholder:text-neutral-600 shadow-search-input p-3 placeholder:text-neutral-200 w-full text-xs font-normal leading-[120%] tracking-[0.5px] rounded-lg pl-9 focus-visible:outline-lime-500 light:focus-visible:outline-blue-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
             placeholder="Search currencies..."
           />
         </div>

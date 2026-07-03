@@ -48,7 +48,7 @@ const CheckRate = () => {
             />
             <Button
               onClick={onExchangeBtnClickHandler}
-              className="size-12 grid place-content-center"
+              className="size-12 grid place-content-center light:focus-visible:outline-blue-500"
               ariaLabel="Swap currencies"
             >
               <ExchangeSvg />
@@ -74,7 +74,7 @@ const CheckRate = () => {
             {isFavorited(firstCurrency, secondCurrency) && (
               <Button
                 onClick={() => toggleFavorite(firstCurrency, secondCurrency)}
-                className="flex gap-x-2 px-3 py-2 items-center bg-lime-500 border border-lime-500 text-neutral-900 text-xs hover:bg-lime-500 light:text-neutral-900 light:bg-lime-500"
+                className="flex gap-x-2 px-3 py-2 items-center bg-lime-500 border border-lime-500 text-neutral-900 text-xs hover:bg-lime-500 light:focus-visible:outline-blue-500  light:text-neutral-900 light:bg-lime-500"
               >
                 <FavoritedSvg />
                 <p className="uppercase">Favorited</p>
@@ -83,7 +83,7 @@ const CheckRate = () => {
             {!isFavorited(firstCurrency, secondCurrency) && (
               <Button
                 onClick={() => toggleFavorite(firstCurrency, secondCurrency)}
-                className="flex gap-x-2 px-3 py-2 items-center text-xs hover:bg-lime-500 hover:text-neutral-900 light:text-neutral-50"
+                className="flex gap-x-2 px-3 py-2 items-center text-xs hover:bg-lime-500 hover:text-neutral-900 light:text-neutral-50 light:focus-visible:outline-blue-500"
               >
                 <FavoriteSvg />
                 <p className="uppercase">Favorite</p>
@@ -99,7 +99,7 @@ const CheckRate = () => {
                     receiveValue,
                   )
                 }
-                className="bg-neutral-700 border border-lime-500 px-2 sm:px-3 py-2 text-neutral-50 hover:bg-lime-800"
+                className="bg-neutral-700 border border-lime-500 px-2 sm:px-3 py-2 text-neutral-50 hover:bg-lime-800 light:focus-visible:outline-blue-500"
               >
                 Logged Conversion
               </Button>
@@ -114,7 +114,7 @@ const CheckRate = () => {
                     receiveValue,
                   )
                 }
-                className="bg-neutral-700 border px-2 sm:px-3 py-2 text-neutral-50 hover:bg-lime-800"
+                className="bg-neutral-700 border px-2 sm:px-3 py-2 text-neutral-50 hover:bg-lime-800 light:focus-visible:outline-blue-500"
               >
                 Log Conversion
               </Button>
