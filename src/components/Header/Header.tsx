@@ -5,27 +5,11 @@ import LogoLightSvg from "../../images/logo-light.svg?react";
 import { liveMarketsCurrencies } from "../../helpers/liveMarkets";
 import SunSvg from "../../images/sun.svg?react";
 import MoonSvg from "../../images/moon.svg?react";
-import { useLocalStorage } from "usehooks-ts";
 import Button from "../UI/Button/Button";
-import { useEffect } from "react";
+import useLightMode from "../../hooks/useLightMode";
 
 const Header = () => {
-  const [lightMode, setLightMode] = useLocalStorage<boolean>(
-    "lightMode:v1",
-    false,
-  );
-
-  useEffect(() => {
-    const htmlElement = document.documentElement;
-
-    if (lightMode === true) {
-      htmlElement.setAttribute("data-theme", "light");
-    } else {
-      htmlElement.removeAttribute("data-theme");
-    }
-  }, [lightMode]);
-
-  const toggleLightMode = () => setLightMode((val) => !val);
+  const { lightMode, toggleLightMode } = useLightMode();
 
   return (
     <header className="relative overflow-hidden w-full h-24 text-xs mb-10 md:h-26.5 md:mb-12 xl:mb-0">
