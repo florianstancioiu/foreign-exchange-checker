@@ -18,6 +18,7 @@ const FavoriteItem = ({ firstCurrency, secondCurrency }: FavoriteItemProps) => {
         type="button"
         onClick={() => loadCurrencies(firstCurrency, secondCurrency)}
         data-testid="favorite_item_load_currencies_button"
+        aria-label={`Load ${firstCurrency} and ${secondCurrency} in Check the Rate`}
         className="flex items-center gap-2.5 text-sm font-normal leading-[120%] tracking-[1px] text-neutral-50 uppercase cursor-pointer light:text-neutral-900"
       >
         <span>{firstCurrency}</span>
