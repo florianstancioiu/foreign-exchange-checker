@@ -19,7 +19,7 @@ const FavoriteItem = ({ firstCurrency, secondCurrency }: FavoriteItemProps) => {
         onClick={() => loadCurrencies(firstCurrency, secondCurrency)}
         data-testid="favorite_item_load_currencies_button"
         aria-label={`Load ${firstCurrency} and ${secondCurrency} in Check the Rate`}
-        className="flex items-center gap-2.5 text-sm font-normal leading-[120%] tracking-[1px] text-neutral-50 uppercase cursor-pointer light:text-neutral-900"
+        className="flex items-center gap-2.5 text-sm font-normal leading-[120%] tracking-[1px] text-neutral-50 uppercase cursor-pointer light:text-neutral-900 focus-visible:outline-lime-500 light:focus-visible:outline-blue-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
       >
         <span>{firstCurrency}</span>
         <ArrowRightSvg className="light:text-neutral-900" />
@@ -29,7 +29,7 @@ const FavoriteItem = ({ firstCurrency, secondCurrency }: FavoriteItemProps) => {
         <button
           type="button"
           onClick={() => toggleFavorite(firstCurrency, secondCurrency)}
-          className="size-8 border border-lime-500 text-lime-500 light:bg-blue-500 light:border-blue-600 rounded-[10px] grid place-content-center cursor-pointer focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg hover:bg-neutral-500"
+          className="size-8 border border-lime-500 text-lime-500 light:bg-blue-500 light:border-blue-600 rounded-[10px] grid place-content-center cursor-pointer focus-visible:outline-lime-500 light:focus-visible:outline-blue-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg hover:bg-neutral-500"
           data-testid="favorite_item_toggle_favorite_button"
         >
           <StarFilledSvg />

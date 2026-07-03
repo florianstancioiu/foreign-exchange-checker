@@ -65,7 +65,7 @@ const CompareItem = ({
             data-testid="compare_item_favorite_btn"
             onClick={() => toggleFavorite(firstCurrency, currency)}
             aria-label={`Unfavorite the ${firstCurrency} - ${currency} pair`}
-            className="light:bg-blue-500 light:border-blue-600 light:hover:text-neutral-50 size-8 border border-lime-500 text-lime-500 rounded-[10px] grid place-content-center cursor-pointer focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg hover:bg-neutral-500"
+            className="light:bg-blue-500 light:border-blue-600 light:hover:text-neutral-50 size-8 border border-lime-500 text-lime-500 rounded-[10px] grid place-content-center cursor-pointer focus-visible:outline-lime-500 light:focus-visible:outline-blue-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg hover:bg-neutral-500"
           >
             <StarFilledSvg />
           </button>
@@ -75,7 +75,7 @@ const CompareItem = ({
             data-testid="compare_item_favorite_btn"
             onClick={() => toggleFavorite(firstCurrency, currency)}
             aria-label={`Favorite the ${firstCurrency} - ${currency} pair`}
-            className="size-8 border border-neutral-500 light:hover:text-neutral-50  rounded-[10px] grid place-content-center cursor-pointer focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg hover:bg-neutral-500"
+            className="size-8 border border-neutral-500 light:hover:text-neutral-50  rounded-[10px] grid place-content-center cursor-pointer focus-visible:outline-lime-500  light:focus-visible:outline-blue-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg hover:bg-neutral-500"
           >
             <StarSvg />
           </button>

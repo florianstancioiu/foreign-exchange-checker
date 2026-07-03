@@ -24,7 +24,7 @@ const LogHeaderContent = ({ logged }: LogHeaderContent) => {
         </p>
         <Button
           onClick={() => clearAll()}
-          className="text-neutral-200 light:text-neutral-100"
+          className="text-neutral-200 light:text-neutral-100 focus-visible:outline-lime-500 light:focus-visible:outline-blue-500 focus-visible:outline-2 focus-visible:outline-offset-3 "
         >
           Clear All
         </Button>
