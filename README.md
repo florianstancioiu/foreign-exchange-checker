@@ -72,8 +72,8 @@ Your users should be able to:
 
 #### Extra
 
-- Add a light theme to complement the dark-first design
-- Persist the active pair in the URL so a conversion can be bookmarked or shared
+- I added a light theme to complement the dark-first design
+- I persisted the active pair in the URL so a conversion can be bookmarked or shared
 
 ### Screenshots
 
@@ -133,7 +133,7 @@ Your users should be able to:
 
 ### AI Collaboration
 
-I didn't explicitly use any kind of AI tool during the development of this solution.
+I didn't explicitly use any kind of AI tool during the development of this solution, however, I did took (some of) the advice that the Frontend Mentor AI is generating in the solution report
 
 ## Author
 
