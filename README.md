@@ -163,6 +163,6 @@ I didn't explicitly use any kind of AI tool during the development of this solut
 | June 30th, 2026 | 6 hours    | I wrote tests for a couple of components & I figured out a way to reliably mock Tanstack Query requests        |
 | July 1st, 2026  | 3.5 hours  | I wrote tests for every single UI component except LineChart                                                   |
 | July 2nd, 2026  | 1.5 hours  | I solved some issues the Frontend Mentor AI caught                                                             |
-| July 3rd, 2026  | 3 hours    | I implemented light mode for the app                                                                           |
+| July 3rd, 2026  | 4.5 hours  | I implemented the light mode for the app, I also worked on the :focus-visible light mode states                |
 
-_Total time spent working on the project:_ **50 hours**
+_Total time spent working on the project:_ **51.5 hours**
