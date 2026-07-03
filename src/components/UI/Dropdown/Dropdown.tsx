@@ -28,9 +28,9 @@ const Dropdown = ({ values, className }: DropdownProps) => {
         type="button"
         popoverTarget={dropdownContentId}
         data-testid="dropdown_active_button"
-        className="dropdown-anchor px-3 rounded-lg border border-neutral-400 bg-neutral-700 flex justify-between items-center h-10 cursor-pointer w-full focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
+        className="dropdown-anchor px-3 rounded-lg border border-neutral-400 bg-neutral-700 light:bg-blue-700 light:border-blue-400 flex justify-between items-center h-10 cursor-pointer w-full focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
       >
-        <p className="text-base font-normal leading-[120%] tracking-[1px] flex items-center gap-x-2">
+        <p className="text-base font-normal leading-[120%] tracking-[1px] flex items-center gap-x-2 light:text-neutral-50">
           <span className="uppercase">{activeValue.title} </span>
           {activeValue.suffix !== undefined ? (
             <span className="rounded-full size-5 inline-grid place-content-center bg-lime-800 text-lime-500 text-[10px] font-normal leading-[100%]">
@@ -40,12 +40,12 @@ const Dropdown = ({ values, className }: DropdownProps) => {
             <></>
           )}
         </p>
-        <ChevronDownSvg />
+        <ChevronDownSvg className="light:text-neutral-50" />
       </button>
       <div
         popover=""
         id={dropdownContentId}
-        className="dropdown-content absolute bg-neutral-700 rounded-[10px] p-2 z-2 w-full"
+        className="dropdown-content absolute bg-neutral-700 rounded-[10px] p-2 z-2 w-full light:bg-blue-700"
       >
         {values.map((val) => (
           <LinkWithQuery

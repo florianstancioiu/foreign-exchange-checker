@@ -24,7 +24,7 @@ const Header = () => {
             <LogoLightSvg className="w-28 md:w-auto text-neutral-500" />
           )}
         </LinkWithQuery>
-        <div className="flex gap-x-1 uppercase text-neutral-200 md:text-sm md:font-normal md:leading-[120%] md:tracking-[1px] items-center light:text-neutral-900">
+        <div className="flex gap-x-1 uppercase text-neutral-200 md:text-sm md:font-normal md:leading-[120%] md:tracking-[1px] items-center light:text-neutral-50">
           <p>{liveMarketsCurrencies.length} Currencies</p>
           <div className="hidden sm:flex sm:gap-x-1">
             <span> · </span>

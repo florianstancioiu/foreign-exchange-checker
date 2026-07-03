@@ -45,11 +45,13 @@ const History = () => {
   const changeStatValue = (
     <>
       {change > 0 ? (
-        <p className="text-green-500">+{change.toFixed(4)}</p>
+        <p className="text-green-500 light:text-green-800">
+          +{change.toFixed(4)}
+        </p>
       ) : change === 0 ? (
         <p>{change.toFixed(4)}</p>
       ) : (
-        <p className="text-red-500">{change.toFixed(4)}</p>
+        <p className="text-red-500 light:text-red-800">{change.toFixed(4)}</p>
       )}
     </>
   );
@@ -57,7 +59,7 @@ const History = () => {
   const changePercentageStatValue = (
     <>
       {change > 0 ? (
-        <p className="text-green-500 flex items-center">
+        <p className="text-green-500 light:text-green-800 flex items-center">
           <ChevronDownSvg className="rotate-180 size-6" />
           <span>+{changePercentage}%</span>
         </p>
@@ -66,7 +68,7 @@ const History = () => {
           <span>{changePercentage}%</span>
         </p>
       ) : (
-        <p className="text-red-500 flex items-center">
+        <p className="text-red-500 light:text-red-800 flex items-center">
           <ChevronDownSvg className="size-6" />
           <span>{changePercentage}%</span>
         </p>
@@ -109,7 +111,7 @@ const History = () => {
         <EmptyPage
           title="Loading chart data"
           content={
-            <div>
+            <div className="light:text-neutral-900">
               <p>
                 We are currently loading the rate history for {baseCurrency}/
                 {quoteCurrency}.
