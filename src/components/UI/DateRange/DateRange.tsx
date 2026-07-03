@@ -19,7 +19,7 @@ const DateRange = ({ ranges, active, onChangeActive }: DateRangeProps) => {
           key={range.id}
           onClick={() => onChangeActive(range.value)}
           data-testid="date_range_button"
-          className={`${range.value === active ? "bg-neutral-500 text-neutral-50 light:bg-blue-500" : ""} px-3 sm:px-4 py-3 rounded-lg cursor-pointer hover:bg-neutral-500 hover:text-neutral-50 light:hover:bg-blue-500 focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg`}
+          className={`${range.value === active ? "bg-neutral-500 text-neutral-50 light:bg-blue-300 light:text-neutral-500" : ""} px-3 sm:px-4 py-3 rounded-lg cursor-pointer hover:bg-neutral-500 hover:text-neutral-500 light:hover:bg-blue-300 focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg`}
         >
           {range.title}
         </button>

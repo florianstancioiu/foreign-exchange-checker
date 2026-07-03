@@ -29,7 +29,7 @@ const FavoriteItem = ({ firstCurrency, secondCurrency }: FavoriteItemProps) => {
         <button
           type="button"
           onClick={() => toggleFavorite(firstCurrency, secondCurrency)}
-          className="size-8 border border-lime-500 text-lime-500 light:bg-neutral-900 light:border-neutral-900 rounded-[10px] grid place-content-center cursor-pointer focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg hover:bg-neutral-500"
+          className="size-8 border border-lime-500 text-lime-500 light:bg-blue-500 light:border-blue-600 rounded-[10px] grid place-content-center cursor-pointer focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg hover:bg-neutral-500"
           data-testid="favorite_item_toggle_favorite_button"
         >
           <StarFilledSvg />

@@ -74,7 +74,7 @@ const CheckRate = () => {
             {isFavorited(firstCurrency, secondCurrency) && (
               <Button
                 onClick={() => toggleFavorite(firstCurrency, secondCurrency)}
-                className="flex gap-x-2 px-3 py-2 items-center bg-lime-500 border border-lime-500 text-neutral-900 text-xs hover:bg-lime-500 light:text-neutral-50"
+                className="flex gap-x-2 px-3 py-2 items-center bg-lime-500 border border-lime-500 text-neutral-900 text-xs hover:bg-lime-500 light:text-neutral-900 light:bg-lime-500"
               >
                 <FavoritedSvg />
                 <p className="uppercase">Favorited</p>
