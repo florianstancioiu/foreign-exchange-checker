@@ -20,7 +20,7 @@ const popularCurrencies: Currency[] = [
   {
     id: 1,
     iso_code: "USD",
-    name: "Us Dollar",
+    name: "United States Dollar",
   },
   {
     id: 2,
@@ -30,7 +30,7 @@ const popularCurrencies: Currency[] = [
   {
     id: 3,
     iso_code: "RON",
-    name: "Leu",
+    name: "Romanian Leu",
     isActive: true,
   },
 ];
@@ -105,7 +105,7 @@ const CurrencyPicker = ({
           popoverTarget={currencyPickerId}
           title={activeCurrency.name}
           data-testid="currency_picker_active_button"
-          className="p-2.5 rounded-lg border border-neutral-400 bg-neutral-500 light:bg-blue-200 light:border-blue-300 flex gap-x-2 items-center cursor-pointer focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
+          className="p-2.5 rounded-lg border border-neutral-400 bg-neutral-500 light:bg-blue-500 light:border-blue-600 flex gap-x-2 items-center cursor-pointer focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
         >
           <img
             src={`/foreign-exchange-checker/images/svg-flags/${activeCurrency.iso_code.toUpperCase().substring(0, 2)}.svg`}
@@ -114,20 +114,20 @@ const CurrencyPicker = ({
             className="size-5 rounded-full"
           />
           <p
-            className="uppercase text-sm font-normal leading-[120%] tracking-[1px]"
+            className="uppercase text-sm font-normal leading-[120%] tracking-[1px] light:text-neutral-50"
             data-testid="currency_picker_active_iso_code"
             title={activeCurrency.name}
           >
             {activeCurrency.iso_code}
           </p>
-          <ChevronIcon className="size-3" />
+          <ChevronIcon className="size-3 light:text-neutral-50" />
         </button>
       )}
       {isPending && (
         <button
           type="button"
           data-testid="currency_picker_is_loading_button"
-          className="p-2.5 rounded-lg border border-neutral-400 bg-neutral-500 flex gap-x-2 items-center focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg cursor-not-allowed"
+          className="p-2.5 rounded-lg border border-neutral-400 bg-neutral-500 light:bg-blue-200 light:border-blue-300 flex gap-x-2 items-center focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg cursor-not-allowed"
         >
           <p className="uppercase text-sm font-normal leading-[120%] tracking-[1px]">
             Loading...
@@ -138,9 +138,9 @@ const CurrencyPicker = ({
         <button
           type="button"
           data-testid="currency_picker_error_button"
-          className="p-2.5 rounded-lg border border-neutral-400 bg-neutral-500 flex gap-x-2 items-center focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg cursor-not-allowed"
+          className="p-2.5 rounded-lg border border-neutral-400 bg-neutral-500 light:bg-blue-200 light:border-blue-300 flex gap-x-2 items-center focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg cursor-not-allowed"
         >
-          <p className="text-red-500 uppercase text-sm font-normal leading-[120%] tracking-[1px]">
+          <p className="text-red-500 light:text-red-600 uppercase text-sm font-normal leading-[120%] tracking-[1px]">
             Error loading data
           </p>
         </button>
@@ -149,7 +149,7 @@ const CurrencyPicker = ({
         popover=""
         id={currencyPickerId}
         ref={popoverRef}
-        className="currency-picker-content rounded-lg border border-neutral-400 bg-neutral-600 max-w-78 w-full p-2 h-112 overflow-y-scroll text-neutral-200 scrollbar-thin scrollbar-thumb-neutral-500"
+        className="currency-picker-content rounded-lg border border-neutral-400 bg-neutral-600 light:bg-blue-500 max-w-78 w-full p-2 h-112 overflow-y-scroll text-neutral-200 scrollbar-thin scrollbar-thumb-neutral-500"
       >
         <div className="relative">
           <SearchSvg className="absolute top-2.5 left-3.5 select-none" />
@@ -159,7 +159,7 @@ const CurrencyPicker = ({
             value={searchKeyword}
             onChange={onChangeSearchKeywordHandler}
             data-testid="currency_picker_search_input"
-            className="text-neutral-50 mb-2.5 border border-neutral-400 bg-neutral-600 shadow-search-input p-3 placeholder:text-neutral-200 w-full text-xs font-normal leading-[120%] tracking-[0.5px] rounded-lg pl-9 focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
+            className="text-neutral-50 mb-2.5 border border-neutral-400 bg-neutral-600 light:bg-blue-600 light:text-neutral-50 light:shadow-none light:placeholder:text-neutral-100 shadow-search-input p-3 placeholder:text-neutral-200 w-full text-xs font-normal leading-[120%] tracking-[0.5px] rounded-lg pl-9 focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
             placeholder="Search currencies..."
           />
         </div>
