@@ -34,11 +34,12 @@ const Header = () => {
           </div>
           <Button
             onClick={toggleLightMode}
-            className="p-2 ml-2 light:bg-blue-400 light:hover:bg-neutral-900 group"
+            className="p-2 ml-2 light:bg-neutral-50 light:hover:bg-neutral-900 group"
+            ariaLabel="Toggle light mode"
           >
-            {!lightMode && <SunSvg className="size-5 text-neutral-50" />}
+            {!lightMode && <SunSvg className="size-4 text-neutral-50" />}
             {lightMode && (
-              <MoonSvg className="size-5 text-neutral-900 light:group-hover:text-neutral-50" />
+              <MoonSvg className="size-4 text-neutral-900 light:group-hover:text-neutral-50" />
             )}
           </Button>
         </div>

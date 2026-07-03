@@ -13,7 +13,7 @@ const FavoriteItem = ({ firstCurrency, secondCurrency }: FavoriteItemProps) => {
   const { loadCurrencies } = useRateContext();
 
   return (
-    <section className="border border-neutral-500 rounded-[10px] bg-neutral-600 light:bg-blue-100 light:border-blue-200 p-3 flex gap-x-2.5 justify-between items-center md:px-4 hover:border-neutral-300">
+    <section className="border border-neutral-500 rounded-[10px] bg-neutral-600 light:bg-blue-100 light:border-blue-200 p-3 flex gap-x-2.5 justify-between items-center md:px-4 hover:border-neutral-300 light:hover:border-blue-400">
       <button
         type="button"
         onClick={() => loadCurrencies(firstCurrency, secondCurrency)}
