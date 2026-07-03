@@ -149,7 +149,7 @@ const CurrencyPicker = ({
         popover=""
         id={currencyPickerId}
         ref={popoverRef}
-        className="currency-picker-content rounded-lg border border-neutral-400 bg-neutral-600 light:bg-neutral-50 light:border-neutral-200 max-w-78 w-full p-2 h-112 overflow-y-scroll text-neutral-200 scrollbar-thin scrollbar-thumb-neutral-500"
+        className="currency-picker-content rounded-lg border border-neutral-400 bg-neutral-600 light:bg-blue-100 light:border-neutral-200 max-w-78 w-full p-2 h-112 overflow-y-scroll text-neutral-200 scrollbar-thin scrollbar-thumb-neutral-500"
       >
         <div className="relative">
           <SearchSvg className="absolute top-2.5 left-3.5 select-none light:text-neutral-400" />
@@ -159,7 +159,7 @@ const CurrencyPicker = ({
             value={searchKeyword}
             onChange={onChangeSearchKeywordHandler}
             data-testid="currency_picker_search_input"
-            className="text-neutral-50 mb-2.5 border border-neutral-400 bg-neutral-600 light:bg-blue-300 light:text-neutral-900 light:shadow-none light:placeholder:text-neutral-600 shadow-search-input p-3 placeholder:text-neutral-200 w-full text-xs font-normal leading-[120%] tracking-[0.5px] rounded-lg pl-9 focus-visible:outline-lime-500 light:focus-visible:outline-blue-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
+            className="text-neutral-50 mb-2.5 border border-neutral-400 bg-neutral-600 light:bg-blue-100 light:text-neutral-900 light:shadow-none light:placeholder:text-neutral-600 shadow-search-input p-3 placeholder:text-neutral-200 w-full text-xs font-normal leading-[120%] tracking-[0.5px] rounded-lg pl-9 focus-visible:outline-lime-500 light:focus-visible:outline-blue-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
             placeholder="Search currencies..."
           />
         </div>

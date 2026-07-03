@@ -37,7 +37,7 @@ const CheckRate = () => {
         Check the rate
       </h1>
       <div className="shadow-check-rate light:shadow-none">
-        <div className="p-4 bg-neutral-700 rounded-[20px] rounded-br-none rounded-bl-none border-b border-dashed border-neutral-500 md:p-5 light:bg-neutral-50 light:border-blue-500">
+        <div className="p-4 bg-neutral-700 rounded-[20px] rounded-br-none rounded-bl-none border-b border-dashed border-neutral-500 md:p-5 light:bg-blue-100 light:border-blue-500">
           <div className="flex flex-col justify-center items-center gap-y-4 md:flex-row md:gap-x-6">
             <RateConverter
               title="Send"
@@ -62,7 +62,7 @@ const CheckRate = () => {
             />
           </div>
         </div>
-        <div className="p-4 bg-neutral-700 rounded-[20px] rounded-tr-none rounded-tl-none md:flex md:justify-between md:items-center light:bg-neutral-50">
+        <div className="p-4 bg-neutral-700 rounded-[20px] rounded-tr-none rounded-tl-none md:flex md:justify-between md:items-center light:bg-blue-100">
           <p className="uppercase text-center font-normal leading-[100%] text-[10px] mb-4 md:mb-0 md:text-xs">
             {isPending ? "Loading conversion" : ""}
             {error ? "There was an error retrieving the conversion" : ""}
