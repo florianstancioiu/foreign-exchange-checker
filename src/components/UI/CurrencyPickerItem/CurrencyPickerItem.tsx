@@ -22,7 +22,7 @@ const CurrencyPickerItem = ({
         }
       }}
       data-testid="currency_picker_item"
-      className="border border-neutral-600 bg-neutral-600 rounded-sm py-3 px-2 flex justify-between items-center w-full cursor-pointer hover:border-neutral-200 focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg    "
+      className="border border-neutral-600 bg-neutral-600 light:bg-blue-500 light:border-blue-600 rounded-sm py-3 px-2 flex justify-between items-center w-full cursor-pointer hover:border-neutral-200 light:hover:border-blue-400 focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg    "
     >
       <div className="flex items-center gap-x-3">
         <img
@@ -38,7 +38,7 @@ const CurrencyPickerItem = ({
           {iso_code}
         </p>
         <p
-          className="text-neutral-200 text-xs font-normal leading-[120%] tracking-[0.5px]"
+          className="text-neutral-200 text-xs font-normal leading-[120%] tracking-[0.5px] light:text-neutral-100"
           data-testid="currency_picker_item_name"
           title={name}
         >
