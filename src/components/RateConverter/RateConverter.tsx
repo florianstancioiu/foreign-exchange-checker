@@ -27,7 +27,7 @@ const RateConverter = ({
   };
 
   return (
-    <div className="p-4 rounded-2xl border border-neutral-500 bg-neutral-600 w-full md:p-5 light:bg-neutral-50 light:border-neutral-100">
+    <div className="p-4 rounded-2xl border border-neutral-500 bg-neutral-600 w-full md:p-5 light:bg-blue-100 light:border-neutral-100">
       <p className="uppercase text-sm text-neutral-100 mb-5 leading-[120%] tracking-[1px] light:text-neutral-900">
         {title}
       </p>
