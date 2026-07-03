@@ -70,6 +70,11 @@ Your users should be able to:
 - See hover and focus states for all interactive elements on the page
 - Navigate the entire app using only their keyboard
 
+#### Extra
+
+- Add a light theme to complement the dark-first design
+- Persist the active pair in the URL so a conversion can be bookmarked or shared
+
 ### Screenshots
 
 ![](./public/images/screenshots/mobile.png)
@@ -124,6 +129,7 @@ Your users should be able to:
 - [How to preserve query parameters in React Router links](https://typeofnan.dev/how-to-preserve-query-parameters-in-react-router-links/) - This helped me create a version of `<Link>` that preserves the query params
 - [How to type an array of anchor elements and paragraph elements in TypeScript](https://stackoverflow.com/q/76086402/12159189) - This helped create the `LinkWithQueryProps` type
 - [Regex for positive float numbers](https://stackoverflow.com/a/41609228/12159189) - This helped me with a regex that works for positive floats
+- [Adding custom variants](https://tailwindcss.com/docs/adding-custom-styles#adding-custom-variants) - This helped me create the light mode in TailwindCSS
 
 ### AI Collaboration
 
@@ -157,5 +163,6 @@ I didn't explicitly use any kind of AI tool during the development of this solut
 | June 30th, 2026 | 6 hours    | I wrote tests for a couple of components & I figured out a way to reliably mock Tanstack Query requests        |
 | July 1st, 2026  | 3.5 hours  | I wrote tests for every single UI component except LineChart                                                   |
 | July 2nd, 2026  | 1.5 hours  | I solved some issues the Frontend Mentor AI caught                                                             |
+| July 3rd, 2026  | 3 hours    | I implemented light mode for the app                                                                           |
 
-_Total time spent working on the project:_ **47 hours**
+_Total time spent working on the project:_ **50 hours**
