@@ -26,7 +26,7 @@ const LiveMarkets = () => {
     <section>
       <div className="inline-flex items-center absolute top-14 w-full md:top-16">
         <div className="bg-lime-500 px-3 py-2 inline-flex gap-x-2 items-center md:px-5 md:py-3 min-w-34.5 md:min-w-38">
-          <span className="size-2.5 bg-neutral-900 rounded-full "></span>
+          <span className="size-2.5 bg-neutral-900 rounded-full light:bg-neutral-900"></span>
           <p className="text-neutral-900">Live Markets</p>
         </div>
         <SmartTicker pauseOnHover smart={false} iterations="infinite" autoFill>

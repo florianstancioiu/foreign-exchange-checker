@@ -21,6 +21,8 @@
   --shadow-search-input: 0 20px 60px 0 rgba(10, 10, 10, 0.5);
 }
 
+@custom-variant light (&:where([data-theme="light"] *));
+
 .dropdown-content {
   position-area: bottom;
 }
