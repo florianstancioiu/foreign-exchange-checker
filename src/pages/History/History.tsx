@@ -22,7 +22,11 @@ const History = () => {
   const [activeDateRange, setActiveDateRange] = useState(30);
   const fromDate = getPreviousDate(activeDateRange);
 
-  const { isPending, error, data } = useQuery({
+  const {
+    isPending,
+    error,
+    data: historyChartData,
+  } = useQuery({
     queryKey: ["historyChart", fromDate, baseCurrency, quoteCurrency],
     queryFn: async () => {
       const response = await fetch(
@@ -36,6 +40,8 @@ const History = () => {
       return await response.json();
     },
   });
+
+  const data = Array.isArray(historyChartData) ? historyChartData : [];
 
   const onChangeActiveHandler = (dateRangeValue: number) => {
     setActiveDateRange(dateRangeValue);
