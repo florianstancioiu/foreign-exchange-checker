@@ -71,16 +71,16 @@ const History = () => {
       {change > 0 ? (
         <p className="text-green-500 light:text-green-800 flex items-center">
           <ChevronDownSvg className="rotate-180 size-6" />
-          <span>+{changePercentage.toFixed(4)}%</span>
+          <span>+{changePercentage.toFixed(2)}%</span>
         </p>
       ) : change === 0 ? (
         <p className="flex items-center">
-          <span>{changePercentage.toFixed(4)}%</span>
+          <span>{changePercentage.toFixed(2)}%</span>
         </p>
       ) : (
         <p className="text-red-500 light:text-red-800 flex items-center">
           <ChevronDownSvg className="size-6" />
-          <span>{changePercentage.toFixed(4)}%</span>
+          <span>{changePercentage.toFixed(2)}%</span>
         </p>
       )}
     </>
