@@ -48,6 +48,10 @@ const CurrencyPicker = ({
     queryFn: async () => {
       const response = await fetch("https://api.frankfurter.dev/v2/currencies");
 
+      if (!response.ok) {
+        throw new Error("There was an error with currencies query");
+      }
+
       return await response.json();
     },
   });

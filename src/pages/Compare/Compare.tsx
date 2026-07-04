@@ -21,6 +21,10 @@ const Compare = () => {
         `https://api.frankfurter.dev/v2/rates?base=${firstCurrency}&quotes=${compareRatesString}`,
       );
 
+      if (!response.ok) {
+        throw new Error("There was an error with compareCurrencies query");
+      }
+
       return await response.json();
     },
   });
@@ -36,9 +40,7 @@ const Compare = () => {
         headerContent={
           <CompareHeaderContent
             pairs={compareRates.length}
-            sendValue={
-              typeof sendValue === "string" ? parseFloat(sendValue) : sendValue
-            }
+            sendValue={sendValue}
             currency={firstCurrency}
           />
         }

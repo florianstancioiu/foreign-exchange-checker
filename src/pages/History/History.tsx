@@ -23,11 +23,15 @@ const History = () => {
   const fromDate = getPreviousDate(activeDateRange);
 
   const { isPending, error, data } = useQuery({
-    queryKey: ["historyChartData", fromDate, baseCurrency, quoteCurrency],
+    queryKey: ["historyChart", fromDate, baseCurrency, quoteCurrency],
     queryFn: async () => {
       const response = await fetch(
         `https://api.frankfurter.dev/v2/rates?base=${baseCurrency}&quotes=${quoteCurrency}&from=${fromDate}`,
       );
+
+      if (!response.ok) {
+        throw new Error("There was an error with historyChart query");
+      }
 
       return await response.json();
     },

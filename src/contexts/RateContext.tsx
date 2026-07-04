@@ -6,7 +6,7 @@ import { useSearchParams } from "react-router";
 export type RateState = {
   firstCurrency: string;
   secondCurrency: string;
-  sendValue: number | string;
+  sendValue: number;
   setSendValue: (value: number | string) => void;
   isPending: boolean;
   error: Error | null;
@@ -48,11 +48,15 @@ export const RateContextProvider = ({ children }: RateContextProps) => {
     error,
     data: baseToQuoteData,
   } = useQuery({
-    queryKey: ["baseCurrencyToQuoteCurrency", firstCurrency, secondCurrency],
+    queryKey: ["baseToQuoteCurrency", firstCurrency, secondCurrency],
     queryFn: async () => {
       const response = await fetch(
         `https://api.frankfurter.dev/v2/rates?base=${firstCurrency}&quotes=${secondCurrency}`,
       );
+
+      if (!response.ok) {
+        throw new Error("There was an error with baseToQuoteCurrency query");
+      }
 
       return await response.json();
     },
@@ -61,10 +65,13 @@ export const RateContextProvider = ({ children }: RateContextProps) => {
   const data = Array.isArray(baseToQuoteData) ? baseToQuoteData : [];
 
   if (!isPending && !error && data.length >= 0) {
-    receiveValue =
-      data.length === 0
+    if (data.length === 0) {
+      receiveValue = Number.isFinite(parseFloat(sendValue))
         ? parseFloat(sendValue)
-        : data[0].rate * parseFloat(searchParams.get("send") ?? "0");
+        : 0;
+    } else {
+      receiveValue = data[0].rate * parseFloat(searchParams.get("send") ?? "0");
+    }
   }
 
   const setFirstCurrencyHandler = (iso: string) =>
@@ -117,7 +124,8 @@ export const RateContextProvider = ({ children }: RateContextProps) => {
       value={{
         firstCurrency,
         secondCurrency,
-        sendValue,
+        sendValue:
+          typeof sendValue === "string" ? parseFloat(sendValue) : sendValue,
         setSendValue,
         isPending,
         error,
