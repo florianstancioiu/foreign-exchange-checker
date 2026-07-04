@@ -22,7 +22,7 @@ const LogItem = ({
   const { removeLog } = useLogsContext();
 
   return (
-    <section className="border border-neutral-500 rounded-[10px] bg-neutral-600 light:bg-blue-100 light:border-blue-200 p-3 flex gap-x-2.5 justify-between items-center hover:border-neutral-300 light:hover:border-blue-400">
+    <section className="border border-neutral-500 rounded-[10px] bg-neutral-600 light:bg-blue-200 light:border-blue-300 p-3 flex gap-x-2.5 justify-between items-center hover:border-neutral-300 light:hover:border-blue-400">
       <div className="flex flex-col gap-y-1 md:flex-row md:gap-x-4">
         <p
           className="text-neutral-200 text-sm font-normal leading-[120%] tracking-[1px] md:min-w-16 light:text-neutral-700"

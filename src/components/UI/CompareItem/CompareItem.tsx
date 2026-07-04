@@ -22,7 +22,7 @@ const CompareItem = ({
   const { toggleFavorite } = useFavoritesContext();
 
   return (
-    <section className="border border-neutral-500 rounded-[10px] bg-neutral-600 p-3 flex gap-x-2.5 justify-between items-center md:py-3 md:px-4 hover:border-neutral-300 light:bg-blue-100 light:border-blue-200 light:hover:border-blue-400">
+    <section className="border border-neutral-500 rounded-[10px] bg-neutral-600 p-3 flex gap-x-2.5 justify-between items-center md:py-3 md:px-4 hover:border-neutral-300 light:bg-blue-200 light:border-blue-300 light:hover:border-blue-400">
       <div className="flex items-center gap-2.5 md:gap-5">
         <img
           src={`/foreign-exchange-checker/images/svg-flags/${currency.substring(0, 2).toUpperCase()}.svg`}
