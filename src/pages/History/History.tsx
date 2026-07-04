@@ -61,16 +61,16 @@ const History = () => {
       {change > 0 ? (
         <p className="text-green-500 light:text-green-800 flex items-center">
           <ChevronDownSvg className="rotate-180 size-6" />
-          <span>+{changePercentage}%</span>
+          <span>+{changePercentage.toFixed(4)}%</span>
         </p>
       ) : change === 0 ? (
         <p className="flex items-center">
-          <span>{changePercentage}%</span>
+          <span>{changePercentage.toFixed(4)}%</span>
         </p>
       ) : (
         <p className="text-red-500 light:text-red-800 flex items-center">
           <ChevronDownSvg className="size-6" />
-          <span>{changePercentage}%</span>
+          <span>{changePercentage.toFixed(4)}%</span>
         </p>
       )}
     </>
@@ -82,8 +82,8 @@ const History = () => {
         <>
           <div className="xl:flex xl:justify-between xl:items-center xl:mb-5">
             <div className="grid grid-cols-2 gap-2.5 mb-4 md:block xl:grid xl:grid-cols-4 xl:gap-x-4 xl:mb-0">
-              <StatsItem title="Open" value={fromRate} />
-              <StatsItem title="Last" value={lastRate} />
+              <StatsItem title="Open" value={fromRate.toFixed(4)} />
+              <StatsItem title="Last" value={lastRate.toFixed(4)} />
               <StatsItem title="Change" value={changeStatValue} />
               <StatsItem title="% Change" value={changePercentageStatValue} />
             </div>
