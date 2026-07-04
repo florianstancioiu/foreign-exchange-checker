@@ -6,7 +6,7 @@ type LogItem = {
   id: string;
   firstCurrency: number | string;
   secondCurrency: number;
-  date: Date | string;
+  date: string;
   base: string;
   quote: string;
 };
@@ -67,7 +67,7 @@ export const LogsContextProvider = ({ children }: LogsContextProps) => {
             id,
             firstCurrency,
             secondCurrency,
-            date: new Date(),
+            date: new Date().toString(),
             base,
             quote,
           },
@@ -80,7 +80,7 @@ export const LogsContextProvider = ({ children }: LogsContextProps) => {
           id,
           firstCurrency,
           secondCurrency,
-          date: new Date(),
+          date: new Date().toString(),
           base,
           quote,
         },
