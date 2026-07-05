@@ -164,5 +164,6 @@ I didn't explicitly use any kind of AI tool during the development of this solut
 | July 1st, 2026  | 3.5 hours  | I wrote tests for every single UI component except LineChart                                                   |
 | July 2nd, 2026  | 1.5 hours  | I solved some issues the Frontend Mentor AI caught                                                             |
 | July 3rd, 2026  | 4.5 hours  | I implemented the light mode for the app, I also worked on the :focus-visible light mode states                |
+| July 4th, 2026  | 0.5 hours  | I tried to increase my AI score on Frontend Mentor, didn't do much                                             |
 
-_Total time spent working on the project:_ **51.5 hours**
+_Total time spent working on the project:_ **52 hours**
