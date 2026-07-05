@@ -4,19 +4,15 @@ import { useId, useState, useRef } from "react";
 import CurrencyPickerSection from "../CurrencyPickerSection/CurrencyPickerSection";
 import { useQuery } from "@tanstack/react-query";
 import unavailableCurrencies from "../../../helpers/unavailableCurrencies";
-import { type CurrencyPickerItemProps } from "../CurrencyPickerItem/CurrencyPickerItem";
 import { type ChangeEvent } from "react";
-
-type Currency = CurrencyPickerItemProps & {
-  id: number;
-};
+import { type Currency as DataCurrency } from "../../../types/currency";
 
 export type CurrencyPickerProps = {
   activeISO?: string;
   setActiveIso: (iso: string) => void;
 };
 
-const popularCurrencies: Currency[] = [
+const popularCurrencies = [
   {
     id: 1,
     iso_code: "USD",
@@ -43,8 +39,9 @@ const CurrencyPicker = ({
   const [searchKeyword, setSearchKeyword] = useState("");
   const popoverRef = useRef<null | HTMLDivElement>(null);
 
-  const { isPending, error, data } = useQuery({
+  const { isPending, error, data } = useQuery<DataCurrency[]>({
     queryKey: ["currencies"],
+    staleTime: 10000,
     queryFn: async () => {
       const response = await fetch("https://api.frankfurter.dev/v2/currencies");
 
@@ -65,18 +62,18 @@ const CurrencyPicker = ({
   };
 
   const activeCurrency = dataArray?.find(
-    (currency: Currency) => currency.iso_code === activeISO,
+    (currency) => currency.iso_code === activeISO,
   );
 
   const searchedData = dataArray
-    ?.filter((item: Currency) => {
+    ?.filter((item) => {
       if (unavailableCurrencies.includes(item.iso_code)) {
         return false;
       }
 
       return true;
     })
-    .filter((item: Currency) => {
+    .filter((item) => {
       const lowerCaseSearchKeyword = searchKeyword.trim().toLowerCase();
 
       return (
@@ -85,7 +82,7 @@ const CurrencyPicker = ({
       );
     });
 
-  const actualData = dataArray?.filter((item: Currency) => {
+  const actualData = dataArray?.filter((item) => {
     if (unavailableCurrencies.includes(item.iso_code)) {
       return false;
     }

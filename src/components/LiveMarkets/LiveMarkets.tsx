@@ -5,12 +5,14 @@ import { getYesterday } from "../../helpers/dates";
 import { getLiveMarkets } from "../../helpers/liveMarkets";
 import EmptyMarketItem from "../UI/EmptyMarketItem/EmptyMarketItem";
 import { liveMarketsCurrencies } from "../../helpers/liveMarkets";
+import { type Rate } from "../../types/rate";
 
 const baseCurrency = "RON";
 
 const LiveMarkets = () => {
-  const { isPending, error, data } = useQuery({
+  const { isPending, error, data } = useQuery<Rate[]>({
     queryKey: ["liveMarkets", getYesterday()],
+    staleTime: 5000,
     queryFn: async () => {
       const response = await fetch(
         `https://api.frankfurter.dev/v2/rates?base=${baseCurrency}&quotes=${liveMarketsCurrencies.join(",")}&from=${getYesterday()}`,

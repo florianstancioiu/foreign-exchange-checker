@@ -26,8 +26,9 @@ const History = () => {
     isPending,
     error,
     data: historyChartData,
-  } = useQuery({
+  } = useQuery<Rate[]>({
     queryKey: ["historyChart", fromDate, baseCurrency, quoteCurrency],
+    staleTime: 5000,
     queryFn: async () => {
       const response = await fetch(
         `https://api.frankfurter.dev/v2/rates?base=${baseCurrency}&quotes=${quoteCurrency}&from=${fromDate}`,
@@ -104,8 +105,8 @@ const History = () => {
             />
           </div>
           <LineChart
-            data={data.map((item: Rate) => item.rate)}
-            labels={data.map((item: Rate) => item.date)}
+            data={data.map((item) => item.rate)}
+            labels={data.map((item) => item.date)}
             title={`${baseCurrency}/${quoteCurrency}`}
             rate={
               Array.isArray(rateData) && rateData.length > 0

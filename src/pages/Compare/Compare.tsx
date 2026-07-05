@@ -9,13 +9,20 @@ import EmptyPage from "../../components/UI/EmptyPage/EmptyPage";
 import { useFavoritesContext } from "../../contexts/FavoritesContext";
 import CompareHeaderContent from "./CompareHeaderContent";
 
+type RateWithName = Rate & { name: string };
+
 const Compare = () => {
   const { firstCurrency, sendValue } = useRateContext();
   const { isFavorited } = useFavoritesContext();
   const compareRatesString = compareRates.map((r) => r.iso_code).join(",");
 
-  const { isPending, error, data } = useQuery({
+  const {
+    isPending,
+    error,
+    data: compareCurrenciesData,
+  } = useQuery<Rate[]>({
     queryKey: ["compareCurrencies", firstCurrency, compareRatesString],
+    staleTime: 5000,
     queryFn: async () => {
       const response = await fetch(
         `https://api.frankfurter.dev/v2/rates?base=${firstCurrency}&quotes=${compareRatesString}`,
@@ -29,9 +36,13 @@ const Compare = () => {
     },
   });
 
-  const enhancedData = data?.map((item: Rate) => ({
+  const data = Array.isArray(compareCurrenciesData)
+    ? compareCurrenciesData
+    : [];
+
+  const enhancedData: RateWithName[] = data?.map((item: Rate) => ({
     ...item,
-    name: compareRates.find((rate) => rate.iso_code === item.quote)?.name,
+    name: compareRates.find((rate) => rate.iso_code === item.quote)?.name ?? "",
   }));
 
   return (
@@ -48,7 +59,7 @@ const Compare = () => {
         {Array.isArray(enhancedData) &&
           !isPending &&
           !error &&
-          enhancedData.map((item: Rate & { name: string }) => (
+          enhancedData.map((item) => (
             <CompareItem
               key={`${item.base}-${item.quote}`}
               currency={item.quote}
