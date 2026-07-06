@@ -1,19 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import LogItem from "./LogItem";
-import nock from "nock";
+import { mockContexts } from "../../../tests/mockContexts";
 import AppWithProviders from "../../../tests/AppWithProviders";
-import baseCurrencyToQuoteCurrency from "../../../tests/data/baseCurrencyToQuoteCurrency";
+import { mockRatesQuery } from "../../../tests/queries/rates";
 
 describe("<LogItem />", () => {
   beforeEach(async () => {
-    nock("https://api.frankfurter.dev/v2/rates")
-      .get("?base=USD&quotes=EUR")
-      .reply(200, baseCurrencyToQuoteCurrency);
-  });
-
-  afterEach(() => {
-    nock.cleanAll();
-    nock.enableNetConnect();
+    mockContexts();
+    mockRatesQuery();
   });
 
   test("component render", async () => {

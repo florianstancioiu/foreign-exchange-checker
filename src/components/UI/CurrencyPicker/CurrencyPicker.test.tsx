@@ -1,26 +1,19 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import CurrencyPicker from "./CurrencyPicker";
-import nock from "nock";
 import AppWithProviders from "../../../tests/AppWithProviders";
-import currencies from "../../../tests/data/currencies";
-import baseCurrencyToQuoteCurrency from "../../../tests/data/baseCurrencyToQuoteCurrency";
+import nock from "nock";
+import { mockRatesQuery } from "../../../tests/queries/rates";
+import { mockCurrenciesQuery } from "../../../tests/queries/currencies";
+import { mockContexts } from "../../../tests/mockContexts";
 
 describe("<CurrencyPicker />", () => {
   beforeEach(async () => {
-    nock("https://api.frankfurter.dev/v2/rates")
-      .get("?base=USD&quotes=EUR")
-      .reply(200, baseCurrencyToQuoteCurrency);
-  });
-
-  afterEach(() => {
-    nock.cleanAll();
-    nock.enableNetConnect();
+    mockRatesQuery();
+    mockContexts();
   });
 
   test("component render", async () => {
-    nock("https://api.frankfurter.dev/")
-      .get("/v2/currencies")
-      .reply(200, currencies);
+    mockCurrenciesQuery();
 
     const setActiveIso = vitest.fn();
 

@@ -1,19 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import LinkWithQuery from "./LinkWithQuery";
-import nock from "nock";
 import AppWithProviders from "../../../tests/AppWithProviders";
-import baseCurrencyToQuoteCurrency from "../../../tests/data/baseCurrencyToQuoteCurrency";
+import { mockRatesQuery } from "../../../tests/queries/rates";
 
 describe("<LinkWithQuery />", () => {
   beforeEach(async () => {
-    nock("https://api.frankfurter.dev/v2/rates")
-      .get("?base=USD&quotes=EUR")
-      .reply(200, baseCurrencyToQuoteCurrency);
-  });
-
-  afterEach(() => {
-    nock.cleanAll();
-    nock.enableNetConnect();
+    mockRatesQuery();
   });
 
   test("component render", async () => {

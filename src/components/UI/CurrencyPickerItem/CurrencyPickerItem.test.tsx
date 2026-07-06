@@ -1,25 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import CurrencyPickerItem from "./CurrencyPickerItem";
-import nock from "nock";
 import AppWithProviders from "../../../tests/AppWithProviders";
-import currencies from "../../../tests/data/currencies";
-import baseCurrencyToQuoteCurrency from "../../../tests/data/baseCurrencyToQuoteCurrency";
 import userEvent from "@testing-library/user-event";
+import { mockRatesQuery } from "../../../tests/queries/rates";
+import { mockCurrenciesQuery } from "../../../tests/queries/currencies";
 
 describe("<CurrencyPickerItem />", () => {
   beforeEach(async () => {
-    nock("https://api.frankfurter.dev/v2/rates")
-      .get("?base=USD&quotes=EUR")
-      .reply(200, baseCurrencyToQuoteCurrency);
-
-    nock("https://api.frankfurter.dev/")
-      .get("/v2/currencies")
-      .reply(200, currencies);
-  });
-
-  afterEach(() => {
-    nock.cleanAll();
-    nock.enableNetConnect();
+    mockRatesQuery();
+    mockCurrenciesQuery();
   });
 
   test("component render", async () => {
