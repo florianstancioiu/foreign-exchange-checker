@@ -2,8 +2,11 @@
 
 Things I noticed that need addressing
 
-- Add unit testing :D
 - Check again how I retrieve and process the liveMarkets data, it might be incorrect
+- Add tests for root level components
+- Add tests for pages
+- Add tests for contexts
+- Add test coverage
 - ~~Structure the pages components better~~
 - ~~Update `useQuery` calls to use proper queryKeys~~
 - ~~Add meta tags with image and description of the website so that when you share the LIVE url, users can see a preview~~
