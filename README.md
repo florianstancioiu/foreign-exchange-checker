@@ -166,5 +166,6 @@ I didn't explicitly use any kind of AI tool during the development of this solut
 | July 2nd, 2026  | 1.5 hours  | I solved some issues the Frontend Mentor AI caught                                                             |
 | July 3rd, 2026  | 4.5 hours  | I implemented the light mode for the app, I also worked on the :focus-visible light mode states                |
 | July 4th, 2026  | 0.5 hours  | I tried to increase my AI score on Frontend Mentor, didn't do much                                             |
+| July 5th, 2026  | 0.5 hours  | I worked on increasing my AI score on Frontend Mentor                                                          |
 
-_Total time spent working on the project:_ **52 hours**
+_Total time spent working on the project:_ **52.5 hours**
