@@ -1,4 +1,4 @@
-import { createContext, type ReactNode, useContext } from "react";
+import { createContext, type ReactNode } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { type Rate } from "../types/rate";
 import { useSearchParams } from "react-router";
@@ -18,7 +18,7 @@ export type RateState = {
   loadCurrencies: (firstCurrency: string, secondCurrency: string) => void;
 };
 
-const RateContext = createContext<RateState | null>(null);
+export const RateContext = createContext<RateState | null>(null);
 
 const initialCurrencies = {
   firstCurrency: "USD",
@@ -140,16 +140,4 @@ export const RateContextProvider = ({ children }: RateContextProps) => {
       {children}
     </RateContext.Provider>
   );
-};
-
-export const useRateContext = () => {
-  const context = useContext(RateContext);
-
-  if (!context) {
-    throw new Error(
-      "useRateContext must be used within <RateContextProvider />",
-    );
-  }
-
-  return context;
 };

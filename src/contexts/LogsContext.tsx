@@ -1,4 +1,4 @@
-import { createContext, type ReactNode, useContext } from "react";
+import { createContext, type ReactNode } from "react";
 import { useLocalStorage } from "usehooks-ts";
 import { getTodaysStringDate } from "../helpers/dates";
 
@@ -30,7 +30,7 @@ export type LogsState = {
   removeLog: (id: string) => void;
 };
 
-const LogsContext = createContext<LogsState | null>(null);
+export const LogsContext = createContext<LogsState | null>(null);
 
 const getLogId = (
   base: string,
@@ -117,16 +117,4 @@ export const LogsContextProvider = ({ children }: LogsContextProps) => {
       {children}
     </LogsContext.Provider>
   );
-};
-
-export const useLogsContext = () => {
-  const context = useContext(LogsContext);
-
-  if (!context) {
-    throw new Error(
-      "useLogsContext must be used within <LogsContextProvider />",
-    );
-  }
-
-  return context;
 };

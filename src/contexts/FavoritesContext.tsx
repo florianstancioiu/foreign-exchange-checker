@@ -1,4 +1,4 @@
-import { createContext, type ReactNode, useContext } from "react";
+import { createContext, type ReactNode } from "react";
 import { useLocalStorage } from "usehooks-ts";
 
 type FavoriteLSItem = {
@@ -13,7 +13,7 @@ export type FavoritesState = {
   isFavorited: (base: string, quote: string) => boolean;
 };
 
-const FavoritesContext = createContext<FavoritesState | null>(null);
+export const FavoritesContext = createContext<FavoritesState | null>(null);
 
 export type FavoritesContextProps = {
   children: ReactNode;
@@ -74,16 +74,4 @@ export const FavoritesContextProvider = ({
       {children}
     </FavoritesContext.Provider>
   );
-};
-
-export const useFavoritesContext = () => {
-  const context = useContext(FavoritesContext);
-
-  if (!context) {
-    throw new Error(
-      "useFavoritesContext must be used within <FavoritesContextProvider />",
-    );
-  }
-
-  return context;
 };
