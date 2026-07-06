@@ -6,6 +6,7 @@ import FavoritedSvg from "../../images/icon-star-filled.svg?react";
 import { useRateContext } from "../../contexts/RateContext";
 import { useFavoritesContext } from "../../contexts/FavoritesContext";
 import { useLogsContext } from "../../contexts/LogsContext";
+import toFixed from "../../helpers/toFixed";
 
 const CheckRate = () => {
   const {
@@ -67,7 +68,7 @@ const CheckRate = () => {
             {isPending ? "Loading conversion" : ""}
             {error ? "There was an error retrieving the conversion" : ""}
             {!isPending && !error
-              ? `1 ${firstCurrency} = ${data.length === 1 ? data[0].rate.toFixed(4) : 1} ${secondCurrency}`
+              ? `1 ${firstCurrency} = ${data.length === 1 ? toFixed(data[0].rate, 4) : 1} ${secondCurrency}`
               : ""}
           </p>
           <div className="flex gap-x-2 items-center justify-center md:gap-x-3">

@@ -1,12 +1,13 @@
 import { getYesterday } from "./dates";
 import { type Rate } from "../types/rate";
+import toFixed from "./toFixed";
 
 const getRateDiffPercentage = (todaysRate: number, rateDiff: number) => {
   if (todaysRate === 0) {
     return "0.00";
   }
 
-  return ((rateDiff / todaysRate) * 100).toFixed(2);
+  return toFixed((rateDiff / todaysRate) * 100, 2);
 };
 
 export const getLiveMarkets = (ratesData?: Rate[]) => {

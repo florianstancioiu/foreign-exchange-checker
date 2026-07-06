@@ -12,6 +12,7 @@ import {
 import { Line } from "react-chartjs-2";
 import { chartGradient } from "../../../helpers/chartGradient";
 import { getChartDate } from "../../../helpers/dates";
+import toFixed from "../../../helpers/toFixed";
 
 ChartJS.register(
   CategoryScale,
@@ -62,7 +63,7 @@ const LineChart = ({
           {baseCurrency}/{quoteCurrency}
         </p>
         <p className="text-neutral-50 opacity-70 font-normal text-xs leading-[120%] tracking-[0.5px] light:text-neutral-900">
-          {rate.toFixed(4)} · {getChartDate()}
+          {toFixed(rate, 4)} · {getChartDate()}
         </p>
       </div>
       <div>

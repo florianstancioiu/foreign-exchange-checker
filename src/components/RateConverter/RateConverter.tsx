@@ -1,5 +1,6 @@
 import type { ChangeEvent } from "react";
 import CurrencyPicker from "../UI/CurrencyPicker/CurrencyPicker";
+import toFixed from "../../helpers/toFixed";
 
 export type RateConverterProps = {
   isReceive?: boolean;
@@ -37,7 +38,7 @@ const RateConverter = ({
             className={`${isReceive ? "text-lime-500 light:text-lime-600" : ""} text-3xl font-semibold leading-[100%] tracking-[-0.5px]`}
           >
             {typeof value === "number" && isFinite(value)
-              ? value.toFixed(2)
+              ? toFixed(value, 2)
               : typeof value === "string" && value.trim() === ""
                 ? value
                 : "Error"}

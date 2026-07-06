@@ -130,6 +130,7 @@ Your users should be able to:
 - [How to type an array of anchor elements and paragraph elements in TypeScript](https://stackoverflow.com/q/76086402/12159189) - This helped create the `LinkWithQueryProps` type
 - [Regex for positive float numbers](https://stackoverflow.com/a/41609228/12159189) - This helped me with a regex that works for positive floats
 - [Adding custom variants](https://tailwindcss.com/docs/adding-custom-styles#adding-custom-variants) - This helped me create the light mode in TailwindCSS
+- [Truncate number to two decimal places without rounding](https://stackoverflow.com/a/11818658/12159189) - This helped me create a `toFixed` function that doesn't round up
 
 ### AI Collaboration
 

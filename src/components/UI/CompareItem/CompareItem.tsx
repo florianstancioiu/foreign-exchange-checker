@@ -2,6 +2,7 @@ import StarSvg from "../../../images/icon-star.svg?react";
 import StarFilledSvg from "../../../images/icon-star-filled.svg?react";
 import { useFavoritesContext } from "../../../contexts/FavoritesContext";
 import { useRateContext } from "../../../contexts/RateContext";
+import toFixed from "../../../helpers/toFixed";
 
 export type CompareItemProps = {
   currency: string;
@@ -50,13 +51,13 @@ const CompareItem = ({
             data-testid="compare_item_value"
             className="text-base font-normal leading-[120%] tracking-[1px] text-neutral-50 mb-1.5 light:text-neutral-900"
           >
-            {value.toFixed(2)}
+            {toFixed(value, 2)}
           </p>
           <p
             data-testid="compare_item_sub_value"
             className="text-[10px] font-normal leading-[100%] text-neutral-200 light:text-neutral-700"
           >
-            @ {subValue.toFixed(4)}
+            @ {toFixed(subValue, 4)}
           </p>
         </div>
         {isFavorite ? (

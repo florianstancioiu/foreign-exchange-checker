@@ -6,7 +6,7 @@ import { useSearchParams } from "react-router";
 export type RateState = {
   firstCurrency: string;
   secondCurrency: string;
-  sendValue: number;
+  sendValue: number | string;
   setSendValue: (value: number | string) => void;
   isPending: boolean;
   error: Error | null;
@@ -125,8 +125,7 @@ export const RateContextProvider = ({ children }: RateContextProps) => {
       value={{
         firstCurrency,
         secondCurrency,
-        sendValue:
-          typeof sendValue === "string" ? parseFloat(sendValue) : sendValue,
+        sendValue,
         setSendValue,
         isPending,
         error,

@@ -11,6 +11,7 @@ import { getRateStats } from "../../helpers/rates";
 import EmptyPage from "../../components/UI/EmptyPage/EmptyPage";
 import { useRateContext } from "../../contexts/RateContext";
 import ranges from "../../helpers/ranges";
+import toFixed from "../../helpers/toFixed";
 
 const History = () => {
   const {
@@ -57,12 +58,12 @@ const History = () => {
     <>
       {change > 0 ? (
         <p className="text-green-500 light:text-green-800">
-          +{change.toFixed(4)}
+          +{toFixed(change, 4)}
         </p>
       ) : change === 0 ? (
-        <p>{change.toFixed(4)}</p>
+        <p>{toFixed(change, 4)}</p>
       ) : (
-        <p className="text-red-500 light:text-red-800">{change.toFixed(4)}</p>
+        <p className="text-red-500 light:text-red-800">{toFixed(change, 4)}</p>
       )}
     </>
   );
@@ -72,16 +73,16 @@ const History = () => {
       {change > 0 ? (
         <p className="text-green-500 light:text-green-800 flex items-center">
           <ChevronDownSvg className="rotate-180 size-6" />
-          <span>+{changePercentage.toFixed(2)}%</span>
+          <span>+{toFixed(changePercentage, 2)}%</span>
         </p>
       ) : change === 0 ? (
         <p className="flex items-center">
-          <span>{changePercentage.toFixed(2)}%</span>
+          <span>{toFixed(changePercentage, 2)}%</span>
         </p>
       ) : (
         <p className="text-red-500 light:text-red-800 flex items-center">
           <ChevronDownSvg className="size-6" />
-          <span>{changePercentage.toFixed(2)}%</span>
+          <span>{toFixed(changePercentage, 2)}%</span>
         </p>
       )}
     </>
@@ -93,8 +94,8 @@ const History = () => {
         <>
           <div className="xl:flex xl:justify-between xl:items-center xl:mb-5">
             <div className="grid grid-cols-2 gap-2.5 mb-4 md:block xl:grid xl:grid-cols-4 xl:gap-x-4 xl:mb-0">
-              <StatsItem title="Open" value={fromRate.toFixed(4)} />
-              <StatsItem title="Last" value={lastRate.toFixed(4)} />
+              <StatsItem title="Open" value={toFixed(fromRate, 4)} />
+              <StatsItem title="Last" value={toFixed(lastRate, 4)} />
               <StatsItem title="Change" value={changeStatValue} />
               <StatsItem title="% Change" value={changePercentageStatValue} />
             </div>

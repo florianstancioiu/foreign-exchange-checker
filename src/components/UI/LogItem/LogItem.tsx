@@ -1,6 +1,7 @@
 import ArrowRightSvg from "../../../images/icon-arrow-right.svg?react";
 import DeleteSvg from "../../../images/icon-delete.svg?react";
 import { useLogsContext } from "../../../contexts/LogsContext";
+import toFixed from "../../../helpers/toFixed";
 
 export type LogItemProps = {
   id: string;
@@ -45,13 +46,13 @@ const LogItem = ({
             className="text-base text-right font-normal leading-[120%] tracking-[1px] text-neutral-100 light:text-neutral-700"
             data-testid="log_item_first_value"
           >
-            {(Math.round(firstValue * 100) / 100).toFixed(2)}
+            {toFixed(Math.round(firstValue * 100) / 100, 2)}
           </p>
           <p
             className="text-lime-500 text-right text-base font-normal leading-[120%] tracking-[1px] light:text-lime-600"
             data-testid="log_item_second_value"
           >
-            {(Math.round(secondValue * 100) / 100).toFixed(2)}
+            {toFixed(Math.round(secondValue * 100) / 100, 2)}
           </p>
         </div>
         <button

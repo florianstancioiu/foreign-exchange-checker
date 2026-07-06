@@ -39,7 +39,7 @@ describe("<CompareItem />", () => {
     expect(currency).toHaveTextContent("ron");
     expect(currencyTitle).toHaveTextContent("Romanian Leu");
     expect(value).toHaveTextContent("1");
-    expect(subValue).toHaveTextContent("1.00");
+    expect(subValue).toHaveTextContent("1");
     expect(favoriteBtn).not.toHaveClass("border-lime-500 text-lime-500");
   });
 
