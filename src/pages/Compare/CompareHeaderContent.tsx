@@ -1,6 +1,6 @@
 type CompareHeaderContentProps = {
   pairs: number;
-  sendValue: number;
+  sendValue: number | string;
   currency: string;
 };
 

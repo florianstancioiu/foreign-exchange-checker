@@ -5,7 +5,7 @@ export type MarketItemProps = {
   quoteCurrency: string;
   rate: number;
   rateDiff: number;
-  rateDiffPercentage: string;
+  rateDiffPercentage: string | number;
 };
 
 const MarketItem = ({
