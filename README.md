@@ -134,7 +134,8 @@ Your users should be able to:
 
 ### AI Collaboration
 
-I didn't explicitly use any kind of AI tool during the development of this solution, however, I did took (some of) the advice that the Frontend Mentor AI is generating in the solution report
+- I used (some of) the advice that the Frontend Mentor AI is generating in the report to improve my solution.
+- I used ChatGPT to learn how to mock and test the context files
 
 ## Author
 
@@ -167,5 +168,6 @@ I didn't explicitly use any kind of AI tool during the development of this solut
 | July 3rd, 2026  | 4.5 hours  | I implemented the light mode for the app, I also worked on the :focus-visible light mode states                |
 | July 4th, 2026  | 0.5 hours  | I tried to increase my AI score on Frontend Mentor, didn't do much                                             |
 | July 5th, 2026  | 0.5 hours  | I worked on increasing my AI score on Frontend Mentor                                                          |
+| July 6th, 2026  | 4.5 hours  | I worked on testing the application using help from ChatGPT                                                    |
 
-_Total time spent working on the project:_ **52.5 hours**
+_Total time spent working on the project:_ **57 hours**
