@@ -9,7 +9,7 @@ import { getPreviousDate } from "../../helpers/dates";
 import { type Rate } from "../../types/rate";
 import { getRateStats } from "../../helpers/rates";
 import EmptyPage from "../../components/UI/EmptyPage/EmptyPage";
-import { useRateContext } from "../../contexts/RateContext";
+import { useRateContext } from "../../hooks/useRateContext";
 import ranges from "../../helpers/ranges";
 import toFixed from "../../helpers/toFixed";
 

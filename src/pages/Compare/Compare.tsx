@@ -3,10 +3,10 @@ import DetailsContainer from "../../components/UI/DetailsContainer/DetailsContai
 import CompareItem from "../../components/UI/CompareItem/CompareItem";
 import compareRates from "../../helpers/compareRates";
 import { useQuery } from "@tanstack/react-query";
-import { useRateContext } from "../../contexts/RateContext";
+import { useRateContext } from "../../hooks/useRateContext";
+import { useFavoritesContext } from "../../hooks/useFavoritesContext";
 import { type Rate } from "../../types/rate";
 import EmptyPage from "../../components/UI/EmptyPage/EmptyPage";
-import { useFavoritesContext } from "../../contexts/FavoritesContext";
 import CompareHeaderContent from "./CompareHeaderContent";
 
 type RateWithName = Rate & { name: string };

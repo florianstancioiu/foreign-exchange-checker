@@ -2,7 +2,7 @@ import TabsMenu from "../../components/TabsMenu/TabsMenu";
 import DetailsContainer from "../../components/UI/DetailsContainer/DetailsContainer";
 import FavoriteItem from "../../components/UI/FavoriteItem/FavoriteItem";
 import EmptyPage from "../../components/UI/EmptyPage/EmptyPage";
-import { useFavoritesContext } from "../../contexts/FavoritesContext";
+import { useFavoritesContext } from "../../hooks/useFavoritesContext";
 import FavoritesHeaderContent from "./FavoritesHeaderContent";
 
 const Favorites = () => {

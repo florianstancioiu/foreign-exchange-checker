@@ -3,9 +3,9 @@ import RateConverter from "../RateConverter/RateConverter";
 import ExchangeSvg from "../../images/icon-exchange.svg?react";
 import FavoriteSvg from "../../images/icon-star.svg?react";
 import FavoritedSvg from "../../images/icon-star-filled.svg?react";
-import { useRateContext } from "../../contexts/RateContext";
-import { useFavoritesContext } from "../../contexts/FavoritesContext";
-import { useLogsContext } from "../../contexts/LogsContext";
+import { useRateContext } from "../../hooks/useRateContext";
+import { useFavoritesContext } from "../../hooks/useFavoritesContext";
+import { useLogsContext } from "../../hooks/useLogsContext";
 import toFixed from "../../helpers/toFixed";
 
 const CheckRate = () => {
@@ -76,6 +76,7 @@ const CheckRate = () => {
               <Button
                 onClick={() => toggleFavorite(firstCurrency, secondCurrency)}
                 className="flex gap-x-2 px-3 py-2 items-center bg-lime-500 border border-lime-500 text-neutral-900 text-xs hover:bg-lime-500 light:focus-visible:outline-blue-500  light:text-neutral-900 light:bg-lime-500"
+                data-testid="check_rate_is_favorited_btn"
               >
                 <FavoritedSvg />
                 <p className="uppercase">Favorited</p>
@@ -85,6 +86,7 @@ const CheckRate = () => {
               <Button
                 onClick={() => toggleFavorite(firstCurrency, secondCurrency)}
                 className="flex gap-x-2 px-3 py-2 items-center text-xs hover:bg-lime-500 hover:text-neutral-900 light:text-neutral-50 light:focus-visible:outline-blue-500"
+                data-testid="check_rate_is_not_favorited_btn"
               >
                 <FavoriteSvg />
                 <p className="uppercase">Favorite</p>

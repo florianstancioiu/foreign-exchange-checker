@@ -1,4 +1,4 @@
-import { useLogsContext } from "../../contexts/LogsContext";
+import { useLogsContext } from "../../hooks/useLogsContext";
 import Button from "../../components/UI/Button/Button";
 
 type LogHeaderContent = {

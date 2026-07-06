@@ -1,7 +1,7 @@
 import TabsMenu from "../../components/TabsMenu/TabsMenu";
 import DetailsContainer from "../../components/UI/DetailsContainer/DetailsContainer";
 import LogItem from "../../components/UI/LogItem/LogItem";
-import { useLogsContext } from "../../contexts/LogsContext";
+import { useLogsContext } from "../../hooks/useLogsContext";
 import EmptyPage from "../../components/UI/EmptyPage/EmptyPage";
 import { getConversionLogDate } from "../../helpers/dates";
 import LogHeaderContent from "./LogHeaderContent";

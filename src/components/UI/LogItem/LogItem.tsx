@@ -1,6 +1,6 @@
 import ArrowRightSvg from "../../../images/icon-arrow-right.svg?react";
 import DeleteSvg from "../../../images/icon-delete.svg?react";
-import { useLogsContext } from "../../../contexts/LogsContext";
+import { useLogsContext } from "../../../hooks/useLogsContext";
 import toFixed from "../../../helpers/toFixed";
 
 export type LogItemProps = {

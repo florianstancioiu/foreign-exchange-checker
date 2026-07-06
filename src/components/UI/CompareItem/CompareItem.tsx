@@ -1,7 +1,7 @@
 import StarSvg from "../../../images/icon-star.svg?react";
 import StarFilledSvg from "../../../images/icon-star-filled.svg?react";
-import { useFavoritesContext } from "../../../contexts/FavoritesContext";
-import { useRateContext } from "../../../contexts/RateContext";
+import { useFavoritesContext } from "../../../hooks/useFavoritesContext";
+import { useRateContext } from "../../../hooks/useRateContext";
 import toFixed from "../../../helpers/toFixed";
 
 export type CompareItemProps = {

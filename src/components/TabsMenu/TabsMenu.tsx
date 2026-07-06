@@ -1,8 +1,8 @@
 import { type ReactNode } from "react";
 import Dropdown from "../UI/Dropdown/Dropdown";
 import Tabs from "../UI/Tabs/Tabs";
-import { useFavoritesContext } from "../../contexts/FavoritesContext";
-import { useLogsContext } from "../../contexts/LogsContext";
+import { useFavoritesContext } from "../../hooks/useFavoritesContext";
+import { useLogsContext } from "../../hooks/useLogsContext";
 import tabs from "../../helpers/tabs";
 
 export type TabsMenuProps = {

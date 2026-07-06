@@ -1,7 +1,7 @@
 import ArrowRightSvg from "../../../images/icon-arrow-right.svg?react";
 import StarFilledSvg from "../../../images/icon-star-filled.svg?react";
-import { useFavoritesContext } from "../../../contexts/FavoritesContext";
-import { useRateContext } from "../../../contexts/RateContext";
+import { useFavoritesContext } from "../../../hooks/useFavoritesContext";
+import { useRateContext } from "../../../hooks/useRateContext";
 
 export type FavoriteItemProps = {
   firstCurrency: string;
