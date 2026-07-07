@@ -16,7 +16,10 @@ const MarketItem = ({
   rateDiffPercentage,
 }: MarketItemProps) => {
   return (
-    <div className="flex items-center gap-x-2 px-5 py-2 bg-neutral-700 border-r border-neutral-500 md:py-3 select-none light:bg-blue-100 light:border-neutral-100">
+    <div
+      className="flex items-center gap-x-2 px-5 py-2 bg-neutral-700 border-r border-neutral-500 md:py-3 select-none light:bg-blue-100 light:border-neutral-100"
+      data-testid="market_item"
+    >
       <p className="text-neutral-200 light:text-neutral-800 light:font-bold">
         {baseCurrency}/{quoteCurrency}
       </p>

@@ -7,7 +7,7 @@ export const mockLiveMarketsQuery = () => {
   nock("https://api.frankfurter.dev")
     .get("/v2/rates")
     .query({
-      base: "USD",
+      base: "RON",
       quotes: liveMarketsCurrencies.join(","),
       from: getYesterday(),
     })

@@ -12,7 +12,7 @@ const baseCurrency = "RON";
 const LiveMarkets = () => {
   const { isPending, error, data } = useQuery<Rate[]>({
     queryKey: ["liveMarkets", getYesterday()],
-    staleTime: 5000,
+    staleTime: 1000 * 60,
     queryFn: async () => {
       const response = await fetch(
         `https://api.frankfurter.dev/v2/rates?base=${baseCurrency}&quotes=${liveMarketsCurrencies.join(",")}&from=${getYesterday()}`,
@@ -29,7 +29,7 @@ const LiveMarkets = () => {
   const liveMarketsData = getLiveMarkets(data);
 
   return (
-    <section>
+    <section data-testid="live_markets">
       <div className="inline-flex items-center absolute top-14 w-full md:top-16">
         <div className="bg-lime-500 px-3 py-2 inline-flex gap-x-2 items-center md:px-5 md:py-3 min-w-34.5 md:min-w-38">
           <span className="size-2.5 bg-neutral-900 rounded-full light:bg-neutral-900"></span>
