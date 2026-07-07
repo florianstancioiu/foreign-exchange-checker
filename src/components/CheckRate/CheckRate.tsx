@@ -78,25 +78,20 @@ const CheckRate = () => {
               <Button
                 onClick={() => toggleFavorite(firstCurrency, secondCurrency)}
                 className="flex gap-x-2 px-3 py-2 items-center bg-lime-500 border border-lime-500 text-neutral-900 text-xs hover:bg-lime-500 light:focus-visible:outline-blue-500  light:text-neutral-900 light:bg-lime-500"
+                data-testid="check_rate_is_favorited_btn"
               >
                 <FavoritedSvg />
-                <p className="uppercase" data-testid="check_rate_is_favorite">
-                  Favorited
-                </p>
+                <p className="uppercase">Favorited</p>
               </Button>
             )}
             {!isFavorited(firstCurrency, secondCurrency) && (
               <Button
                 onClick={() => toggleFavorite(firstCurrency, secondCurrency)}
                 className="flex gap-x-2 px-3 py-2 items-center text-xs hover:bg-lime-500 hover:text-neutral-900 light:text-neutral-50 light:focus-visible:outline-blue-500"
+                data-testid="check_rate_is_not_favorited_btn"
               >
                 <FavoriteSvg />
-                <p
-                  className="uppercase"
-                  data-testid="check_rate_is_not_favorite"
-                >
-                  Favorite
-                </p>
+                <p className="uppercase">Favorite</p>
               </Button>
             )}
             {isLogged(logConversionBtnId) && (

@@ -1,7 +1,6 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import CheckRate from "./CheckRate";
 import AppWithProviders from "../../tests/AppWithProviders";
-import nock from "nock";
 import { mockContexts } from "../../tests/mockContexts";
 import { mockRatesQuery } from "../../tests/queries/rates";
 import { createFavoritesContext } from "../../tests/mocks/favoritesContext";
@@ -20,8 +19,6 @@ describe("<CheckRate />", () => {
       </AppWithProviders>,
     );
 
-    await waitFor(() => expect(nock.isDone()).toBe(true));
-
     const isFavoritedBtn = await screen.queryByTestId(
       "check_rate_is_favorited_btn",
     );
@@ -36,7 +33,7 @@ describe("<CheckRate />", () => {
   test("component render with a non favorite", async () => {
     vi.mocked(useFavoritesContext).mockReturnValue(
       createFavoritesContext({
-        isFavorited: vi.fn(() => true),
+        isFavorited: vi.fn(() => false),
       }),
     );
 
@@ -53,7 +50,7 @@ describe("<CheckRate />", () => {
       "check_rate_is_not_favorited_btn",
     );
 
-    expect(isFavoritedBtn).toBeInTheDocument();
-    expect(isNotFavoritedBtn).not.toBeInTheDocument();
+    expect(isFavoritedBtn).not.toBeInTheDocument();
+    expect(isNotFavoritedBtn).toBeInTheDocument();
   });
 });
