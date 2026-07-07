@@ -18,22 +18,24 @@ const Log = () => {
           />
         }
       >
-        {logs !== undefined &&
-          logs.map((item) => (
-            <LogItem
-              key={item.id}
-              id={item.id}
-              dateRange={getConversionLogDate(item.date)}
-              base={item.base}
-              quote={item.quote}
-              firstValue={
-                typeof item.firstCurrency === "string"
-                  ? parseFloat(item.firstCurrency)
-                  : item.firstCurrency
-              }
-              secondValue={item.secondCurrency}
-            />
-          ))}
+        <ul className="list-none flex gap-y-3 flex-col">
+          {logs !== undefined &&
+            logs.map((item) => (
+              <LogItem
+                key={item.id}
+                id={item.id}
+                dateRange={getConversionLogDate(item.date)}
+                base={item.base}
+                quote={item.quote}
+                firstValue={
+                  typeof item.firstCurrency === "string"
+                    ? parseFloat(item.firstCurrency)
+                    : item.firstCurrency
+                }
+                secondValue={item.secondCurrency}
+              />
+            ))}
+        </ul>
         {(logs === undefined || logs.length === 0) && (
           <EmptyPage
             title="No conversions logged yet"

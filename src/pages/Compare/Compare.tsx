@@ -59,24 +59,26 @@ const Compare = () => {
           />
         }
       >
-        {Array.isArray(enhancedData) &&
-          !isPending &&
-          !error &&
-          enhancedData.map((item) => (
-            <CompareItem
-              key={`${item.base}-${item.quote}`}
-              currency={item.quote}
-              currencyTitle={item.name}
-              value={
-                item.rate *
-                (typeof sendValue === "string"
-                  ? parseFloat(sendValue)
-                  : sendValue)
-              }
-              subValue={item.rate}
-              isFavorite={isFavorited(firstCurrency, item.quote)}
-            />
-          ))}
+        <ul className="list-none flex gap-y-3 flex-col">
+          {Array.isArray(enhancedData) &&
+            !isPending &&
+            !error &&
+            enhancedData.map((item) => (
+              <CompareItem
+                key={`${item.base}-${item.quote}`}
+                currency={item.quote}
+                currencyTitle={item.name}
+                value={
+                  item.rate *
+                  (typeof sendValue === "string"
+                    ? parseFloat(sendValue)
+                    : sendValue)
+                }
+                subValue={item.rate}
+                isFavorite={isFavorited(firstCurrency, item.quote)}
+              />
+            ))}
+        </ul>
         {isPending && (
           <EmptyPage
             title="Loading compare data"

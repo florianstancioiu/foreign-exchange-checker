@@ -98,12 +98,12 @@ const History = () => {
       {!isPending && !error && (
         <>
           <div className="xl:flex xl:justify-between xl:items-center xl:mb-5">
-            <div className="grid grid-cols-2 gap-2.5 mb-4 md:block xl:grid xl:grid-cols-4 xl:gap-x-4 xl:mb-0">
+            <ul className="grid grid-cols-2 gap-2.5 mb-4 md:block xl:grid xl:grid-cols-4 xl:gap-x-4 xl:mb-0">
               <StatsItem title="Open" value={toFixed(fromRate, 4)} />
               <StatsItem title="Last" value={toFixed(lastRate, 4)} />
               <StatsItem title="Change" value={changeStatValue} />
               <StatsItem title="% Change" value={changePercentageStatValue} />
-            </div>
+            </ul>
             <DateRange
               ranges={ranges}
               active={activeDateRange}

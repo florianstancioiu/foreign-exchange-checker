@@ -16,15 +16,17 @@ const Favorites = () => {
           <FavoritesHeaderContent numberOfFavorites={numberOfFavorites} />
         }
       >
-        {favorites !== undefined &&
-          favorites?.length !== 0 &&
-          favorites?.map((item) => (
-            <FavoriteItem
-              key={item.id}
-              firstCurrency={item.base}
-              secondCurrency={item.quote}
-            />
-          ))}
+        <ul className="list-none flex gap-y-3 flex-col">
+          {favorites !== undefined &&
+            favorites?.length !== 0 &&
+            favorites?.map((item) => (
+              <FavoriteItem
+                key={item.id}
+                firstCurrency={item.base}
+                secondCurrency={item.quote}
+              />
+            ))}
+        </ul>
         {favorites === undefined ||
           (favorites?.length === 0 && (
             <EmptyPage
