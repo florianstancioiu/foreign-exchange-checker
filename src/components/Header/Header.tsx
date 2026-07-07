@@ -19,13 +19,23 @@ const Header = () => {
           className="border border-transparent focus-visible:outline-lime-500 light:focus-visible:outline-blue-200 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
           aria-label="Navigate to homepage"
         >
-          {!lightMode && <LogoSvg className="w-28 md:w-auto" />}
+          {!lightMode && (
+            <LogoSvg
+              className="w-28 md:w-auto"
+              data-testid="header_dark_mode_logo"
+            />
+          )}
           {lightMode && (
-            <LogoLightSvg className="w-28 md:w-auto text-neutral-500" />
+            <LogoLightSvg
+              className="w-28 md:w-auto text-neutral-500"
+              data-testid="header_light_mode_logo"
+            />
           )}
         </LinkWithQuery>
         <div className="flex gap-x-1 uppercase text-neutral-200 md:text-sm md:font-normal md:leading-[120%] md:tracking-[1px] items-center light:text-neutral-900 light:font-semibold">
-          <p>{liveMarketsCurrencies.length} Currencies</p>
+          <p data-testid="header_ticker_currencies">
+            {liveMarketsCurrencies.length} Currencies
+          </p>
           <div className="hidden sm:flex sm:gap-x-1">
             <span> · </span>
             <p>EOD</p>
@@ -36,10 +46,19 @@ const Header = () => {
             onClick={toggleLightMode}
             className="p-2 ml-2 light:bg-blue-400 light:border-blue-400 light:hover:bg-neutral-900 group light:focus-visible:outline-blue-200"
             aria-label="Toggle light mode"
+            data-testid="header_toggle_light_mode_btn"
           >
-            {!lightMode && <SunSvg className="size-4 text-neutral-50" />}
+            {!lightMode && (
+              <SunSvg
+                className="size-4 text-neutral-50"
+                data-testid="header_dark_mode_sun_svg"
+              />
+            )}
             {lightMode && (
-              <MoonSvg className="size-4 text-neutral-900 light:group-hover:text-neutral-50" />
+              <MoonSvg
+                className="size-4 text-neutral-900 light:group-hover:text-neutral-50"
+                data-testid="header_light_mode_moon_svg"
+              />
             )}
           </Button>
         </div>

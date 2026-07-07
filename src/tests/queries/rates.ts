@@ -2,7 +2,6 @@ import baseToQuoteCurrency from "../data/baseToQuoteCurrency";
 import nock from "nock";
 
 export const mockRatesQuery = () => {
-  nock.disableNetConnect();
   nock("https://api.frankfurter.dev")
     .get("/v2/rates")
     .query({
