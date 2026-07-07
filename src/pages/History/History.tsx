@@ -45,7 +45,10 @@ const History = () => {
     },
   });
 
-  const data = Array.isArray(historyChartData) ? historyChartData : [];
+  let data: Rate[] = [];
+  if (Array.isArray(historyChartData)) {
+    data = historyChartData;
+  }
 
   const onChangeActiveHandler = (dateRangeValue: number) => {
     setActiveDateRange(dateRangeValue);

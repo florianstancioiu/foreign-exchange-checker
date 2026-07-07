@@ -38,9 +38,10 @@ const Compare = () => {
     },
   });
 
-  const data = Array.isArray(compareCurrenciesData)
-    ? compareCurrenciesData
-    : [];
+  let data: Rate[] = [];
+  if (Array.isArray(compareCurrenciesData)) {
+    data = compareCurrenciesData;
+  }
 
   const enhancedData: RateWithName[] = data?.map((item: Rate) => ({
     ...item,

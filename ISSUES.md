@@ -4,6 +4,7 @@ Things I noticed that need addressing
 
 - Check again how I retrieve and process the liveMarkets data, it might be incorrect
 - ~~Add tests for root level components~~
+- Create a hook that deals with making useQuery calls for fetch requests
 - Add tests for pages
 - Add tests for contexts
 - ~~Add test coverage~~

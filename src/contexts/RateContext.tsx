@@ -65,7 +65,10 @@ export const RateContextProvider = ({ children }: RateContextProps) => {
     },
   });
 
-  const data = Array.isArray(baseToQuoteData) ? baseToQuoteData : [];
+  let data: Rate[] = [];
+  if (Array.isArray(baseToQuoteData)) {
+    data = baseToQuoteData;
+  }
 
   if (!isPending && !error) {
     if (data.length === 0) {

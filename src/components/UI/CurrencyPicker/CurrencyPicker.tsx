@@ -55,7 +55,10 @@ const CurrencyPicker = ({
     },
   });
 
-  const dataArray = !Array.isArray(data) ? [] : data;
+  let dataArray: DataCurrency[] = [];
+  if (Array.isArray(data)) {
+    dataArray = data;
+  }
 
   const onChangeSearchKeywordHandler = (
     event: ChangeEvent<HTMLInputElement>,
