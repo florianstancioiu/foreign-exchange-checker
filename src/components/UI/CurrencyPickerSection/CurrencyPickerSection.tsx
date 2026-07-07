@@ -19,7 +19,7 @@ const CurrencyPickerSection = ({
   return (
     <>
       <div>
-        <p className="flex justify-between items-center text-xs font-normal leading-[120%] tracking-[0.5px text-neutral-200] p-2 border-b border-neutral-500">
+        <p className="flex justify-between items-center text-xs font-normal leading-[120%] tracking-[0.5px] text-neutral-200 p-2 border-b border-neutral-500">
           <span
             className="uppercase light:text-neutral-900"
             data-testid="currency_picker_section_title"
