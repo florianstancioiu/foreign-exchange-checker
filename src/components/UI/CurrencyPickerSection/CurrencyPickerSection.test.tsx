@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import CurrencyPickerSection from "./CurrencyPickerSection";
-import AppWithProviders from "../../../tests/AppWithProviders";
 import currencies from "../../../tests/data/currencies";
 import userEvent from "@testing-library/user-event";
 import { mockRatesQuery } from "../../../tests/queries/rates";
@@ -15,14 +14,12 @@ describe("<CurrencyPickerSection />", () => {
     const onClickItem = vitest.fn();
 
     render(
-      <AppWithProviders>
-        <CurrencyPickerSection
-          title={title}
-          titleValue={currencies.length}
-          data={currencies}
-          onClickItem={onClickItem}
-        />
-      </AppWithProviders>,
+      <CurrencyPickerSection
+        title={title}
+        titleValue={currencies.length}
+        data={currencies}
+        onClickItem={onClickItem}
+      />,
     );
 
     const sectionTitle = await screen.getByTestId(
@@ -46,14 +43,12 @@ describe("<CurrencyPickerSection />", () => {
     const albanianLek = currencies[2];
 
     render(
-      <AppWithProviders>
-        <CurrencyPickerSection
-          title={title}
-          titleValue={currencies.length}
-          data={currencies}
-          onClickItem={onClickItem}
-        />
-      </AppWithProviders>,
+      <CurrencyPickerSection
+        title={title}
+        titleValue={currencies.length}
+        data={currencies}
+        onClickItem={onClickItem}
+      />,
     );
 
     const currencyPickerItems = await screen.getAllByTestId(
