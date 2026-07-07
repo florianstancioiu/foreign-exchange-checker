@@ -169,5 +169,6 @@ Your users should be able to:
 | July 4th, 2026  | 0.5 hours  | I tried to increase my AI score on Frontend Mentor, didn't do much                                             |
 | July 5th, 2026  | 0.5 hours  | I worked on increasing my AI score on Frontend Mentor                                                          |
 | July 6th, 2026  | 4.5 hours  | I worked on testing the application using help from ChatGPT                                                    |
+| July 7th, 2026  | 3 hours    | I worked on testing the root level components (the ones directly in src/components dir)                        |
 
-_Total time spent working on the project:_ **57 hours**
+_Total time spent working on the project:_ **60 hours**
