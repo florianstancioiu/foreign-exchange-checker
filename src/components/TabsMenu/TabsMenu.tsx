@@ -31,10 +31,12 @@ const TabsMenu = ({ variant, children }: TabsMenuProps) => {
   });
 
   return (
-    <div className="px-4 md:px-6 xl:px-8">
+    <div className="px-4 md:px-6 xl:px-8" data-testid="tabs_menu">
       <Dropdown values={actualTabs} className="md:hidden" />
       <Tabs values={actualTabs} className="hidden md:block" />
-      <div className="mt-4">{children}</div>
+      <div className="mt-4" data-testid="tabs_menu_children">
+        {children}
+      </div>
     </div>
   );
 };
