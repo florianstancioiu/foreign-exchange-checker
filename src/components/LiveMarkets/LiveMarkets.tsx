@@ -22,7 +22,9 @@ const LiveMarkets = () => {
         throw new Error("There was an error with liveMarkets query");
       }
 
-      return await response.json();
+      const json = await response.json();
+
+      return Array.isArray(json) ? json : [];
     },
   });
 

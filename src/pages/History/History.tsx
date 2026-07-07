@@ -39,7 +39,9 @@ const History = () => {
         throw new Error("There was an error with historyChart query");
       }
 
-      return await response.json();
+      const json = await response.json();
+
+      return Array.isArray(json) ? json : [];
     },
   });
 

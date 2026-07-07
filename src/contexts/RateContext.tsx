@@ -59,7 +59,9 @@ export const RateContextProvider = ({ children }: RateContextProps) => {
         throw new Error("There was an error with baseToQuoteCurrency query");
       }
 
-      return await response.json();
+      const json = await response.json();
+
+      return Array.isArray(json) ? json : [];
     },
   });
 

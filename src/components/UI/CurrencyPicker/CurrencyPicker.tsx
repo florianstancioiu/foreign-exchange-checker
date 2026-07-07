@@ -49,7 +49,9 @@ const CurrencyPicker = ({
         throw new Error("There was an error with currencies query");
       }
 
-      return await response.json();
+      const json = await response.json();
+
+      return Array.isArray(json) ? json : [];
     },
   });
 

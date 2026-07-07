@@ -32,7 +32,9 @@ const Compare = () => {
         throw new Error("There was an error with compareCurrencies query");
       }
 
-      return await response.json();
+      const json = await response.json();
+
+      return Array.isArray(json) ? json : [];
     },
   });
 
