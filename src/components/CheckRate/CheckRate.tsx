@@ -105,6 +105,7 @@ const CheckRate = () => {
                   )
                 }
                 className="bg-neutral-700 border border-lime-500 px-2 sm:px-3 py-2 text-neutral-50 hover:bg-lime-800 light:focus-visible:outline-blue-500"
+                data-testid="check_rate_is_logged_btn"
               >
                 Logged Conversion
               </Button>
@@ -120,6 +121,7 @@ const CheckRate = () => {
                   )
                 }
                 className="bg-neutral-700 border px-2 sm:px-3 py-2 text-neutral-50 hover:bg-lime-800 light:focus-visible:outline-blue-500"
+                data-testid="check_rate_is_not_logged_btn"
               >
                 Log Conversion
               </Button>
