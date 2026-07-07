@@ -29,7 +29,7 @@ const History = () => {
     data: historyChartData,
   } = useQuery<Rate[]>({
     queryKey: ["historyChart", fromDate, baseCurrency, quoteCurrency],
-    staleTime: 5000,
+    staleTime: 1000 * 60,
     queryFn: async () => {
       const response = await fetch(
         `https://api.frankfurter.dev/v2/rates?base=${baseCurrency}&quotes=${quoteCurrency}&from=${fromDate}`,

@@ -41,7 +41,7 @@ const CurrencyPicker = ({
 
   const { isPending, error, data } = useQuery<DataCurrency[]>({
     queryKey: ["currencies"],
-    staleTime: 10000,
+    staleTime: 1000 * 60 * 10,
     queryFn: async () => {
       const response = await fetch("https://api.frankfurter.dev/v2/currencies");
 

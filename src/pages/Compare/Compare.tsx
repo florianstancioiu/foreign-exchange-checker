@@ -22,7 +22,7 @@ const Compare = () => {
     data: compareCurrenciesData,
   } = useQuery<Rate[]>({
     queryKey: ["compareCurrencies", firstCurrency, compareRatesString],
-    staleTime: 5000,
+    staleTime: 1000 * 60,
     queryFn: async () => {
       const response = await fetch(
         `https://api.frankfurter.dev/v2/rates?base=${firstCurrency}&quotes=${compareRatesString}`,

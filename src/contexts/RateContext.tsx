@@ -49,7 +49,7 @@ export const RateContextProvider = ({ children }: RateContextProps) => {
     data: baseToQuoteData,
   } = useQuery<Rate[]>({
     queryKey: ["baseToQuoteCurrency", firstCurrency, secondCurrency],
-    staleTime: 5000,
+    staleTime: 1000 * 60,
     queryFn: async () => {
       const response = await fetch(
         `https://api.frankfurter.dev/v2/rates?base=${firstCurrency}&quotes=${secondCurrency}`,
@@ -67,7 +67,7 @@ export const RateContextProvider = ({ children }: RateContextProps) => {
 
   const data = Array.isArray(baseToQuoteData) ? baseToQuoteData : [];
 
-  if (!isPending && !error && data.length >= 0) {
+  if (!isPending && !error) {
     if (data.length === 0) {
       receiveValue = Number.isFinite(parseFloat(sendValue))
         ? parseFloat(sendValue)
