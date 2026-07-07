@@ -35,7 +35,7 @@ const Header = () => {
           <Button
             onClick={toggleLightMode}
             className="p-2 ml-2 light:bg-blue-400 light:border-blue-400 light:hover:bg-neutral-900 group light:focus-visible:outline-blue-200"
-            ariaLabel="Toggle light mode"
+            aria-label="Toggle light mode"
           >
             {!lightMode && <SunSvg className="size-4 text-neutral-50" />}
             {lightMode && (

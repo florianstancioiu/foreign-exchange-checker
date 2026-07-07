@@ -49,7 +49,7 @@ const CheckRate = () => {
             <Button
               onClick={onExchangeBtnClickHandler}
               className="size-12 grid place-content-center light:focus-visible:outline-blue-500"
-              ariaLabel="Swap currencies"
+              aria-label="Swap currencies"
             >
               <ExchangeSvg />
             </Button>
@@ -63,7 +63,10 @@ const CheckRate = () => {
           </div>
         </div>
         <div className="p-4 bg-neutral-700 rounded-[20px] rounded-tr-none rounded-tl-none md:flex md:justify-between md:items-center light:bg-blue-100">
-          <p className="uppercase text-center font-normal leading-[100%] text-[10px] mb-4 md:mb-0 md:text-xs">
+          <p
+            className="uppercase text-center font-normal leading-[100%] text-[10px] mb-4 md:mb-0 md:text-xs"
+            data-testid="check_rate_conversion"
+          >
             {isPending ? "Loading conversion" : ""}
             {error ? "There was an error retrieving the conversion" : ""}
             {!isPending && !error
@@ -77,7 +80,9 @@ const CheckRate = () => {
                 className="flex gap-x-2 px-3 py-2 items-center bg-lime-500 border border-lime-500 text-neutral-900 text-xs hover:bg-lime-500 light:focus-visible:outline-blue-500  light:text-neutral-900 light:bg-lime-500"
               >
                 <FavoritedSvg />
-                <p className="uppercase">Favorited</p>
+                <p className="uppercase" data-testid="check_rate_is_favorite">
+                  Favorited
+                </p>
               </Button>
             )}
             {!isFavorited(firstCurrency, secondCurrency) && (
@@ -86,7 +91,12 @@ const CheckRate = () => {
                 className="flex gap-x-2 px-3 py-2 items-center text-xs hover:bg-lime-500 hover:text-neutral-900 light:text-neutral-50 light:focus-visible:outline-blue-500"
               >
                 <FavoriteSvg />
-                <p className="uppercase">Favorite</p>
+                <p
+                  className="uppercase"
+                  data-testid="check_rate_is_not_favorite"
+                >
+                  Favorite
+                </p>
               </Button>
             )}
             {isLogged(logConversionBtnId) && (
