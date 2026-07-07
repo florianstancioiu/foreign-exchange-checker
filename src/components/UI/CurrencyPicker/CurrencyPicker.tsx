@@ -108,7 +108,7 @@ const CurrencyPicker = ({
           popoverTarget={currencyPickerId}
           title={activeCurrency.name}
           data-testid="currency_picker_active_button"
-          className="p-2.5 rounded-lg border border-neutral-400 bg-neutral-500 light:bg-blue-500 light:border-blue-600 flex gap-x-2 items-center cursor-pointer focus-visible:outline-lime-500 light:focus-visible:outline-blue-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
+          className="p-2.5 rounded-lg border border-neutral-400 bg-neutral-500 light:bg-blue-400 light:border-blue-400 flex gap-x-2 items-center cursor-pointer focus-visible:outline-lime-500 light:focus-visible:outline-blue-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg"
         >
           <img
             src={`/foreign-exchange-checker/images/svg-flags/${activeCurrency.iso_code.toUpperCase().substring(0, 2)}.svg`}
