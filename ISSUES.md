@@ -2,11 +2,10 @@
 
 Things I noticed that need addressing
 
-- Check again how I retrieve and process the liveMarkets data, it might be incorrect
-- ~~Add tests for root level components~~
-- Create a hook that deals with making useQuery calls for fetch requests
-- Add tests for pages
+- Check how I retrieve and process the liveMarkets data, it might be incorrect
 - Add tests for contexts
+- ~~Add tests for root level components~~
+- ~~Create a hook that deals with making useQuery calls for fetch requests~~
 - ~~Add test coverage~~
 - ~~Structure the pages components better~~
 - ~~Update `useQuery` calls to use proper queryKeys~~

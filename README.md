@@ -74,6 +74,7 @@ Your users should be able to:
 
 - I added a light theme to complement the dark-first design
 - I persisted the active pair in the URL so a conversion can be bookmarked or shared
+- I added tests (using Vitest and React Testing Library) for components
 
 ### Screenshots
 
@@ -134,8 +135,8 @@ Your users should be able to:
 
 ### AI Collaboration
 
-- I used (some of) the advice that the Frontend Mentor AI is generating in the report to improve my solution.
-- I used ChatGPT to learn how to mock and test the context files
+- I used (some of) the advice of the Frontend Mentor AI to improve my solution
+- I used ChatGPT to learn how to mock and test the components
 
 ## Author
 
@@ -170,5 +171,6 @@ Your users should be able to:
 | July 5th, 2026  | 0.5 hours  | I worked on increasing my AI score on Frontend Mentor                                                          |
 | July 6th, 2026  | 4.5 hours  | I worked on testing the application using help from ChatGPT                                                    |
 | July 7th, 2026  | 3 hours    | I worked on testing the root level components (the ones directly in src/components dir)                        |
+| July 8th, 2026  | 1 hour     | I worked on extracting all fetch requests into a reusable hook                                                 |
 
-_Total time spent working on the project:_ **60 hours**
+_Total time spent working on the project:_ **61 hours**
