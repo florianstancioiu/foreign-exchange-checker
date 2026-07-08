@@ -99,19 +99,45 @@ Your users should be able to:
 - [React](https://reactjs.org/) - JS library
 - [TypeScript](https://www.typescriptlang.org/) - JavaScript with types
 - [TailwindCSS](https://tailwindcss.com/) - For styles
-- [Charts.js](https://www.chartjs.org/) - For the line chart
+- [Charts.js](https://www.chartjs.org/) - For line chart
+- [Vitest](https://vitest.dev/) - Testing Framework
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) - Testing utilities for React
+
+#### App structure
+
+```sh
+src
++-- components  # all available components, most are in the UI directory
++-- contexts    # the location of all React Contexts
++-- helpers     # various helper functions that are used throughout the application
++-- hooks       # React hook functions
++-- images      # SVG icons that are imported in React
++-- layouts     # dir containing only one React Router layout - the main one
++-- pages       # all the available pages in the app
++-- tests       # helper functions (mocks and dummy data too) for tests
++-- types       # TypeScript types for fetch responses
+```
+
+#### Overall notes
+
+The app has four pages: History (Home page), Compare, Favorites and Log, they all have different urls and can be accessesed independently.
+
+I used React Context to prevent prop drilling in components, the main context is `src/contexts/RateContext.tsx`, it powers the "Check the rate" section of the app.
+
+The logs and favorites pages retrieve (and store) the data from localStorage.
 
 ### What I learned
 
 - I learned to change the size and color of the scrollbar
-- I learned to position a popover element relative to its button using `position-area` property
+- I learned to position a popover element relative to its button using `position-area` CSS property
 - I learned to set a gradient as the backgroundColor for a line chart (Chart.js)
-- I learned to use outline in order to style :focus-visible states
+- I learned to use outline in order to style `:focus-visible` states
 - I learned the basics of Tanstack Query
 
 ### Continued development
 
 - I would add storybook for every single component in the project
+- I would make use of a framework like NextJS to decrease complexity
 
 ### Useful resources
 
@@ -135,7 +161,7 @@ Your users should be able to:
 
 ### AI Collaboration
 
-- I used (some of) the advice of the Frontend Mentor AI to improve my solution
+- I used the advice from Frontend Mentor AI to improve my solution
 - I used ChatGPT to learn how to mock and test the components
 
 ## Author
@@ -171,6 +197,6 @@ Your users should be able to:
 | July 5th, 2026  | 0.5 hours  | I worked on increasing my AI score on Frontend Mentor                                                          |
 | July 6th, 2026  | 4.5 hours  | I worked on testing the application using help from ChatGPT                                                    |
 | July 7th, 2026  | 3 hours    | I worked on testing the root level components (the ones directly in src/components dir)                        |
-| July 8th, 2026  | 1 hour     | I worked on extracting all fetch requests into a reusable hook                                                 |
+| July 8th, 2026  | 1 hour     | I worked on extracting all fetch requests into reusable hooks                                                  |
 
 _Total time spent working on the project:_ **61 hours**
