@@ -9,9 +9,9 @@ export const getStringDate = (date: Date) => {
 };
 
 export const getConversionLogDate = (date: string | Date) => {
-  const acctualDate = typeof date === "string" ? new Date(date) : date;
-  const day = acctualDate.getUTCDate();
-  const monthNumber = acctualDate.getUTCMonth();
+  const actualDate = typeof date === "string" ? new Date(date) : date;
+  const day = actualDate.getUTCDate();
+  const monthNumber = actualDate.getUTCMonth();
   const shortMonth = getShortMonth(monthNumber);
 
   return `${shortMonth} ${day}`;

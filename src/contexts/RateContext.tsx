@@ -59,12 +59,13 @@ export const RateContextProvider = ({ children }: RateContextProps) => {
   }
 
   if (!isPending && !error) {
+    let sendFloat = parseFloat(sendValue);
+    sendFloat = Number.isFinite(sendFloat) ? sendFloat : 0;
+
     if (data.length === 0) {
-      receiveValue = Number.isFinite(parseFloat(sendValue))
-        ? parseFloat(sendValue)
-        : 0;
+      receiveValue = sendFloat;
     } else {
-      receiveValue = data[0].rate * parseFloat(searchParams.get("send") ?? "0");
+      receiveValue = data[0].rate * sendFloat;
     }
   }
 
