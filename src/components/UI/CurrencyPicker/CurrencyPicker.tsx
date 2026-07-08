@@ -2,10 +2,10 @@ import ChevronIcon from "../../../images/icon-chevron-down.svg?react";
 import SearchSvg from "../../../images/icon-search.svg?react";
 import { useId, useState, useRef } from "react";
 import CurrencyPickerSection from "../CurrencyPickerSection/CurrencyPickerSection";
-import { useQuery } from "@tanstack/react-query";
 import unavailableCurrencies from "../../../helpers/unavailableCurrencies";
 import { type ChangeEvent } from "react";
 import { type Currency as DataCurrency } from "../../../types/currency";
+import useCurrencyRequest from "../../../hooks/useCurrencyRequest";
 
 export type CurrencyPickerProps = {
   activeISO?: string;
@@ -39,21 +39,7 @@ const CurrencyPicker = ({
   const [searchKeyword, setSearchKeyword] = useState("");
   const popoverRef = useRef<null | HTMLDivElement>(null);
 
-  const { isPending, error, data } = useQuery<DataCurrency[]>({
-    queryKey: ["currencies"],
-    staleTime: 1000 * 60 * 10,
-    queryFn: async () => {
-      const response = await fetch("https://api.frankfurter.dev/v2/currencies");
-
-      if (!response.ok) {
-        throw new Error("There was an error with currencies query");
-      }
-
-      const json = await response.json();
-
-      return Array.isArray(json) ? json : [];
-    },
-  });
+  const { isPending, error, data } = useCurrencyRequest();
 
   let dataArray: DataCurrency[] = [];
   if (Array.isArray(data)) {

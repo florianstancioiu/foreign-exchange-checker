@@ -1,32 +1,19 @@
 import MarketItem from "../MarketItem/MarketItem";
 import { SmartTicker } from "react-smart-ticker";
-import { useQuery } from "@tanstack/react-query";
 import { getYesterday } from "../../helpers/dates";
 import { getLiveMarkets } from "../../helpers/liveMarkets";
 import EmptyMarketItem from "../UI/EmptyMarketItem/EmptyMarketItem";
 import { liveMarketsCurrencies } from "../../helpers/liveMarkets";
-import { type Rate } from "../../types/rate";
+import useRateRequest from "../../hooks/useRateRequest";
 
 const baseCurrency = "RON";
 
 const LiveMarkets = () => {
-  const { isPending, error, data } = useQuery<Rate[]>({
-    queryKey: ["liveMarkets", getYesterday()],
-    staleTime: 1000 * 60 * 10,
-    queryFn: async () => {
-      const response = await fetch(
-        `https://api.frankfurter.dev/v2/rates?base=${baseCurrency}&quotes=${liveMarketsCurrencies.join(",")}&from=${getYesterday()}`,
-      );
-
-      if (!response.ok) {
-        throw new Error("There was an error with liveMarkets query");
-      }
-
-      const json = await response.json();
-
-      return Array.isArray(json) ? json : [];
-    },
-  });
+  const { isPending, error, data } = useRateRequest(
+    "liveMarkets",
+    [getYesterday()],
+    `base=${baseCurrency}&quotes=${liveMarketsCurrencies.join(",")}&from=${getYesterday()}`,
+  );
 
   const liveMarketsData = getLiveMarkets(data);
 

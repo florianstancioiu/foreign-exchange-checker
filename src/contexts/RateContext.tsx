@@ -1,7 +1,7 @@
 import { createContext, type ReactNode } from "react";
-import { useQuery } from "@tanstack/react-query";
 import { type Rate } from "../types/rate";
 import { useSearchParams } from "react-router";
+import useRateRequest from "../hooks/useRateRequest";
 
 export type RateState = {
   firstCurrency: string;
@@ -47,23 +47,11 @@ export const RateContextProvider = ({ children }: RateContextProps) => {
     isPending,
     error,
     data: baseToQuoteData,
-  } = useQuery<Rate[]>({
-    queryKey: ["baseToQuoteCurrency", firstCurrency, secondCurrency],
-    staleTime: 1000 * 60,
-    queryFn: async () => {
-      const response = await fetch(
-        `https://api.frankfurter.dev/v2/rates?base=${firstCurrency}&quotes=${secondCurrency}`,
-      );
-
-      if (!response.ok) {
-        throw new Error("There was an error with baseToQuoteCurrency query");
-      }
-
-      const json = await response.json();
-
-      return Array.isArray(json) ? json : [];
-    },
-  });
+  } = useRateRequest(
+    "baseToQuoteCurrency",
+    [firstCurrency, secondCurrency],
+    `base=${firstCurrency}&quotes=${secondCurrency}`,
+  );
 
   let data: Rate[] = [];
   if (Array.isArray(baseToQuoteData)) {

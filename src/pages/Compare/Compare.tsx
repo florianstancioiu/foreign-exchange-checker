@@ -2,12 +2,12 @@ import TabsMenu from "../../components/TabsMenu/TabsMenu";
 import DetailsContainer from "../../components/UI/DetailsContainer/DetailsContainer";
 import CompareItem from "../../components/UI/CompareItem/CompareItem";
 import compareRates from "../../helpers/compareRates";
-import { useQuery } from "@tanstack/react-query";
 import { useRateContext } from "../../hooks/useRateContext";
 import { useFavoritesContext } from "../../hooks/useFavoritesContext";
 import { type Rate } from "../../types/rate";
 import EmptyPage from "../../components/UI/EmptyPage/EmptyPage";
 import CompareHeaderContent from "./CompareHeaderContent";
+import useRateRequest from "../../hooks/useRateRequest";
 
 type RateWithName = Rate & { name: string };
 
@@ -20,23 +20,11 @@ const Compare = () => {
     isPending,
     error,
     data: compareCurrenciesData,
-  } = useQuery<Rate[]>({
-    queryKey: ["compareCurrencies", firstCurrency, compareRatesString],
-    staleTime: 1000 * 60,
-    queryFn: async () => {
-      const response = await fetch(
-        `https://api.frankfurter.dev/v2/rates?base=${firstCurrency}&quotes=${compareRatesString}`,
-      );
-
-      if (!response.ok) {
-        throw new Error("There was an error with compareCurrencies query");
-      }
-
-      const json = await response.json();
-
-      return Array.isArray(json) ? json : [];
-    },
-  });
+  } = useRateRequest(
+    "compareCurrencies",
+    [firstCurrency, compareRatesString],
+    `base=${firstCurrency}&quotes=${compareRatesString}`,
+  );
 
   let data: Rate[] = [];
   if (Array.isArray(compareCurrenciesData)) {

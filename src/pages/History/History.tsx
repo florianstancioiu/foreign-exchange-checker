@@ -3,7 +3,6 @@ import StatsItem from "../../components/UI/StatsItem/StatsItem";
 import ChevronDownSvg from "../../images/icon-chevron-down.svg?react";
 import DateRange from "../../components/UI/DateRange/DateRange";
 import LineChart from "../../components/UI/LineChart/LineChart";
-import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { getPreviousDate } from "../../helpers/dates";
 import { type Rate } from "../../types/rate";
@@ -12,6 +11,7 @@ import EmptyPage from "../../components/UI/EmptyPage/EmptyPage";
 import { useRateContext } from "../../hooks/useRateContext";
 import ranges from "../../helpers/ranges";
 import toFixed from "../../helpers/toFixed";
+import useRateRequest from "../../hooks/useRateRequest";
 
 const History = () => {
   const {
@@ -27,23 +27,11 @@ const History = () => {
     isPending,
     error,
     data: historyChartData,
-  } = useQuery<Rate[]>({
-    queryKey: ["historyChart", fromDate, baseCurrency, quoteCurrency],
-    staleTime: 1000 * 60,
-    queryFn: async () => {
-      const response = await fetch(
-        `https://api.frankfurter.dev/v2/rates?base=${baseCurrency}&quotes=${quoteCurrency}&from=${fromDate}`,
-      );
-
-      if (!response.ok) {
-        throw new Error("There was an error with historyChart query");
-      }
-
-      const json = await response.json();
-
-      return Array.isArray(json) ? json : [];
-    },
-  });
+  } = useRateRequest(
+    "historyChart",
+    [fromDate, baseCurrency, quoteCurrency],
+    `base=${baseCurrency}&quotes=${quoteCurrency}&from=${fromDate}`,
+  );
 
   let data: Rate[] = [];
   if (Array.isArray(historyChartData)) {
