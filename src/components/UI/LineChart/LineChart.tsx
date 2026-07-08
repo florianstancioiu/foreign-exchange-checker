@@ -10,6 +10,7 @@ import {
   Filler,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import { crosshairPlugin } from "./crosshairPlugin";
 import { chartGradient } from "../../../helpers/chartGradient";
 import { getChartDate } from "../../../helpers/dates";
 import toFixed from "../../../helpers/toFixed";
@@ -23,6 +24,7 @@ ChartJS.register(
   Tooltip,
   Legend,
   Filler,
+  crosshairPlugin,
 );
 
 export type LineChartProps = {
@@ -76,7 +78,15 @@ const LineChart = ({
         <Line
           data={chartData}
           options={{
+            interaction: {
+              mode: "index",
+              intersect: false,
+            },
             plugins: {
+              tooltip: {
+                enabled: true,
+                intersect: false,
+              },
               legend: {
                 display: false, // hide the legend
               },
