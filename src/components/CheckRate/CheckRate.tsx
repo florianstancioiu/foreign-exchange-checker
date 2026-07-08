@@ -27,7 +27,7 @@ const CheckRate = () => {
   const logConversionBtnId = getLogId(
     firstCurrency,
     secondCurrency,
-    sendValue,
+    `${sendValue}`,
     receiveValue,
   );
 
@@ -100,7 +100,7 @@ const CheckRate = () => {
                   toggleLog(
                     firstCurrency,
                     secondCurrency,
-                    sendValue,
+                    `${sendValue}`,
                     receiveValue,
                   )
                 }
@@ -116,7 +116,7 @@ const CheckRate = () => {
                   toggleLog(
                     firstCurrency,
                     secondCurrency,
-                    sendValue,
+                    `${sendValue}`,
                     receiveValue,
                   )
                 }

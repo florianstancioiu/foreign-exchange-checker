@@ -23,7 +23,7 @@ export type LogsState = {
   getLogId: (
     base: string,
     quote: string,
-    sendValue: number | string,
+    sendValue: string,
     receiveValue: number,
   ) => string;
   clearAll: () => void;
@@ -35,7 +35,7 @@ export const LogsContext = createContext<LogsState | null>(null);
 const getLogId = (
   base: string,
   quote: string,
-  sendValue: number | string,
+  sendValue: string,
   receiveValue: number,
 ) => {
   return `${base}-${quote}-${getTodaysStringDate()}-${sendValue}-${receiveValue}`;
