@@ -197,6 +197,6 @@ The logs and favorites pages retrieve (and store) the data from localStorage.
 | July 5th, 2026  | 0.5 hours  | I worked on increasing my AI score on Frontend Mentor                                                          |
 | July 6th, 2026  | 4.5 hours  | I worked on testing the application using help from ChatGPT                                                    |
 | July 7th, 2026  | 3 hours    | I worked on testing the root level components (the ones directly in src/components dir)                        |
-| July 8th, 2026  | 1 hour     | I worked on extracting all fetch requests into reusable hooks                                                  |
+| July 8th, 2026  | 2 hour     | I worked on extracting all fetch requests into reusable hooks                                                  |
 
-_Total time spent working on the project:_ **61 hours**
+_Total time spent working on the project:_ **62 hours**
