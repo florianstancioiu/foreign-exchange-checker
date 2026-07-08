@@ -161,7 +161,7 @@ The logs and favorites pages retrieve (and store) the data from localStorage.
 
 ### AI Collaboration
 
-- I used the advice from Frontend Mentor AI to improve my solution
+- I used the advice from the Frontend Mentor AI to improve my solution
 - I used ChatGPT to learn how to mock and test the components
 
 ## Author
