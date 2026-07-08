@@ -4,7 +4,7 @@ import { getTodaysStringDate } from "../helpers/dates";
 
 type LogItem = {
   id: string;
-  firstCurrency: number | string;
+  firstCurrency: string;
   secondCurrency: number;
   date: string;
   base: string;
@@ -16,7 +16,7 @@ export type LogsState = {
   toggleLog: (
     base: string,
     quote: string,
-    firstCurrency: number | string,
+    firstCurrency: string,
     secondCurrency: number,
   ) => void;
   isLogged: (id: string) => boolean;
@@ -51,7 +51,7 @@ export const LogsContextProvider = ({ children }: LogsContextProps) => {
   const toggleLog = (
     base: string,
     quote: string,
-    firstCurrency: number | string,
+    firstCurrency: string,
     secondCurrency: number,
   ) => {
     const id = getLogId(base, quote, firstCurrency, secondCurrency);
