@@ -133,6 +133,7 @@ const CurrencyPicker = ({
         popover=""
         id={currencyPickerId}
         ref={popoverRef}
+        role="dialog"
         className="currency-picker-content rounded-lg border border-neutral-400 bg-neutral-600 light:bg-blue-100 light:border-neutral-200 max-w-78 w-full p-2 h-112 overflow-y-scroll text-neutral-200 scrollbar-thin scrollbar-thumb-neutral-500"
       >
         <div className="relative">
