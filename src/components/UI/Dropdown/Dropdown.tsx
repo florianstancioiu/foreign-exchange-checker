@@ -53,6 +53,7 @@ const Dropdown = ({ values, className }: DropdownProps) => {
             key={val.id}
             to={val.url}
             data-testid="dropdown_link"
+            aria-current={val.isActive ? "page" : "false"}
           >
             <span className="text-base font-normal leading-[120%] text-neutral-50 tracking-[1px] uppercase">
               {val.title}

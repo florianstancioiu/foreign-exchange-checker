@@ -23,6 +23,7 @@ const Tabs = ({ values, className }: TabsProps) => {
           className={`${val.isActive ? "border-lime-500 light:border-neutral-50 light:text-neutral-50" : "border-neutral-600 light:border-blue-900"} uppercase text-base border-b-2 py-2.5 px-4 focus-visible:outline-lime-500 light:focus-visible:outline-blue-200 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg`}
           to={val.url}
           data-testid="tabs_link"
+          aria-current={val.isActive ? "page" : "false"}
         >
           <span className="">{val.title}</span>
           {val.suffix !== undefined ? (
