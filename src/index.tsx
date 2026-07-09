@@ -5,7 +5,7 @@ import { HashRouter } from "react-router";
 import Routes from "./routes";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RateContextProvider } from "./contexts/RateContext";
-import { FavoritesContextProvider } from "./contexts/FavoritesContext";
+import { FavoritesContextProvider } from "./contexts/FavoritesContext/FavoritesContext";
 import { LogsContextProvider } from "./contexts/LogsContext";
 
 const queryClient = new QueryClient();

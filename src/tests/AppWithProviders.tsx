@@ -1,4 +1,4 @@
-import { FavoritesContextProvider } from "../contexts/FavoritesContext";
+import { FavoritesContextProvider } from "../contexts/FavoritesContext/FavoritesContext";
 import { RateContextProvider } from "../contexts/RateContext";
 import { LogsContextProvider } from "../contexts/LogsContext";
 import { HashRouter } from "react-router";
