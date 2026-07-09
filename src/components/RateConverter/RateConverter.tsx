@@ -51,7 +51,7 @@ const RateConverter = ({
           <input
             aria-label="Enter the amount you want to send"
             type="text"
-            value={value}
+            value={`${value}`}
             onChange={onChangeSendValueHandler}
             className="text-3xl font-semibold leading-[100%] tracking-[-0.5px] max-w-30 sm:max-w-40 focus-visible:outline-lime-500 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:rounded-lg light:focus-visible:outline-blue-500"
             data-testid="rate_converter_is_send"
