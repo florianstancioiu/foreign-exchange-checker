@@ -106,21 +106,24 @@ Your users should be able to:
 #### App structure
 
 ```sh
-src
-+-- components  # all available components, most are in the UI directory
-+-- contexts    # the location of all React Contexts
-+-- helpers     # various helper functions that are used throughout the application
-+-- hooks       # React hook functions
-+-- images      # SVG icons that are imported in React
-+-- layouts     # dir containing only one React Router layout - the main one
-+-- pages       # all the available pages in the app
-+-- tests       # helper functions (mocks and dummy data too) for tests
-+-- types       # TypeScript types for fetch responses
+├── components  # all available components
+│   └── UI      # most components are in the UI directory
+├── contexts    # the location of all React Contexts
+├── helpers     # various helper functions that are used throughout the application
+├── hooks       # React hook functions
+├── images      # SVG icons that are imported directly in React
+├── index.css   # the main TailwindCSS file
+├── index.tsx   # the TypeScript entry file for the app
+├── layouts     # dir containing only one React Router layout - the main one
+├── pages       # all the available pages in the app
+├── routes.tsx  # React Router paths
+├── tests       # helper functions (mocks and dummy data too) for tests
+├── types       # TypeScript types for fetch responses
 ```
 
 #### Overall notes
 
-The app has four pages: History (Home page), Compare, Favorites and Log, they all have different urls and can be accessesed independently.
+The app has four pages: History (Home page), Compare, Favorites and Log, they all have different urls and can be accesesed independently.
 
 I used React Context to prevent prop drilling in components, the main context is `src/contexts/RateContext.tsx`, it powers the "Check the rate" section of the app.
 
@@ -201,6 +204,6 @@ The logs and favorites pages retrieve (and store) the data from localStorage.
 | July 6th, 2026  | 4.5 hours  | I worked on testing the application using help from ChatGPT                                                    |
 | July 7th, 2026  | 3 hours    | I worked on testing the root level components (the ones directly in src/components dir)                        |
 | July 8th, 2026  | 2 hours    | I worked on extracting all fetch requests into reusable hooks                                                  |
-| July 9th, 2026  | 2 hours    | I worked on testing the Favorite and Log Contexts                                                              |
+| July 9th, 2026  | 4 hours    | I worked on testing the Favorite and Log Contexts, as well as fixing some FM AI issues                         |
 
-_Total time spent working on the project:_ **64 hours**
+_Total time spent working on the project:_ **66 hours**
