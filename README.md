@@ -106,6 +106,7 @@ Your users should be able to:
 #### App structure
 
 ```sh
+src             # the main directory for code
 ├── components  # all available components
 │   └── UI      # most components are in the UI directory
 ├── contexts    # the location of all React Contexts
