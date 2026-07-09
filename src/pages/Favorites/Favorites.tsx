@@ -20,11 +20,7 @@ const Favorites = () => {
           {favorites !== undefined &&
             favorites?.length !== 0 &&
             favorites?.map((item) => (
-              <FavoriteItem
-                key={item.id}
-                firstCurrency={item.base}
-                secondCurrency={item.quote}
-              />
+              <FavoriteItem key={item.id} base={item.base} quote={item.quote} />
             ))}
         </ul>
         {favorites === undefined ||

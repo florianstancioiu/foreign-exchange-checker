@@ -160,8 +160,8 @@ describe("<CheckRate />", () => {
   test("error rate conversion", async () => {
     vi.mocked(useRateContext).mockReturnValue(
       createRateContext({
-        firstCurrency: "USD",
-        secondCurrency: "EUR",
+        base: "USD",
+        quote: "EUR",
         data: [
           {
             rate: 0.8749,

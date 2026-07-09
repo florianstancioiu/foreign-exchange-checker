@@ -20,7 +20,7 @@ export type RateState = {
 
 export const RateContext = createContext<RateState | null>(null);
 
-const initialCurrencies = {
+const initialSearchParams = {
   base: "USD",
   quote: "EUR",
 };
@@ -31,13 +31,13 @@ export type RateContextProps = {
 
 export const RateContextProvider = ({ children }: RateContextProps) => {
   const [searchParams, setSearchParams] = useSearchParams({
-    base: initialCurrencies.base,
-    quote: initialCurrencies.quote,
+    base: initialSearchParams.base,
+    quote: initialSearchParams.quote,
     send: "0",
   });
 
-  const base = searchParams.get("base") ?? initialCurrencies.base;
-  const quote = searchParams.get("quote") ?? initialCurrencies.quote;
+  const base = searchParams.get("base") ?? initialSearchParams.base;
+  const quote = searchParams.get("quote") ?? initialSearchParams.quote;
   const sendValue = searchParams.get("send") ?? "0";
   let receiveValue = 0;
 
@@ -89,10 +89,10 @@ export const RateContextProvider = ({ children }: RateContextProps) => {
 
   const onExchangeBtnClickHandler = () => {
     setSearchParams((params) => {
-      const initialFirstCurrency = searchParams.get("base");
+      const initialBase = params.get("base");
 
-      params.set("base", params.get("quote") ?? initialCurrencies.quote);
-      params.set("quote", initialFirstCurrency ?? initialCurrencies.base);
+      params.set("base", params.get("quote") ?? initialSearchParams.quote);
+      params.set("quote", initialBase ?? initialSearchParams.base);
 
       return params;
     });

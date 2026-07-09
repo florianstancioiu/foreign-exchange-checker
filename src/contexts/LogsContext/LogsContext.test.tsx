@@ -14,8 +14,8 @@ const mockedUseLocalStorage = vi.mocked(useLocalStorage);
 const logItemId = `USD-EUR-${getTodaysStringDate()}-100-90`;
 const logItem = {
   id: logItemId,
-  firstCurrency: "100",
-  secondCurrency: 90,
+  baseValue: "100",
+  quoteValue: 90,
   date: new Date().toString(),
   base: "USD",
   quote: "EUR",

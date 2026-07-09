@@ -8,16 +8,13 @@ describe("<FavoriteItem />", () => {
     mockRatesQuery();
   });
 
-  const firstCurrency = "USD";
-  const secondCurrency = "EUR";
+  const base = "USD";
+  const quote = "EUR";
 
   test("component render", async () => {
     render(
       <AppWithProviders>
-        <FavoriteItem
-          firstCurrency={firstCurrency}
-          secondCurrency={secondCurrency}
-        />
+        <FavoriteItem base={base} quote={quote} />
       </AppWithProviders>,
     );
 
@@ -25,7 +22,7 @@ describe("<FavoriteItem />", () => {
       "favorite_item_load_currencies_button",
     );
 
-    expect(loadCurrenciesBtn).toHaveTextContent(firstCurrency);
-    expect(loadCurrenciesBtn).toHaveTextContent(secondCurrency);
+    expect(loadCurrenciesBtn).toHaveTextContent(base);
+    expect(loadCurrenciesBtn).toHaveTextContent(quote);
   });
 });

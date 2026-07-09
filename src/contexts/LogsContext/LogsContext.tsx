@@ -4,8 +4,8 @@ import { getTodaysStringDate } from "../../helpers/dates";
 
 type LogItem = {
   id: string;
-  firstCurrency: string;
-  secondCurrency: number;
+  baseValue: string;
+  quoteValue: number;
   date: string;
   base: string;
   quote: string;
@@ -16,8 +16,8 @@ export type LogsState = {
   toggleLog: (
     base: string,
     quote: string,
-    firstCurrency: string,
-    secondCurrency: number,
+    baseValue: string,
+    quoteValue: number,
   ) => void;
   isLogged: (id: string) => boolean;
   getLogId: (
@@ -46,15 +46,15 @@ export type LogsContextProps = {
 };
 
 export const LogsContextProvider = ({ children }: LogsContextProps) => {
-  const [logs, setLogs] = useLocalStorage<LogItem[] | undefined>("logs:v1", []);
+  const [logs, setLogs] = useLocalStorage<LogItem[] | undefined>("logs:v2", []);
 
   const toggleLog = (
     base: string,
     quote: string,
-    firstCurrency: string,
-    secondCurrency: number,
+    baseValue: string,
+    quoteValue: number,
   ) => {
-    const id = getLogId(base, quote, firstCurrency, secondCurrency);
+    const id = getLogId(base, quote, baseValue, quoteValue);
 
     setLogs((logItems) => {
       if (logItems?.find((item) => item.id === id)) {
@@ -65,8 +65,8 @@ export const LogsContextProvider = ({ children }: LogsContextProps) => {
         return [
           {
             id,
-            firstCurrency,
-            secondCurrency,
+            baseValue,
+            quoteValue,
             date: new Date().toString(),
             base,
             quote,
@@ -78,8 +78,8 @@ export const LogsContextProvider = ({ children }: LogsContextProps) => {
         ...logItems,
         {
           id,
-          firstCurrency,
-          secondCurrency,
+          baseValue,
+          quoteValue,
           date: new Date().toString(),
           base,
           quote,

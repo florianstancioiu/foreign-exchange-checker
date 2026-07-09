@@ -28,11 +28,11 @@ const Log = () => {
                 base={item.base}
                 quote={item.quote}
                 firstValue={
-                  typeof item.firstCurrency === "string"
-                    ? parseFloat(item.firstCurrency)
-                    : item.firstCurrency
+                  typeof item.baseValue === "string"
+                    ? parseFloat(item.baseValue)
+                    : item.baseValue
                 }
-                secondValue={item.secondCurrency}
+                secondValue={item.quoteValue}
               />
             ))}
         </ul>
