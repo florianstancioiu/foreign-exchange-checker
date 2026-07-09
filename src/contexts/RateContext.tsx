@@ -4,25 +4,25 @@ import { useSearchParams } from "react-router";
 import useRateRequest from "../hooks/useRateRequest";
 
 export type RateState = {
-  firstCurrency: string;
-  secondCurrency: string;
+  base: string;
+  quote: string;
   sendValue: number | string;
   setSendValue: (value: number | string) => void;
   isPending: boolean;
   error: Error | null;
   data: Rate[];
   receiveValue: number;
-  setFirstCurrencyHandler: (iso: string) => void;
-  setSecondCurrencyHandler: (iso: string) => void;
+  setBaseHandler: (iso: string) => void;
+  setQuoteHandler: (iso: string) => void;
   onExchangeBtnClickHandler: () => void;
-  loadCurrencies: (firstCurrency: string, secondCurrency: string) => void;
+  loadCurrencies: (base: string, quote: string) => void;
 };
 
 export const RateContext = createContext<RateState | null>(null);
 
 const initialCurrencies = {
-  firstCurrency: "USD",
-  secondCurrency: "EUR",
+  base: "USD",
+  quote: "EUR",
 };
 
 export type RateContextProps = {
@@ -31,15 +31,13 @@ export type RateContextProps = {
 
 export const RateContextProvider = ({ children }: RateContextProps) => {
   const [searchParams, setSearchParams] = useSearchParams({
-    base: initialCurrencies.firstCurrency,
-    quote: initialCurrencies.secondCurrency,
+    base: initialCurrencies.base,
+    quote: initialCurrencies.quote,
     send: "0",
   });
 
-  const firstCurrency =
-    searchParams.get("base") ?? initialCurrencies.firstCurrency;
-  const secondCurrency =
-    searchParams.get("quote") ?? initialCurrencies.secondCurrency;
+  const base = searchParams.get("base") ?? initialCurrencies.base;
+  const quote = searchParams.get("quote") ?? initialCurrencies.quote;
   const sendValue = searchParams.get("send") ?? "0";
   let receiveValue = 0;
 
@@ -49,8 +47,8 @@ export const RateContextProvider = ({ children }: RateContextProps) => {
     data: baseToQuoteData,
   } = useRateRequest(
     "baseToQuoteCurrency",
-    [firstCurrency, secondCurrency],
-    `base=${firstCurrency}&quotes=${secondCurrency}`,
+    [base, quote],
+    `base=${base}&quotes=${quote}`,
   );
 
   let data: Rate[] = [];
@@ -69,13 +67,13 @@ export const RateContextProvider = ({ children }: RateContextProps) => {
     }
   }
 
-  const setFirstCurrencyHandler = (iso: string) =>
+  const setBaseHandler = (iso: string) =>
     setSearchParams((params) => {
       params.set("base", iso);
 
       return params;
     });
-  const setSecondCurrencyHandler = (iso: string) =>
+  const setQuoteHandler = (iso: string) =>
     setSearchParams((params) => {
       params.set("quote", iso);
 
@@ -93,23 +91,17 @@ export const RateContextProvider = ({ children }: RateContextProps) => {
     setSearchParams((params) => {
       const initialFirstCurrency = searchParams.get("base");
 
-      params.set(
-        "base",
-        params.get("quote") ?? initialCurrencies.secondCurrency,
-      );
-      params.set(
-        "quote",
-        initialFirstCurrency ?? initialCurrencies.firstCurrency,
-      );
+      params.set("base", params.get("quote") ?? initialCurrencies.quote);
+      params.set("quote", initialFirstCurrency ?? initialCurrencies.base);
 
       return params;
     });
   };
 
-  const loadCurrencies = (firstCurrency: string, secondCurrency: string) =>
+  const loadCurrencies = (base: string, quote: string) =>
     setSearchParams((params) => {
-      params.set("base", firstCurrency);
-      params.set("quote", secondCurrency);
+      params.set("base", base);
+      params.set("quote", quote);
 
       return params;
     });
@@ -117,16 +109,16 @@ export const RateContextProvider = ({ children }: RateContextProps) => {
   return (
     <RateContext.Provider
       value={{
-        firstCurrency,
-        secondCurrency,
+        base,
+        quote,
         sendValue,
         setSendValue,
         isPending,
         error,
         data,
         receiveValue,
-        setFirstCurrencyHandler,
-        setSecondCurrencyHandler,
+        setBaseHandler,
+        setQuoteHandler,
         onExchangeBtnClickHandler,
         loadCurrencies,
       }}

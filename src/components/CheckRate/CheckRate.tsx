@@ -11,13 +11,13 @@ import toFixed from "../../helpers/toFixed";
 const CheckRate = () => {
   const {
     sendValue,
-    firstCurrency,
-    setFirstCurrencyHandler,
+    base,
+    setBaseHandler,
     setSendValue,
     onExchangeBtnClickHandler,
     receiveValue,
-    secondCurrency,
-    setSecondCurrencyHandler,
+    quote,
+    setQuoteHandler,
     isPending,
     error,
     data,
@@ -25,8 +25,8 @@ const CheckRate = () => {
   const { isFavorited, toggleFavorite } = useFavoritesContext();
   const { isLogged, toggleLog, getLogId } = useLogsContext();
   const logConversionBtnId = getLogId(
-    firstCurrency,
-    secondCurrency,
+    base,
+    quote,
     `${sendValue}`,
     receiveValue,
   );
@@ -42,8 +42,8 @@ const CheckRate = () => {
             <RateConverter
               title="Send"
               value={sendValue}
-              currency={firstCurrency}
-              setCurrency={setFirstCurrencyHandler}
+              currency={base}
+              setCurrency={setBaseHandler}
               setSendValue={setSendValue}
             />
             <Button
@@ -56,8 +56,8 @@ const CheckRate = () => {
             <RateConverter
               title="Receive"
               value={receiveValue}
-              currency={secondCurrency}
-              setCurrency={setSecondCurrencyHandler}
+              currency={quote}
+              setCurrency={setQuoteHandler}
               isReceive
             />
           </div>
@@ -70,13 +70,13 @@ const CheckRate = () => {
             {isPending ? "Loading conversion" : ""}
             {error ? "There was an error retrieving the conversion" : ""}
             {!isPending && !error
-              ? `1 ${firstCurrency} = ${data.length === 1 ? toFixed(data[0].rate, 4) : 1} ${secondCurrency}`
+              ? `1 ${base} = ${data.length === 1 ? toFixed(data[0].rate, 4) : 1} ${quote}`
               : ""}
           </p>
           <div className="flex gap-x-2 items-center justify-center md:gap-x-3">
-            {isFavorited(firstCurrency, secondCurrency) && (
+            {isFavorited(base, quote) && (
               <Button
-                onClick={() => toggleFavorite(firstCurrency, secondCurrency)}
+                onClick={() => toggleFavorite(base, quote)}
                 className="flex gap-x-2 px-3 py-2 items-center bg-lime-500 border border-lime-500 text-neutral-900 text-xs hover:bg-lime-500 light:focus-visible:outline-blue-500  light:text-neutral-900 light:bg-lime-500"
                 data-testid="check_rate_is_favorited_btn"
               >
@@ -84,9 +84,9 @@ const CheckRate = () => {
                 <p className="uppercase">Favorited</p>
               </Button>
             )}
-            {!isFavorited(firstCurrency, secondCurrency) && (
+            {!isFavorited(base, quote) && (
               <Button
-                onClick={() => toggleFavorite(firstCurrency, secondCurrency)}
+                onClick={() => toggleFavorite(base, quote)}
                 className="flex gap-x-2 px-3 py-2 items-center text-xs hover:bg-lime-500 hover:text-neutral-900 light:text-neutral-50 light:focus-visible:outline-blue-500"
                 data-testid="check_rate_is_not_favorited_btn"
               >
@@ -97,12 +97,7 @@ const CheckRate = () => {
             {isLogged(logConversionBtnId) && (
               <Button
                 onClick={() =>
-                  toggleLog(
-                    firstCurrency,
-                    secondCurrency,
-                    `${sendValue}`,
-                    receiveValue,
-                  )
+                  toggleLog(base, quote, `${sendValue}`, receiveValue)
                 }
                 className="bg-neutral-700 border border-lime-500 px-2 sm:px-3 py-2 text-neutral-50 hover:bg-lime-800 light:focus-visible:outline-blue-500"
                 data-testid="check_rate_is_logged_btn"
@@ -113,12 +108,7 @@ const CheckRate = () => {
             {!isLogged(logConversionBtnId) && (
               <Button
                 onClick={() =>
-                  toggleLog(
-                    firstCurrency,
-                    secondCurrency,
-                    `${sendValue}`,
-                    receiveValue,
-                  )
+                  toggleLog(base, quote, `${sendValue}`, receiveValue)
                 }
                 className="bg-neutral-700 border px-2 sm:px-3 py-2 text-neutral-50 hover:bg-lime-800 light:focus-visible:outline-blue-500"
                 data-testid="check_rate_is_not_logged_btn"

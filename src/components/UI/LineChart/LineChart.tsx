@@ -31,8 +31,8 @@ export type LineChartProps = {
   data: number[];
   labels: string[];
   title: string;
-  baseCurrency: string;
-  quoteCurrency: string;
+  base: string;
+  quote: string;
   rate: number;
 };
 
@@ -40,8 +40,8 @@ const LineChart = ({
   data,
   labels,
   title,
-  baseCurrency,
-  quoteCurrency,
+  base,
+  quote,
   rate,
 }: LineChartProps) => {
   const chartData = {
@@ -65,7 +65,7 @@ const LineChart = ({
           className="text-base font-medium leading-[120%] tracking-[1px] text-neutral-50 uppercase light:text-neutral-900"
           data-testid="line_chart_base_quote_currencies"
         >
-          {baseCurrency}/{quoteCurrency}
+          {base}/{quote}
         </p>
         <p
           className="text-neutral-50 opacity-70 font-normal text-xs leading-[120%] tracking-[0.5px] light:text-neutral-900"

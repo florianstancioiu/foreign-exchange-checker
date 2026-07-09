@@ -13,8 +13,8 @@ describe("<LineChart />", () => {
         data={[]}
         labels={[]}
         title="RON/EUR"
-        baseCurrency="RON"
-        quoteCurrency="EUR"
+        base="RON"
+        quote="EUR"
         rate={0.8748}
       />,
     );

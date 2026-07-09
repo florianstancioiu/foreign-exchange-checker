@@ -12,7 +12,7 @@ import useRateRequest from "../../hooks/useRateRequest";
 type RateWithName = Rate & { name: string };
 
 const Compare = () => {
-  const { firstCurrency, sendValue } = useRateContext();
+  const { base, sendValue } = useRateContext();
   const { isFavorited } = useFavoritesContext();
   const compareRatesString = compareRates.map((r) => r.iso_code).join(",");
 
@@ -22,8 +22,8 @@ const Compare = () => {
     data: compareCurrenciesData,
   } = useRateRequest(
     "compareCurrencies",
-    [firstCurrency, compareRatesString],
-    `base=${firstCurrency}&quotes=${compareRatesString}`,
+    [base, compareRatesString],
+    `base=${base}&quotes=${compareRatesString}`,
   );
 
   let data: Rate[] = [];
@@ -43,7 +43,7 @@ const Compare = () => {
           <CompareHeaderContent
             pairs={compareRates.length}
             sendValue={sendValue}
-            currency={firstCurrency}
+            currency={base}
           />
         }
       >
@@ -63,7 +63,7 @@ const Compare = () => {
                     : sendValue)
                 }
                 subValue={item.rate}
-                isFavorite={isFavorited(firstCurrency, item.quote)}
+                isFavorite={isFavorited(base, item.quote)}
               />
             ))}
         </ul>

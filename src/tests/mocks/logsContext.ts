@@ -7,5 +7,6 @@ export const createLogsContext = (overrides = {}) => ({
   logs: [],
   clearAll: vi.fn(),
   removeLog: vi.fn(),
+
   ...overrides,
 });

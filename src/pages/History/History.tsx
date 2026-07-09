@@ -14,11 +14,7 @@ import toFixed from "../../helpers/toFixed";
 import useRateRequest from "../../hooks/useRateRequest";
 
 const History = () => {
-  const {
-    firstCurrency: baseCurrency,
-    secondCurrency: quoteCurrency,
-    data: rateData,
-  } = useRateContext();
+  const { base, quote, data: rateData } = useRateContext();
 
   const [activeDateRange, setActiveDateRange] = useState(30);
   const fromDate = getPreviousDate(activeDateRange);
@@ -29,8 +25,8 @@ const History = () => {
     data: historyChartData,
   } = useRateRequest(
     "historyChart",
-    [fromDate, baseCurrency, quoteCurrency],
-    `base=${baseCurrency}&quotes=${quoteCurrency}&from=${fromDate}`,
+    [fromDate, base, quote],
+    `base=${base}&quotes=${quote}&from=${fromDate}`,
   );
 
   let data: Rate[] = [];
@@ -101,14 +97,14 @@ const History = () => {
           <LineChart
             data={data.map((item) => item.rate)}
             labels={data.map((item) => item.date)}
-            title={`${baseCurrency}/${quoteCurrency}`}
+            title={`${base}/${quote}`}
             rate={
               Array.isArray(rateData) && rateData.length > 0
                 ? rateData[0].rate
                 : 0
             }
-            baseCurrency={baseCurrency}
-            quoteCurrency={quoteCurrency}
+            base={base}
+            quote={quote}
           />
         </>
       )}
@@ -118,8 +114,7 @@ const History = () => {
           content={
             <div className="light:text-neutral-900">
               <p>
-                We are currently loading the rate history for {baseCurrency}/
-                {quoteCurrency}.
+                We are currently loading the rate history for {base}/{quote}.
               </p>
               <p>This usually clears up in a minute.</p>
             </div>
@@ -132,8 +127,7 @@ const History = () => {
           content={
             <div className="text-red-500">
               <p>
-                We couldn't load the rate history for {baseCurrency}/
-                {quoteCurrency} right now.
+                We couldn't load the rate history for {base}/{quote} right now.
               </p>
               <p>Check back later</p>
             </div>
