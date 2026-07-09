@@ -88,19 +88,19 @@ const LineChart = ({
                 intersect: false,
               },
               legend: {
-                display: false, // hide the legend
+                display: false,
               },
             },
             scales: {
               x: {
                 ticks: {
                   align: "start",
-                  maxTicksLimit: 5, // limit the number of bottom labels to 5
+                  maxTicksLimit: 5,
                 },
               },
               y: {
                 ticks: {
-                  maxTicksLimit: 10, // limit the number of left side labels to 3
+                  maxTicksLimit: 10,
                 },
               },
             },
