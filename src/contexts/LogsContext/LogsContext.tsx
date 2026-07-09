@@ -1,6 +1,6 @@
 import { createContext, type ReactNode } from "react";
 import { useLocalStorage } from "usehooks-ts";
-import { getTodaysStringDate } from "../helpers/dates";
+import { getTodaysStringDate } from "../../helpers/dates";
 
 type LogItem = {
   id: string;

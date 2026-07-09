@@ -134,6 +134,7 @@ The logs and favorites pages retrieve (and store) the data from localStorage.
 - I learned to use outline in order to style `:focus-visible` states
 - I learned the basics of Tanstack Query
 - I learned that I shouldn't mock contexts globally (in the setupTests.ts)
+- I learned how to extract an object with partial properties from another object using destructuring
 
 ### Continued development
 
@@ -159,6 +160,7 @@ The logs and favorites pages retrieve (and store) the data from localStorage.
 - [Regex for positive float numbers](https://stackoverflow.com/a/41609228/12159189) - This helped me with a regex that works for positive floats
 - [Adding custom variants](https://tailwindcss.com/docs/adding-custom-styles#adding-custom-variants) - This helped me create the light mode in TailwindCSS
 - [Truncate number to two decimal places without rounding](https://stackoverflow.com/a/11818658/12159189) - This helped me create a `toFixed` function that doesn't round up
+- [What is the logic behind the TypeScript error "The operand of a 'delete' operator must be optional"?](https://stackoverflow.com/a/71850301/12159189) - This helped me create a partial object from another object without using the delete operator
 
 ### AI Collaboration
 
@@ -198,6 +200,7 @@ The logs and favorites pages retrieve (and store) the data from localStorage.
 | July 5th, 2026  | 0.5 hours  | I worked on increasing my AI score on Frontend Mentor                                                          |
 | July 6th, 2026  | 4.5 hours  | I worked on testing the application using help from ChatGPT                                                    |
 | July 7th, 2026  | 3 hours    | I worked on testing the root level components (the ones directly in src/components dir)                        |
-| July 8th, 2026  | 2 hour     | I worked on extracting all fetch requests into reusable hooks                                                  |
+| July 8th, 2026  | 2 hours    | I worked on extracting all fetch requests into reusable hooks                                                  |
+| July 9th, 2026  | 2 hours    | I worked on testing the Favorite and Log Contexts                                                              |
 
-_Total time spent working on the project:_ **62 hours**
+_Total time spent working on the project:_ **64 hours**

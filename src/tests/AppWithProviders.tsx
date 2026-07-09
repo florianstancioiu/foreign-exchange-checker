@@ -1,6 +1,6 @@
 import { FavoritesContextProvider } from "../contexts/FavoritesContext/FavoritesContext";
 import { RateContextProvider } from "../contexts/RateContext";
-import { LogsContextProvider } from "../contexts/LogsContext";
+import { LogsContextProvider } from "../contexts/LogsContext/LogsContext";
 import { HashRouter } from "react-router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 

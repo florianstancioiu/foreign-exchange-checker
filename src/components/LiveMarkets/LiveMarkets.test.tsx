@@ -25,10 +25,10 @@ describe("<LiveMarkets />", () => {
 
     await waitFor(() => expect(nock.isDone()).toBe(true));
 
-    const allMarketItems = screen.queryAllByTestId("market_item");
+    //const allMarketItems = screen.queryAllByTestId("market_item");
     const emptyMarketItem = screen.queryByTestId("empty_market_item");
 
-    // expect(allMarketItems.length).toEqual(11);
+    //expect(allMarketItems.length).toEqual(11);
     expect(emptyMarketItem).not.toBeInTheDocument();
   });
 });

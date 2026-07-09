@@ -11,10 +11,6 @@ vi.mock("usehooks-ts", () => ({
 const mockedUseLocalStorage = vi.mocked(useLocalStorage);
 
 describe("FavoritesContext", async () => {
-  beforeEach(() => {
-    vi.resetAllMocks();
-  });
-
   test("no favorites", () => {
     const setFavorites = vi.fn();
     const removeFavorites = vi.fn();
