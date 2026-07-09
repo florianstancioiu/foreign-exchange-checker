@@ -56,29 +56,21 @@ const CurrencyPicker = ({
     (currency) => currency.iso_code === activeISO,
   );
 
-  const searchedData = dataArray
-    ?.filter((item) => {
-      if (unavailableCurrencies.includes(item.iso_code)) {
-        return false;
-      }
-
-      return true;
-    })
-    .filter((item) => {
-      const lowerCaseSearchKeyword = searchKeyword.trim().toLowerCase();
-
-      return (
-        item.name.toLowerCase().includes(lowerCaseSearchKeyword) ||
-        item.iso_code.toLowerCase().includes(lowerCaseSearchKeyword)
-      );
-    });
-
   const actualData = dataArray?.filter((item) => {
     if (unavailableCurrencies.includes(item.iso_code)) {
       return false;
     }
 
     return true;
+  });
+
+  const searchedData = actualData.filter((item) => {
+    const lowerCaseSearchKeyword = searchKeyword.trim().toLowerCase();
+
+    return (
+      item.name.toLowerCase().includes(lowerCaseSearchKeyword) ||
+      item.iso_code.toLowerCase().includes(lowerCaseSearchKeyword)
+    );
   });
 
   const onSetActiveIsoHandler = (iso: string) => {
