@@ -1,12 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import LogItem from "./LogItem";
-import { mockContexts } from "../../../tests/mockContexts";
 import AppWithProviders from "../../../tests/AppWithProviders";
 import { mockRatesQuery } from "../../../tests/queries/rates";
 
 describe("<LogItem />", () => {
   beforeEach(async () => {
-    mockContexts();
     mockRatesQuery();
   });
 

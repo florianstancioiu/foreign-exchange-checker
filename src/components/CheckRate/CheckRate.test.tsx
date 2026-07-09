@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import CheckRate from "./CheckRate";
 import AppWithProviders from "../../tests/AppWithProviders";
-import { mockContexts } from "../../tests/mockContexts";
 import { mockRatesQuery } from "../../tests/queries/rates";
 import { createFavoritesContext } from "../../tests/mocks/favoritesContext";
 import { useFavoritesContext } from "../../hooks/useFavoritesContext";
@@ -9,11 +8,24 @@ import { useLogsContext } from "../../hooks/useLogsContext";
 import { createLogsContext } from "../../tests/mocks/logsContext";
 import { useRateContext } from "../../hooks/useRateContext";
 import { createRateContext } from "../../tests/mocks/rateContext";
+import { mockContexts } from "../../tests/mockContexts";
+
+vi.mock("../../hooks/useRateContext", () => ({
+  useRateContext: vi.fn(),
+}));
+
+vi.mock("../../hooks/useFavoritesContext", () => ({
+  useFavoritesContext: vi.fn(),
+}));
+
+vi.mock("../../hooks/useLogsContext", () => ({
+  useLogsContext: vi.fn(),
+}));
 
 describe("<CheckRate />", () => {
   beforeEach(async () => {
-    mockContexts();
     mockRatesQuery();
+    mockContexts();
   });
 
   test("component render", async () => {

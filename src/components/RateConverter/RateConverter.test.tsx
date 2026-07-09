@@ -1,13 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import RateConverter from "./RateConverter";
 import AppWithProviders from "../../tests/AppWithProviders";
-import { mockContexts } from "../../tests/mockContexts";
 import { mockRatesQuery } from "../../tests/queries/rates";
 import { mockCurrenciesQuery } from "../../tests/queries/currencies";
 
 describe("<RateConverter />", () => {
   beforeEach(async () => {
-    mockContexts();
     mockRatesQuery();
     mockCurrenciesQuery();
   });

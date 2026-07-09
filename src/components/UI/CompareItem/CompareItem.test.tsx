@@ -2,12 +2,10 @@ import { render, screen } from "@testing-library/react";
 import CompareItem from "./CompareItem";
 import AppWithProviders from "../../../tests/AppWithProviders";
 import { mockRatesQuery } from "../../../tests/queries/rates";
-import { mockContexts } from "../../../tests/mockContexts";
 
 describe("<CompareItem />", () => {
   beforeEach(async () => {
     mockRatesQuery();
-    mockContexts();
   });
 
   test("component render", async () => {

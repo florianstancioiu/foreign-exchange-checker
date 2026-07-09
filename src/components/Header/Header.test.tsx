@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Header from "./Header";
 import AppWithProviders from "../../tests/AppWithProviders";
-import { mockContexts } from "../../tests/mockContexts";
 import { mockRatesQuery } from "../../tests/queries/rates";
 import { mockLiveMarketsQuery } from "../../tests/queries/liveMarkets";
 import useLightMode from "../../hooks/useLightMode";
@@ -31,7 +30,6 @@ describe("<Header />", () => {
   };
 
   beforeEach(async () => {
-    mockContexts();
     mockRatesQuery();
     mockLiveMarketsQuery();
     mockLightModeHook();

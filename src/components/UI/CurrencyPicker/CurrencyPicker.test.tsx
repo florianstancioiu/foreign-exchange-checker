@@ -4,12 +4,10 @@ import AppWithProviders from "../../../tests/AppWithProviders";
 import nock from "nock";
 import { mockRatesQuery } from "../../../tests/queries/rates";
 import { mockCurrenciesQuery } from "../../../tests/queries/currencies";
-import { mockContexts } from "../../../tests/mockContexts";
 
 describe("<CurrencyPicker />", () => {
   beforeEach(async () => {
     mockRatesQuery();
-    mockContexts();
   });
 
   test("component render", async () => {

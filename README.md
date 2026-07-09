@@ -133,6 +133,7 @@ The logs and favorites pages retrieve (and store) the data from localStorage.
 - I learned to set a gradient as the backgroundColor for a line chart (Chart.js)
 - I learned to use outline in order to style `:focus-visible` states
 - I learned the basics of Tanstack Query
+- I learned that I shouldn't mock contexts globally (in the setupTests.ts)
 
 ### Continued development
 
