@@ -68,7 +68,7 @@ Your users should be able to:
 
 - View the optimal layout for the interface depending on their device's screen size
 - See hover and focus states for all interactive elements on the page
-- Navigate the entire app using only their keyboard
+- Navigate the entire app using only their keyboard (`tab`, `shift + tab` and `enter` keys)
 
 #### Extra
 
