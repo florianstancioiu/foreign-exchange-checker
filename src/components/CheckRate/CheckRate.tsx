@@ -65,6 +65,7 @@ const CheckRate = () => {
         <div className="p-4 bg-neutral-700 rounded-[20px] rounded-tr-none rounded-tl-none md:flex md:justify-between md:items-center light:bg-blue-100">
           <p
             className="uppercase text-center font-normal leading-[100%] text-[10px] mb-4 md:mb-0 md:text-xs"
+            aria-live="polite"
             data-testid="check_rate_conversion"
           >
             {isPending ? "Loading conversion" : ""}
