@@ -2,9 +2,8 @@
 
 Things I noticed that need addressing
 
-- Check how I retrieve and process the liveMarkets data, it might be incorrect
-- Add tests for contexts
-- Add hover state for line chart
+- ~~Add tests for contexts~~
+- ~~Add hover state for line chart~~
 - ~~Add tests for root level components~~
 - ~~Create a hook that deals with making useQuery calls for fetch requests~~
 - ~~Add test coverage~~
@@ -18,3 +17,4 @@ Things I noticed that need addressing
 - ~~The conversion RateLog date needs to be formatted to something like `June 27`~~
 - ~~There is an issue when selecting the same Currency in the CheckRate component~~
 - ~~The Send input acts weird when you type values~~
+- ~~Check how I retrieve and process the liveMarkets data, it might be incorrect~~

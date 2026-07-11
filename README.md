@@ -75,6 +75,7 @@ Your users should be able to:
 - I added a light theme to complement the dark-first design
 - I persisted the active pair in the URL so a conversion can be bookmarked or shared
 - I added tests (using Vitest and React Testing Library) for components
+- I added a crosshair hover state for the History LineChart
 
 ### Screenshots
 
@@ -206,5 +207,6 @@ The logs and favorites pages retrieve (and store) the data from localStorage.
 | July 7th, 2026  | 3 hours    | I worked on testing the root level components (the ones directly in src/components dir)                        |
 | July 8th, 2026  | 2 hours    | I worked on extracting all fetch requests into reusable hooks                                                  |
 | July 9th, 2026  | 4 hours    | I worked on testing the Favorite and Log Contexts, as well as fixing some FM AI issues                         |
+| July 10th, 2026 | 1 hour     | I worked on testing the RateContext file                                                                       |
 
-_Total time spent working on the project:_ **66 hours**
+_Total time spent working on the project:_ **67 hours**
