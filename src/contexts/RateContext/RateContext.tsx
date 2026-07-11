@@ -1,7 +1,7 @@
 import { createContext, type ReactNode } from "react";
-import { type Rate } from "../types/rate";
+import { type Rate } from "../../types/rate";
 import { useSearchParams } from "react-router";
-import useRateRequest from "../hooks/useRateRequest";
+import useRateRequest from "../../hooks/useRateRequest";
 
 export type RateState = {
   base: string;
