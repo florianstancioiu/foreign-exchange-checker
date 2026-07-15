@@ -15,7 +15,6 @@ This is a solution to the [FX Checker challenge on Frontend Mentor](https://www.
   - [Useful resources](#useful-resources)
   - [AI Collaboration](#ai-collaboration)
 - [Author](#author)
-- [Daily summaries](#daily-summaries)
 
 ## Overview
 
@@ -178,35 +177,3 @@ The logs and favorites pages retrieve (and store) the data from localStorage.
 - Threads - [@florianstancioiu01](https://www.threads.com/@florianstancioiu01)
 - LinkedIn - [florianstancioiu](https://www.linkedin.com/in/florian-stancioiu-765661349/)
 - freeCodeCamp - [florianstancioiu](https://www.freecodecamp.org/florianstancioiu)
-
-## Daily summaries
-
-| Date            | Time Spent | Summary                                                                                                        |
-| --------------- | ---------- | -------------------------------------------------------------------------------------------------------------- |
-| June 12th, 2026 | 1.5 hours  | I created the boilerplate for the project and the base components                                              |
-| June 13th, 2026 | 2 hours    | I worked on the mobile Header and CheckRate components                                                         |
-| June 14th, 2026 | 3 hours    | I finished the mobile version for History and Compare pages                                                    |
-| June 16th, 2026 | 2 hours    | I worked on the Favorite and LogItem components, I also created the base component for LineChart               |
-| June 17th, 2026 | 1 hour     | I worked on the tablet version of the History page                                                             |
-| June 19th, 2026 | 4 hours    | I worked on the tablet and desktop version of the pages                                                        |
-| June 20th, 2026 | 2 hours    | I worked on the CurrencyPicker component, converted CTAs to button elements, handled focus-visible states      |
-| June 21st, 2026 | 4 hours    | I adjusted the app for extra small devices & started to experiment with frankfurter API                        |
-| June 23rd, 2026 | 4 hours    | I worked on the LiveMarkets ticker and on the History page (homepage) functionality                            |
-| June 24th, 2026 | 2 hours    | I worked on the CheckRate component and handled loading and error states for a couple of requests              |
-| June 25th, 2026 | 3.5 hours  | I extracted the logic from CheckRate to a RateContext file & implemented the functionality in the Compare page |
-| June 26th, 2026 | 1 hour     | I implemented the functionality of CheckRate Favorite btn, I also worked a bit on the Favorite page            |
-| June 27th, 2026 | 4 hours    | I implemented the Log Conversion functionality & made the CheckRate variables sync in the URL                  |
-| June 28th, 2026 | 2 hours    | I fixed some issues that I noted in the ISSUES.md file                                                         |
-| June 30th, 2026 | 6 hours    | I wrote tests for a couple of components & I figured out a way to reliably mock Tanstack Query requests        |
-| July 1st, 2026  | 3.5 hours  | I wrote tests for every single UI component except LineChart                                                   |
-| July 2nd, 2026  | 1.5 hours  | I solved some issues the Frontend Mentor AI caught                                                             |
-| July 3rd, 2026  | 4.5 hours  | I implemented the light mode for the app, I also worked on the :focus-visible light mode states                |
-| July 4th, 2026  | 0.5 hours  | I tried to increase my AI score on Frontend Mentor, didn't do much                                             |
-| July 5th, 2026  | 0.5 hours  | I worked on increasing my AI score on Frontend Mentor                                                          |
-| July 6th, 2026  | 4.5 hours  | I worked on testing the application using help from ChatGPT                                                    |
-| July 7th, 2026  | 3 hours    | I worked on testing the root level components (the ones directly in src/components dir)                        |
-| July 8th, 2026  | 2 hours    | I worked on extracting all fetch requests into reusable hooks                                                  |
-| July 9th, 2026  | 4 hours    | I worked on testing the Favorite and Log Contexts, as well as fixing some FM AI issues                         |
-| July 10th, 2026 | 1 hour     | I worked on testing the RateContext file                                                                       |
-
-_Total time spent working on the project:_ **67 hours**
